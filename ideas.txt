@@ -12,6 +12,10 @@ HeadTapAcademy
 SnapAcademy
 AllYourGamesAreBelongToUs
 IVDB/IGDB (like IMDB)
-
+TotallNotGoodReads
+!GoodReads
+Tedium
+Abhorra
+HackOverflow
 
 

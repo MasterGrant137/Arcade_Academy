@@ -1,18 +1,69 @@
 "As a (INSERT ROLE HERE), I want to (INSERT ACTION HERE), so that I can (INSERT REASON HERE)".
+=====================================================
+........ Unregistered Users ..........
 
+1.
+"As a unregistered user, 
+I want to view game reviews, 
+so that I can read about new games"
+  - if they viewed call of duty, would there be recommendations on what else you might want to view (similar titles)?
+  - what path are they directed to given goodgames.com/xxxxxxxxxxxxxxxxxxx?
+  - can unregistered users read the FULL review? Or just partial?
 
-Bob | 35 | fridge repairman | 60000 | 2 kids | veteran | xbox 360, computer
+2.
+"As a unregistered user, 
+I want to create an account, 
+so that I can use the features offered"
+ - where are you redirected to? /create-account? Or pop-up form that leaves them where they were?
+ - if they try to leave a review unregistered, then register, they can re-direct back to where they were?
+ - or are they always redirected to their own profile page?
+ - do they get a recently viewed section so they can quickly get back to what they were doing before making an account?
+ - password requirements?
+ - captcha?
+ 
 
-Wants To:
- - follow fps, war games, rts, 
- - see new releases relative to his interests
- = find games he likes that he can play with his friends
-
+"As a unregistered user, 
+I want to create an account with a screenname, 
+so that I can remain anonymous/use my super cool online name"
+ - are any screennames filtered out?
+ - do I get a profile picture? (probably not, but maybe)
 
 =====================================================
-Charles(UK) | 15 | student/lives with his parents | 50 euros/month | 0 kids | active on social media, likes sports
+........ Registered Users ..........
 
-Wants To:
- - follow fps, war games, rts, 
- - see new releases relative to his interests
- = find games he likes that he can play with his friends
+"As a registered user, 
+I want to log in, 
+so that I can see my gaming cabinet"
+ - what else will users see on login? (recently viewed, )
+ - what will the format/layout look like? (use steam/xbox live as reference point)
+ - captcha on login?
+
+"As a registered user, 
+I want to log in, 
+so that I can review games"
+ - can i see other users review history? or gaming cabinets?
+ - can I only review games that I have marked as played?
+ - if i unmark a game as played, does the review get deleted?
+ - at what point (if ever) does a downvoted review get deleted?
+
+"As a registered user, 
+I want to log in, 
+so that I can like or unlike reviews on games"
+  - can I see on my homescreen whow liked my review is?
+  - will my likes/dislikes be displayed on reviews when I am logged in?
+  - if I view a game, and have liked reviews, will those filter to the top automatically for me? and disliked ones filter to the bottom?
+
+"As a registered user, 
+I want to log in, 
+so that I can add games to cabinet"
+  - do I redirect to my cabinet after adding a game to the cabinet?
+
+"As a registered user, 
+I want to log in, 
+so that I can change the status of games in the cabinet"
+  - will this redirect the user at all?
+
+"As a registered user, 
+I want to rate if a review was helpful or not, 
+so that other users get the best help possible"
+  - will this redirect the user at all?
