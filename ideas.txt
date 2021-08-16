@@ -7,9 +7,11 @@ FinalBoss
 ExtraLife
 1UpGames
 RottenPotatoes
+ArcadeAcademy
 HeadTapAcademy
 SnapAcademy
 AllYourGamesAreBelongToUs
+IVDB/IGDB (like IMDB)
 
 
 
