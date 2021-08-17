@@ -12,10 +12,26 @@ HeadTapAcademy
 SnapAcademy
 AllYourGamesAreBelongToUs
 IVDB/IGDB (like IMDB)
-TotallNotGoodReads
+TotallyNotGoodReads
 !GoodReads
 Tedium
 Abhorra
 HackOverflow
+CypherPunkGames
+HighScoreGames
+GamingTable
+SaltyGames
+saltminer
+saltstash
+saltyhashbrowns
+ezgaming
+respawngaming
+achievementAcademy
+levelupgames
+loot
+inventoryfull
+bruteforcegames
+cryptkeepers
+encryptkeepers
 
 
