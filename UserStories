@@ -91,3 +91,97 @@ I want to rate if a review was helpful or not,
 so that other users get the best help possible"
   - will this redirect the user at all?
     + no
+"As a (INSERT ROLE HERE), I want to (INSERT ACTION HERE), so that I can (INSERT REASON HERE)".
+=====================================================
+........ Unregistered Users ..........
+
+1.
+"As a unregistered user, 
+I want to view game reviews, 
+so that I can read about new games"
+  - if they viewed call of duty, would there be recommendations on what else you might want to view (similar titles)?
+    + recommendations bar would be a bonus feature. By default, other games list randomly generated
+  - what path are they directed to given goodgames.com/xxxxxxxxxxxxxxxxxxx?
+    + if path is for logged in users, redirect to login page
+    + if they are logged in, and the page is acceptable for their permissions, take them there
+    + if not, redirect to login page
+  - can unregistered users read the FULL review? Or just partial?
+    + bonus feature. MVP would be just showing reviews to logged in/non-logged in users
+
+2.
+"As a unregistered user, 
+I want to create an account, 
+so that I can use the features offered"
+ - ARe we going to use a form?
+  + yes! /register
+ - if they try to leave a review unregistered, then register, they can re-direct back to where they were?
+  + yes. unless that proves complicated, then send them to the prifle-page or home screen
+ - or are they always redirected to their own profile page?
+  + redirect to home screen after logging in. (or Bonus+ redirect to wherever they were before they logged in)
+ - do they get a recently viewed section so they can quickly get back to what they were doing before making an account?
+  + recently viewed section can be bonus. Not MVP
+ - password requirements?
+  + one capital, one lowercase, one numeric, one special, 8 length
+ - captcha?
+  + bonus
+ 
+
+"As a unregistered user, 
+I want to create an account with a screenname, 
+so that I can remain anonymous/use my super cool online name"
+ - are any screennames filtered out?
+  + No. high level bonus.
+ - do I get a profile picture of my choice? (probably not, but maybe)
+  + must be linked from 3rd party. Need more investigation. Probably bonus for custom ones
+=====================================================
+........ Registered Users ..........
+
+"As a registered user, 
+I want to log in, 
+so that I can see my gaming cabinet"
+ - what else will users see on login? (recently viewed, )
+  + game list. anything else TBD
+ - what will the format/layout look like? (use steam/xbox live as reference point)
+  + will determine in design phase
+
+
+"As a registered user, 
+I want to log in, 
+so that I can review games"
+ - can i see other users review history? or gaming cabinets?
+  + should be able to click the username on a review, and see all that users reviews
+ - can I only review games that I have marked as played?
+  + yes
+ - if i unmark a game as played, does the review get deleted?
+  + Yes. soft delete
+ - at what point (if ever) does a downvoted review get deleted?
+  + Bonus. if its real bad. downvote percentage
+
+"As a registered user, 
+I want to log in, 
+so that I can like or unlike reviews on games"
+  - can I see on my homescreen who liked my reviews?
+    + big bonus
+  - will my likes/dislikes be displayed on reviews when I am logged in?
+    + yes
+  - if I view a game, and have liked reviews, will those filter to the top automatically for me? and disliked ones filter to the bottom?
+    + bonus
+
+"As a registered user, 
+I want to log in, 
+so that I can add games to cabinet"
+  - do I redirect to my cabinet after adding a game to the cabinet?
+    + no
+
+"As a registered user, 
+I want to log in, 
+so that I can change the status of games in the cabinet"
+  - will this redirect the user at all?
+    + no
+
+"As a registered user, 
+I want to rate if a review was helpful or not, 
+so that other users get the best help possible"
+  - will this redirect the user at all?
+    + no
+
