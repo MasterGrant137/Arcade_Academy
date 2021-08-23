@@ -12,3 +12,12 @@
 + if needed
     + npx dotenv sequelize db:migrate:undo:all
 
++ npx sequelize seed:generate --name game-seeder
++ npx sequelize seed:generate --name like-seeder
++ npx sequelize seed:generate --name user-seeder
++ npx sequelize seed:generate --name review-seeder
+
++ npx dotenv sequelize db:seed:all
+
++ if needed
+    + npx dotenv sequelize db:seed:undo:all
