@@ -1,0 +1,47 @@
+
+const seedTables = () => {
+    for (let i = 0; i < 10; i++) {
+        console.log(`{ fullName: User${i}, email: user${i}@email.com, hashedPassword: xx00, screenName: MrDonkey${i} }`);
+    }
+}
+
+seedTables();
+
+//$ LikesSeeder
+// { like: true, user_id: 1, review_id: 1}
+// { like: true, user_id: 1, review_id: 2}
+// { like: false, user_id: 1, review_id: 3}
+// { like: true, user_id: 2, review_id: 1}
+// { like: true, user_id: 2, review_id: 2}
+// { like: false, user_id: 2, review_id: 3}
+
+//$ ReviewsSeeder
+// { content: 'This is a pretty good game.', user_id: 1, game_id: 1}
+// { content: 'I\'m less than enthused.', user_id: 2, game_id: 2}
+// { content: 'What site am I on?', user_id: 3, game_id: 3}
+
+
+//$ UsersSeeder { fullName: User${i}, email: user${i}@email.com, hashedPassword: xx00, screenName: MrDonkey${i} }
+// { fullName: User0, email: user0@email.com, hashedPassword: xx00, screenName: MrDonkey0 },
+// { fullName: User1, email: user1@email.com, hashedPassword: xx00, screenName: MrDonkey1 },
+// { fullName: User2, email: user2@email.com, hashedPassword: xx00, screenName: MrDonkey2 },
+// { fullName: User3, email: user3@email.com, hashedPassword: xx00, screenName: MrDonkey3 },
+// { fullName: User4, email: user4@email.com, hashedPassword: xx00, screenName: MrDonkey4 },
+// { fullName: User5, email: user5@email.com, hashedPassword: xx00, screenName: MrDonkey5 },
+// { fullName: User6, email: user6@email.com, hashedPassword: xx00, screenName: MrDonkey6 },
+// { fullName: User7, email: user7@email.com, hashedPassword: xx00, screenName: MrDonkey7 },
+// { fullName: User8, email: user8@email.com, hashedPassword: xx00, screenName: MrDonkey8 },
+// { fullName: User9, email: user9@email.com, hashedPassword: xx00, screenName: MrDonkey9 }
+
+
+//$ GamesSeeder { name: Game${i}, genre: Type${i % 2} }
+// { name: Game0, genre: Type0 }
+// { name: Game1, genre: Type1 }
+// { name: Game2, genre: Type0 }
+// { name: Game3, genre: Type1 }
+// { name: Game4, genre: Type0 }
+// { name: Game5, genre: Type1 }
+// { name: Game6, genre: Type0 }
+// { name: Game7, genre: Type1 }
+// { name: Game8, genre: Type0 }
+// { name: Game9, genre: Type1 }
