@@ -1,5 +1,26 @@
-extends layout.pug 
+extends layout.pug
 
-block content 
-  h2 New GoodGames Account 
-  
+block content
+  h2 New GoodGames Account
+  form
+    legend Sign Up
+      input(name="fullName" placeholder="Duke Nukem") Full Name
+      input(name="email" type="email" placeholder="Dukel@gonuclear.com") Last Name
+      input(name="password" type="password") Password
+      input(name="confirmPassword" type="password") Confirm Password
+      input(name="username" placeholder="TheDukinator") Username
+      div Profile Picture
+        img(src="https://cdn.iconscout.com/icon/premium/png-256-thumb/airplane-2475078-2062395.png", alt="")
+      select(name="iconSelector") Pick Your Avatar
+        option(value="" selected)
+          img(src="https://cdn.iconscout.com/icon/premium/png-256-thumb/airplane-2475078-2062395.png", alt="")
+        option(value="")
+          img(src="https://cdn.iconscout.com/icon/premium/png-256-thumb/airplane-2475078-2062395.png", alt="")
+        option(value="")
+          img(src="https://cdn.iconscout.com/icon/premium/png-256-thumb/airplane-2475078-2062395.png", alt="")
+        option(value="")
+          img(src="https://cdn.iconscout.com/icon/premium/png-256-thumb/airplane-2475078-2062395.png", alt="")
+        option(value="")
+          img(src="https://cdn.iconscout.com/icon/premium/png-256-thumb/airplane-2475078-2062395.png", alt="")
+      each genre in genres
+        //- This is where we would implement genres in either the form of a checkbox or a regular element with addEventListeners
