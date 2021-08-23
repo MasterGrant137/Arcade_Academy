@@ -1,0 +1,7 @@
+mixin validationErrors(errors)
+  if errors 
+    div 
+      p The following error(s) have occurred: 
+      ul 
+        each error in errors 
+          li= error

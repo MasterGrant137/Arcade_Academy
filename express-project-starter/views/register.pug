@@ -1,5 +1,7 @@
 extends layout.pug
+include utils.pug 
 block content
+  +validationErrors(errors)
   form(action="/users/register" method="post")
     input(type="hidden" name="_csrf" value= csrfToken)
     label(for="fullName")
@@ -7,9 +9,9 @@ block content
     label(for="screenName")
     input(type="text" name="screenName" placeholder='Screen Name' required)
     label(for="email")
-    input(type="email" name="email" placeholder='email' required)
+    input(type="email" name="email" placeholder='Email' required)
     label(for="password")
-    input(type="text" name="password" placeholder="password" required)
+    input(type="text" name="password" placeholder="Password" required)
     label(for="confirmPassword")
-    input(type="text" name="confirmPassword" placeholder="confirmPassword" required)
+    input(type="text" name="confirmPassword" placeholder="Confirm Password" required)
     button Submit
