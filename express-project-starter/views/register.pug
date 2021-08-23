@@ -1,0 +1,15 @@
+extends layout.pug
+block content
+  form(action="/users/register" method="post")
+    input(type="hidden" name="_csrf" value= csrfToken)
+    label(for="fullName")
+    input(type="text" name="fullName" placeholder="Full Name" required)
+    label(for="screenName")
+    input(type="text" name="screenName" placeholder='Screen Name' required)
+    label(for="email")
+    input(type="email" name="email" placeholder='email' required)
+    label(for="password")
+    input(type="text" name="password" placeholder="password" required)
+    label(for="confirmPassword")
+    input(type="text" name="confirmPassword" placeholder="confirmPassword" required)
+    button Submit
