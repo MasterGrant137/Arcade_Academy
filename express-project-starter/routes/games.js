@@ -5,7 +5,7 @@ const { asyncHandler } = require('./utils');
 
 router.get('/', asyncHandler( async (req, res, next) => {
   const games = await Game.findAll();
-  res.render('home.pug', { title: 'Arcade Academy', games });
+  res.render('gameCollection.pug', { title: 'Arcade Academy', games });
 }));
 
 router.get(`/:id(\\d+)`, asyncHandler( async (req, res, next) => {
