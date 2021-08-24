@@ -1,0 +1,54 @@
+:root{
+  --headerColor: rgb(65, 107, 77);
+  --backgroundColor: rgb(53, 56, 53);
+  --floatColor: rgb(75, 88, 77);
+  --mainColor: rgb(82, 83, 82);
+}
+body {
+  background-color: var(--backgroundColor)
+}
+
+/* ============== top section ============== */
+header {
+  background-color: var(--headerColor);
+  height: 100px;
+}
+/* .auth-buttons {
+
+} 
+ header>h1{
+  
+} */
+nav {
+  width: 100%;
+}
+nav>ul{
+  background-color: var(--floatColor);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* ============== middle section ============== */
+main {
+  min-width:85%;
+  display: grid;
+  grid-template-columns: 70% 20px 1fr;
+  grid-column-gap: 20px;
+}
+section {
+  background-color: var(--mainColor)
+}
+aside {
+  background-color: var(--floatColor)
+}
+/* ============== footer section ============== */
+footer{
+  background-color: var(--floatColor);
+  width: 100%;
+  height: 100px;
+  bottom: 0px;
+  display: flex;
+  flex-direction:row;
+  justify-content: flex-start;
+}
