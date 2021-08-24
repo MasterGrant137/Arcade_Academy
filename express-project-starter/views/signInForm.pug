@@ -1,15 +1,23 @@
 extends layout.pug 
+include utils.pug
 
 block content
   h2 Sign In
   //- Need to define the action 
-  form(action="#" method="POST") 
-    legend Welcome back! 
-      input(type="email" name="email")
-      input(type="password" name="password")
+  +validationErrors(errors)
+  form(action="/users/login" method="POST") 
+    input(type="hidden" name="_csrf" value=csrfToken)
+    legend Welcome back!
+    div 
+      label(for="email") Email: 
+      input(type="email" name="email" value=email required) 
+    div 
+      label(for="password") Password:
+      input(type="password" name="password" required)
+    div
+      button Submit
       p Forgot password? Click 
         a(href="#") here
-      button Submit
 
 
 block side-content

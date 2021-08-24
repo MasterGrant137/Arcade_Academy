@@ -107,12 +107,13 @@ const loginValidators = [
 
 // login page
 router.get('/login', csrfProtection, (req, res) => {
-  res.render('user-login.pug', { title: "Login", csrfToken: req.csrfToken()})
+  res.render('signInForm.pug', { title: "Login", email: "",csrfToken: req.csrfToken()})
 })
 
 router.post('/login', csrfProtection, loginValidators, asyncHandler(async(req, res) => {
   const { email, password } = req.body
   const validationErrors = validationResult(req)
+  
 
   if (validationErrors.isEmpty()) {
       const user = await User.findOne({
@@ -120,24 +121,38 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async(req, r
           email,
         },
       });
+     
+      console.log("HERE")
 
       if (user) {
           const isPassword = await bcrypt.compare(password, user.hashedPassword.toString());
-
           if (isPassword) {
             loginUser(req, res, user);
             res.redirect("/");
           }
-          // else {
-          //   //* this is temporary, consider: errors.push('Login failed, password or username is incorrect.');
-          //   //? one would need: let errors = []; above const validationErrors = validationResult(req) for the line above to work
-          //   res.send('Unsucessful Login')
-          // }
+          else {
+            const errors = ["Password Incorrect"]
+            res.render("signInForm.pug", {
+              title: "Login",
+              email,
+              errors,
+              csrfToken: req.csrfToken()
+            })
+            
+           
+          }
+      }else{
+           const errors = ["Could not find a User with that Email/Password"];
+           res.render("signInForm.pug", {
+             title: "Login",
+             email,
+             errors,
+             csrfToken: req.csrfToken(),
+           });
       }
   } else {
-    res.send('unsuccessful')
     const errors = validationErrors.array().map((error) => error.msg);
-    res.render("user-login.pug", {
+    res.render("signInForm.pug", {
       title: "Login",
       email,
       errors,
