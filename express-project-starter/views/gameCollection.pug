@@ -1,13 +1,14 @@
 extends layout.pug
 
 block content
-  each game in games
-    .game-preview-containers
-       .game-preview-img
-        //-  need to inline style to grab game.image???
-       .game-preview-info
-         h5= game.name
-         p= game.genre
+  .all-games
+    each game in games
+      .game-preview-containers
+         .game-preview-img
+           img(src= game.gameImage, alt="Game Image" class="game-images")
+         .game-preview-info
+           h5= game.name
+           p= game.genre
 block side-content
   .game-sidebar
     h4 Game News

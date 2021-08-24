@@ -55,5 +55,21 @@ section{
   /* height: 15rem; */
 }
 
+.all-games{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 1rem;
+}
+
+.game-preview-img{
+  height: 150px;
+  width: 120px;
+}
+
+.game-images{
+ height: 100%;
+ width: 100%;
+}
 .game-news-container {
 }
