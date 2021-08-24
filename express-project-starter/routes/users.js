@@ -131,7 +131,7 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async(req, r
           const isPassword = await bcrypt.compare(password, user.hashedPassword.toString());
           if (isPassword) {
             loginUser(req, res, user);
-            res.redirect("/");
+            
           }
           else {
             const errors = ["Password Incorrect"]
@@ -163,6 +163,11 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async(req, r
     });
   }
 }))
+
+router.post('/logout', (req, res) => {
+  logoutUser(req, res)
+  res.redirect('/')
+})
 
 
 
