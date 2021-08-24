@@ -5,13 +5,17 @@
   --mainColor: rgb(82, 83, 82);
 }
 body {
-  background-color: var(--backgroundColor)
+  background-color: var(--backgroundColor);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* ============== top section ============== */
 header {
   background-color: var(--headerColor);
   height: 100px;
+  width: 100%;
 }
 /* .auth-buttons {
 
@@ -31,24 +35,36 @@ nav>ul{
 
 /* ============== middle section ============== */
 main {
-  min-width:85%;
+  width:85%;
+  margin: 20px auto;
   display: grid;
-  grid-template-columns: 70% 20px 1fr;
+  grid-template-columns: 70% 1fr;
   grid-column-gap: 20px;
 }
 section {
-  background-color: var(--mainColor)
+  background-color: var(--mainColor);
+  grid-column-start: 1;
+  grid-column-end: 2;
 }
 aside {
-  background-color: var(--floatColor)
+  background-color: var(--floatColor);
+  grid-column-start: 2;
+  grid-column-end: 3;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
 }
 /* ============== footer section ============== */
 footer{
   background-color: var(--floatColor);
+  position: absolute;
+  margin: 0;
   width: 100%;
   height: 100px;
   bottom: 0px;
   display: flex;
   flex-direction:row;
   justify-content: flex-start;
+  align-self: center;
 }

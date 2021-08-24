@@ -5,22 +5,22 @@ block content
   h2 Sign In
   //- Need to define the action 
   +validationErrors(errors)
-  form(action="/users/login" method="POST") 
+  form(action="/users/login" method="POST" class="sign-in-form") 
     input(type="hidden" name="_csrf" value=csrfToken)
-    legend Welcome back!
     div 
-      label(for="email") Email: 
-      input(type="email" name="email" value=email required) 
+      label(for="email") 
+      input(type="email" placeholder="email" name="email" value=email required) 
     div 
-      label(for="password") Password:
-      input(type="password" name="password" required)
-    div
-      button Submit
+      label(for="password")
+      input(type="password" placeholder="password" name="password" required)
+    div.forgot-password
       p Forgot password? Click 
         a(href="#") here
+    button Submit
 
 
 block side-content
   h2 Not a member?
-  p Create an account 
-    a(href="#") here
+  div.create-account-q
+    p Create an account 
+      a(href="#") here
