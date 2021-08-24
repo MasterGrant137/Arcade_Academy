@@ -2,9 +2,10 @@ const bcrypt = require('bcryptjs');
 
 /*
 * Considerations:
-! 1) When seeding tables that require GAMES (e.g. 'Reviews`) make sure there are sufficient games seeded.
-! 2) When seeding tables that require USERS (e.g. 'Likes'), make sure there are sufficent users seeded.
-! 3) When seeding tables that require REVIEWS (e.g. 'Likes') make sure there are sufficent reviews seeded.
+! Note that the seeder password scheme (before hashing) is $aB<non-zero-num> (e.g. $aB1, $aB2, $aB3, etc.).
+! When seeding tables that require GAMES (e.g. 'Reviews`) make sure there are sufficient games seeded.
+! When seeding tables that require USERS (e.g. 'Likes'), make sure there are sufficent users seeded.
+! When seeding tables that require REVIEWS (e.g. 'Likes') make sure there are sufficent reviews seeded.
 */
 
 const seedUsersTables = async() => {
