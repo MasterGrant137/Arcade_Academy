@@ -20,8 +20,9 @@ h2{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.sign-in-form{
+.sign-in-form, .sign-up-form{
   margin:auto;
+  max-width: 100%;
   padding: 35px 60px;
   display: flex;
   flex-direction: column;
@@ -30,14 +31,16 @@ h2{
   border-top: 2px solid grey;
 }
 
-.sign-in-form>div>input {
+.sign-in-form>div>input, .sign-up-inputs>input {
   padding: 8px;
   border-radius: 5px;
   margin: 10px;
   width: 325px;
 
 }
-.sign-in-form>button {
+
+
+.sign-in-form>button, #sign-up-button {
   color: white;
   font-weight: 600;
   font-size: 10pt;
@@ -48,8 +51,39 @@ h2{
   margin: 50px 0px;
 }
 
+button:hover {
+  background-color: rgb(87, 131, 22);
+}
+
 .forgot-password{
   align-self:flex-end;
   margin-top: -20px;
   margin-right: 15px;
+}
+
+#sign-up-title {
+  text-align: center;
+}
+
+.sign-up-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#avatar-img {
+  height: 50px;
+}
+
+.sign-up-labels {
+  margin: 0 0 -10px 10px;
+}
+
+.sign-up-advert-div {
+  border: black solid 1px;
+}
+
+#sign-up-advert-img {
+  height: 100%;
+  width: 100%;
 }

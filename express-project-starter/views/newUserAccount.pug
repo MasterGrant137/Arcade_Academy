@@ -3,19 +3,24 @@ extends layout.pug
 include utils.pug
 
 block content
-  h2 New GoodGames Account
+  h2 New Arcade Academy Account
   +validationErrors(errors)
-  form(action="/users/register" method="post")
-    legend Sign Up
+  form(action="/users/register" method="post" class="sign-up-form")
+      h4#sign-up-title Sign Up
       input(name="_csrf" type="hidden" value=csrfToken)
-      input(name="fullName" value=fullName placeholder="Duke Nukem" required)
-      input(name="email"  value=email type="email" placeholder="Dukel@gonuclear.com" required)
-      input(name="password"  type="password" required)
-      input(name="confirmPassword"  type="password" required)
-      input(name="screenName"  value=screenName placeholder="TheDukinator" required)
-      button Submit
+      .sign-up-inputs
+        label(class="sign-up-labels") Full Name
+        input(name="fullName" value=fullName placeholder="Duke Nukem" required)
+        label(class="sign-up-labels") Email
+        input(name="email"  value=email type="email" placeholder="Dukel@gonuclear.com" required)
+        label(class="sign-up-labels") Password
+        input(name="password"  type="password" placeholder="Password" required)
+        label(class="sign-up-labels") Confirm Password
+        input(name="confirmPassword"  type="password" placeholder="Confirm Password" required)
+        label(class="sign-up-labels") Screen Name
+        input(name="screenName"  value=screenName placeholder="TheDukinator" required)
       div Profile Picture
-        img(src="https://cdn.iconscout.com/icon/premium/png-256-thumb/airplane-2475078-2062395.png", alt="")
+        img#avatar-img(src="https://cdn.iconscout.com/icon/premium/png-256-thumb/airplane-2475078-2062395.png", alt="")
       select(name="iconSelector") Pick Your Avatar
         option(data-img_src="https://cdn.iconscout.com/icon/premium/png-256-thumb/airplane-2475078-2062395.png" selected)
           img(src="https://cdn.iconscout.com/icon/premium/png-256-thumb/airplane-2475078-2062395.png", alt="")
@@ -27,5 +32,11 @@ block content
           img(src="https://cdn.iconscout.com/icon/premium/png-256-thumb/airplane-2475078-2062395.png", alt="")
         option(value="")
           img(src="https://cdn.iconscout.com/icon/premium/png-256-thumb/airplane-2475078-2062395.png", alt="")
-      //- each genre in genres
+        //- each genre in genres
         //- This is where we would implement genres in either the form of a checkbox or a regular element with addEventListeners
+      button#sign-up-button Submit
+
+block side-content
+  p This is where we could add cool/enticing stuff
+  .sign-up-advert-div
+    img#sign-up-advert-img(src='https://i.ibb.co/bFsppQD/Goro-Render-MKX.png')
