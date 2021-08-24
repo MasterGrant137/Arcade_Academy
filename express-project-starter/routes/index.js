@@ -6,6 +6,7 @@ const { asyncHandler } = require('./utils');
 
 
 /* GET home page. */
+
 router.get('/', asyncHandler( async (req, res, next) => {
   const games = await Game.findAll({ limit: 8 });
 
