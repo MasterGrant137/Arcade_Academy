@@ -16,12 +16,13 @@ header {
   background-color: var(--headerColor);
   height: 100px;
   width: 100%;
+  text-align: center;
 }
 /* .auth-buttons {
 
-} 
+}
  header>h1{
-  
+
 } */
 nav {
   width: 100%;
@@ -65,6 +66,10 @@ footer{
   bottom: 0px;
   display: flex;
   flex-direction:row;
-  justify-content: flex-start;
+  justify-content: center;
   align-self: center;
+}
+
+.contact, .about, .social-media {
+    margin: 0px 20px;
 }
