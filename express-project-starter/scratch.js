@@ -1,3 +1,5 @@
+const bcrypt = require('bcryptjs');
+
 /*
 * Considerations:
 ! 1) When seeding tables that require GAMES (e.g. 'Reviews`) make sure there are sufficient games seeded.
@@ -5,12 +7,13 @@
 ! 3) When seeding tables that require REVIEWS (e.g. 'Likes') make sure there are sufficent reviews seeded.
 */
 
-const seedUsersTables = () => {
+const seedUsersTables = async() => {
     for (let i = 1; i < 10; i++) {
-        console.log(`{ fullName: 'User${i}', email: 'user${i}@email.com', hashedPassword: '$aB${i}', screenName: 'PugLife${i}', createdAt: new Date(), updatedAt: new Date() },`);
+        const hashedPassword = await bcrypt.hash(`$aB${i}`, 10);
+        console.log(`{ fullName: 'User${i}', email: 'user${i}@email.com', hashedPassword: '${hashedPassword}', screenName: 'PugLife${i}', createdAt: new Date(), updatedAt: new Date() },`);
     }
 }
-// seedUsersTables();
+seedUsersTables();
 
 const seedGamesTables = () => {
     for (let i = 1; i < 10; i++) {
