@@ -115,7 +115,8 @@ router.get('/login', csrfProtection, (req, res) => {
 
 router.post('/login', csrfProtection, loginValidators, asyncHandler(async(req, res) => {
   const { email, password } = req.body
-
+console.log("This is the req", req)
+console.log("This is the req.body", req.body)
   const validationErrors = validationResult(req)
   if (validationErrors.isEmpty()) {
     const user = await User.findOne({
