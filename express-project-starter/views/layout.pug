@@ -7,11 +7,17 @@ html
         link(rel="stylesheet", href="/stylesheets/form-style.css")
   body
     header
-      .auth-buttons
+      if locals.authenticated 
+       span Hey #{user.screenName}! Lets Game 🎮
+       form(action='/users/logout' method='post')
+         button(type='submit') Logout
+      else 
+        .auth-buttons
         a(href="/users/login") Log In
         span |
         a(href="/users/register") Sign Up
       h1 Arcade Academy
+      
     nav
       ul
         li Top 10
