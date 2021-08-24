@@ -6,7 +6,8 @@ block content
   h2 New Arcade Academy Account
   +validationErrors(errors)
   form(action="/users/register" method="post" class="sign-up-form")
-    legend Sign Up
+    legend
+      h4#sign-up-title Sign Up
       input(name="_csrf" type="hidden" value=csrfToken)
       .sign-up-inputs
         input(name="fullName" value=fullName placeholder="Duke Nukem" required)
