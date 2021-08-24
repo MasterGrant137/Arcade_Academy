@@ -1,26 +1,24 @@
-extends layout.pug 
+extends layout.pug
 include utils.pug
 
 block content
   h2 Sign In
-  //- Need to define the action 
+  //- Need to define the action
   +validationErrors(errors)
-  form(action="/users/login" method="POST" class="sign-in-form") 
+  form(action="/users/login" method="POST" class="sign-in-form")
     input(type="hidden" name="_csrf" value=csrfToken)
-    div 
-      label(for="email") 
-      input(type="email" placeholder="email" name="email" value=email required) 
-    div 
+    div
+      label(for="email")
+      input(type="email" placeholder="email" name="email" value=email required)
+    div
       label(for="password")
       input(type="password" placeholder="password" name="password" required)
     div.forgot-password
-      p Forgot password? Click 
-        a(href="#") here
-    button Submit
+      <p> Forgot Password? Click <a href="/users/register">here</a> </p>
+    button.submit-button Submit Me!
 
 
 block side-content
   h2 Not a member?
   div.create-account-q
-    p Create an account 
-      a(href="#") here
+    <p> Create an account <a href="/users/register">here</a> </p>
