@@ -90,14 +90,13 @@ router.post('/register', csrfProtection, userValidators, asyncHandler(async(req,
     const errors = validationErrors.array().map((error) => error.msg)
     res.render('register.pug', {
       title: 'Register',
-      errors,
       user,
+      errors,
       csrfToken: req.csrfToken()
     })
   }
 
 }))
-
 
 const loginValidators = [
   check('email')
@@ -115,32 +114,35 @@ router.get('/login', csrfProtection, (req, res) => {
 
 router.post('/login', csrfProtection, loginValidators, asyncHandler(async(req, res) => {
   const { email, password } = req.body
-console.log("This is the req", req)
-console.log("This is the req.body", req.body)
   const validationErrors = validationResult(req)
-  if (validationErrors.isEmpty()) {
-    const user = await User.findOne({
-      where: {
-        email,
-      },
-    });
 
-    if (user) {
-      const isPassword = await bcrypt.compare(
-        password,
-        user.hashedPassword.toString()
-      );
-      if (isPassword) {
-        loginUser(req, res, user);
-        res.redirect("/");
+  if (validationErrors.isEmpty()) {
+      const user = await User.findOne({
+        where: {
+          email,
+        },
+      });
+//* test password aB123$
+      if (user) {
+        // res.send('Successful');
+          const isPassword = await bcrypt.compare(password, user.hashedPassword.toString());
+          console.log(`password: ${password}, user.hashedPassword.toString(): ${user.hashedPassword.toString()}, isPassword: ${isPassword}`);
+          // res.send(isPassword);
+
+          if (isPassword) {
+            loginUser(req, res, user);
+            res.redirect("/");
+          } else {
+            res.send('unsuccessful')
+          }
       }
-    }
   } else {
+    res.send('unsuccessful')
     const errors = validationErrors.array().map((error) => error.msg);
     res.render("user-login.pug", {
       title: "Login",
-      errors,
       email,
+      errors,
       csrfToken: req.csrfToken(),
     });
   }
