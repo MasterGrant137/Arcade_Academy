@@ -127,11 +127,12 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async(req, r
           if (isPassword) {
             loginUser(req, res, user);
             res.redirect("/");
-          } else {
-            //* this is temporary, consider: errors.push('Login failed, password or username is incorrect.');
-            //? one would need: let errors = []; above const validationErrors = validationResult(req) for the line above to work
-            res.send('Unsucessful Login')
-          }
+          } 
+          // else {
+          //   //* this is temporary, consider: errors.push('Login failed, password or username is incorrect.');
+          //   //? one would need: let errors = []; above const validationErrors = validationResult(req) for the line above to work
+          //   res.send('Unsucessful Login')
+          // }
       }
   } else {
     res.send('unsuccessful')
