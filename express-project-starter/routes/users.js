@@ -65,7 +65,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/register', csrfProtection, asyncHandler (async(req, res) => {
   console.log(req.session)
-  res.render("register.pug", { csrfToken: req.csrfToken(), title: "Register" });
+  res.render("newUserAccount.pug", { csrfToken: req.csrfToken(), title: "Register" });
 }));
 
 router.post('/register', csrfProtection, userValidators, asyncHandler(async(req, res) => {
@@ -86,7 +86,7 @@ router.post('/register', csrfProtection, userValidators, asyncHandler(async(req,
     res.redirect('/')
   }else{
     const errors = validationErrors.array().map((error) => error.msg)
-    res.render('register.pug', {
+    res.render('newUserAccount.pug', {
       title: 'Register',
       user,
       errors,
@@ -127,7 +127,7 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async(req, r
           if (isPassword) {
             loginUser(req, res, user);
             res.redirect("/");
-          } 
+          }
           // else {
           //   //* this is temporary, consider: errors.push('Login failed, password or username is incorrect.');
           //   //? one would need: let errors = []; above const validationErrors = validationResult(req) for the line above to work
