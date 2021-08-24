@@ -22,6 +22,7 @@ h2{
 
 .sign-in-form, .sign-up-form{
   margin:auto;
+  max-width: 100%;
   padding: 35px 60px;
   display: flex;
   flex-direction: column;
@@ -39,7 +40,7 @@ h2{
 }
 
 
-.sign-in-form>button, .sign-up-inputs>button {
+.sign-in-form>button, #sign-up-button {
   color: white;
   font-weight: 600;
   font-size: 10pt;
@@ -70,10 +71,16 @@ button:hover {
   gap: 5px;
 }
 
+#avatar-img {
+  height: 50px;
+}
+
+.sign-up-labels {
+  margin: 0 0 -10px 10px;
+}
+
 .sign-up-advert-div {
   border: black solid 1px;
-  /* background-image: url('https://i.ibb.co/bFsppQD/Goro-Render-MKX.png'); */
-  /* background-image: url('https://images.pexels.com/photos/1003914/pexels-photo-1003914.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'); */
 }
 
 #sign-up-advert-img {
