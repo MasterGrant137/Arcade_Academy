@@ -70,14 +70,12 @@ router.get('/register', csrfProtection, asyncHandler (async(req, res) => {
 
 router.post('/register', csrfProtection, userValidators, asyncHandler(async(req, res) => {
   const { fullName, screenName, email, password } = req.body
-  // console.log(req)
 
   const user = User.build({
     fullName,
     screenName,
     email
   })
-  // console.log(user)
 
   const validationErrors = validationResult(req)
   if(validationErrors.isEmpty()){
@@ -90,14 +88,13 @@ router.post('/register', csrfProtection, userValidators, asyncHandler(async(req,
     const errors = validationErrors.array().map((error) => error.msg)
     res.render('register.pug', {
       title: 'Register',
-      errors,
       user,
+      errors,
       csrfToken: req.csrfToken()
     })
   }
 
 }))
-
 
 const loginValidators = [
   check('email')
@@ -115,31 +112,34 @@ router.get('/login', csrfProtection, (req, res) => {
 
 router.post('/login', csrfProtection, loginValidators, asyncHandler(async(req, res) => {
   const { email, password } = req.body
-
   const validationErrors = validationResult(req)
-  if (validationErrors.isEmpty()) {
-    const user = await User.findOne({
-      where: {
-        email,
-      },
-    });
 
-    if (user) {
-      const isPassword = await bcrypt.compare(
-        password,
-        user.hashedPassword.toString()
-      );
-      if (isPassword) {
-        loginUser(req, res, user);
-        res.redirect("/");
+  if (validationErrors.isEmpty()) {
+      const user = await User.findOne({
+        where: {
+          email,
+        },
+      });
+
+      if (user) {
+          const isPassword = await bcrypt.compare(password, user.hashedPassword.toString());
+
+          if (isPassword) {
+            loginUser(req, res, user);
+            res.redirect("/");
+          } else {
+            //* this is temporary, consider: errors.push('Login failed, password or username is incorrect.');
+            //? one would need: let errors = []; above const validationErrors = validationResult(req) for the line above to work
+            res.send('Unsucessful Login')
+          }
       }
-    }
   } else {
+    res.send('unsuccessful')
     const errors = validationErrors.array().map((error) => error.msg);
     res.render("user-login.pug", {
       title: "Login",
-      errors,
       email,
+      errors,
       csrfToken: req.csrfToken(),
     });
   }
