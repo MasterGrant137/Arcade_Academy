@@ -45,6 +45,7 @@ main {
   display: grid;
   grid-template-columns: 70% 1fr;
   grid-column-gap: 20px;
+  padding: 1rem;
 }
 section {
   background-color: var(--mainColor);
