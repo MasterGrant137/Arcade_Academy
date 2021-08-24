@@ -60,6 +60,13 @@ h2{
   gap: 5px;
 }
 
-.advert {
-  
+.sign-up-advert-div {
+  border: black solid 1px;
+  /* background-image: url('https://i.ibb.co/bFsppQD/Goro-Render-MKX.png'); */
+  /* background-image: url('https://images.pexels.com/photos/1003914/pexels-photo-1003914.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'); */
+}
+
+#sign-up-advert-img {
+  height: 100%;
+  width: 100%;
 }
