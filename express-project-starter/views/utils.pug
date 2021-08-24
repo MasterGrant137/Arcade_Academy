@@ -1,7 +1,12 @@
 mixin validationErrors(errors)
-  if errors 
-    div 
-      p The following error(s) have occurred: 
-      ul 
-        each error in errors 
+  if errors
+    div
+      p The following error(s) have occurred:
+      ul
+        each error in errors
           li= error
+
+mixin inputField(labelText, fieldName, value, placeholder=null)
+  div(class="auth-inputs")
+    label(for=fieldName)= labelText
+      input(name=fieldName, type='text' value=value, placeholder=placeholder)
