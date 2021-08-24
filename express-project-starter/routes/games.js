@@ -3,14 +3,17 @@ const router = express.Router();
 const { Game } = require('../db/models');
 const { asyncHandler } = require('./utils');
 
-
-
-/* GET home page. */
-
 router.get('/', asyncHandler( async (req, res, next) => {
-  const games = await Game.findAll({ limit: 8 });
-
+  const games = await Game.findAll();
   res.render('home.pug', { title: 'Arcade Academy', games });
 }));
+
+router.get(`/:id(\\d+)`, asyncHandler( async (req, res, next) => {
+  const gameId = parseInt(req.params.id, 10)
+  const game = await Game.findByPk(gameId);
+
+  res.render('game.pug', { title: `AA-${game.name}`, game });
+}));
+
 
 module.exports = router;
