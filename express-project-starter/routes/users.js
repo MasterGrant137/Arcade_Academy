@@ -70,14 +70,12 @@ router.get('/register', csrfProtection, asyncHandler (async(req, res) => {
 
 router.post('/register', csrfProtection, userValidators, asyncHandler(async(req, res) => {
   const { fullName, screenName, email, password } = req.body
-  // console.log(req)
 
   const user = User.build({
     fullName,
     screenName,
     email
   })
-  // console.log(user)
 
   const validationErrors = validationResult(req)
   if(validationErrors.isEmpty()){
@@ -122,18 +120,17 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async(req, r
           email,
         },
       });
-//* test password aB123$
+
       if (user) {
-        // res.send('Successful');
           const isPassword = await bcrypt.compare(password, user.hashedPassword.toString());
-          console.log(`password: ${password}, user.hashedPassword.toString(): ${user.hashedPassword.toString()}, isPassword: ${isPassword}`);
-          // res.send(isPassword);
 
           if (isPassword) {
             loginUser(req, res, user);
             res.redirect("/");
           } else {
-            res.send('unsuccessful')
+            //* this is temporary, consider: errors.push('Login failed, password or username is incorrect.');
+            //? one would need: let errors = []; above const validationErrors = validationResult(req) for the line above to work
+            res.send('Unsucessful Login')
           }
       }
   } else {
