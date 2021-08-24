@@ -5,4 +5,38 @@ html
         title #{title}
         link(rel='stylesheet' href='/stylesheets/reset.css')
   body
-    block content
+    header
+      .auth-buttons
+        a(href="#") Log In
+        span |
+        a(href="#") Sign Up
+      h1 Arcade Academy
+    nav 
+      ul 
+        li Top 10
+        li New Releases
+        li Categories
+        li AA Points
+        li Play Now
+
+    main 
+      section
+        block content
+      aside
+        block side-content
+
+    footer
+      .contact
+        ul Contact
+          li Careers
+          li Support
+          li Invest
+      .about 
+        ul About
+          li Terms
+          li Privacy
+      .social-media
+        ul Social Media
+          li X 
+          li X
+          li X

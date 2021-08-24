@@ -1,0 +1,18 @@
+extends layout.pug 
+
+block content
+  h2 Sign In
+  //- Need to define the action 
+  form(action="#" method="POST") 
+    legend Welcome back! 
+      input(type="email" name="email")
+      input(type="password" name="password")
+      p Forgot password? Click 
+        a(href="#") here
+      button Submit
+
+
+block side-content
+  h2 Not a member?
+  p Create an account 
+    a(href="#") here
