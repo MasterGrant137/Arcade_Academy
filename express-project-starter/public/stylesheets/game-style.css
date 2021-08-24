@@ -41,3 +41,10 @@ section{
 }
 
 /* .voter{} */
+
+
+/* gaming news sidebar */
+.game-news-container>iframe{
+  width: 460px;
+  height: 300px;
+}
