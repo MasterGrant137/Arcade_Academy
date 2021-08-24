@@ -25,18 +25,18 @@ const userValidators = [
     .isLength({ max: 255 })
     .withMessage("Email address cannot be longer than 255 characters")
     .isEmail()
-    .withMessage("Email address must be valid"),
-    // .custom((value) => {
-    //   return User.findOne({
-    //     where: {
-    //       email: value,
-    //     },
-    //   }).then((user) => {
-    //     if (user) {
-    //       return Promise.reject("Email already in use");
-    //     }
-    //   });
-    // }),
+    .withMessage("Email address must be valid")
+    .custom((value) => {
+      return User.findOne({
+        where: {
+          email: value,
+        },
+      }).then((user) => {
+        if (user) {
+          return Promise.reject("Email already in use");
+        }
+      });
+    }),
   check("password")
     .exists({ checkFalsy: true })
     .withMessage("Please provide a password")
@@ -70,8 +70,9 @@ router.get('/register', csrfProtection, asyncHandler (async(req, res) => {
 
 router.post('/register', csrfProtection, userValidators, asyncHandler(async(req, res) => {
   const { fullName, screenName, email, password } = req.body
+  // console.log(req)
 
-  const user = db.User.build({
+  const user = User.build({
     fullName,
     screenName,
     email
