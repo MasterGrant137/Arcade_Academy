@@ -5,31 +5,28 @@
 ! 3) When seeding tables that require REVIEWS (e.g. 'Likes') make sure there are sufficent reviews seeded.
 */
 
-
 const seedUsersTables = () => {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 1; i < 10; i++) {
         console.log(`{ fullName: 'User${i}', email: 'user${i}@email.com', hashedPassword: '$aB${i}', screenName: 'PugLife${i}', createdAt: new Date(), updatedAt: new Date() },`);
     }
 }
 // seedUsersTables();
 
-
 const seedGamesTables = () => {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 1; i < 10; i++) {
         if (isPrimeHelper(i)) {
             console.log(`{ name: 'Game${i}', genre: 'Type${i}', createdAt: new Date(), updatedAt: new Date() },`);
         } else if ( i % 2 === 0) {
-            console.log(`{ name: 'Game0', genre: 'Type0', createdAt: new Date(), updatedAt: new Date() },`);
+            console.log(`{ name: 'Game${i}', genre: 'Type0', createdAt: new Date(), updatedAt: new Date() },`);
         } else if (i % 2 !== 0) {
-            console.log(`{ name: 'Game1', genre: 'Type1', createdAt: new Date(), updatedAt: new Date() },`);
+            console.log(`{ name: 'Game${i}', genre: 'Type1', createdAt: new Date(), updatedAt: new Date() },`);
         }
     }
 }
-seedGamesTables();
-
+// seedGamesTables();
 
 const seedReviewsTables = () => {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 1; i < 10; i++) {
         if (isPrimeHelper(i)) {
             console.log(`{ content: 'This game was absolutely excellent!', user_id: ${i}, game_id: ${i}, createdAt: new Date(), updatedAt: new Date() },`);
         } else if ( i % 2 === 0) {
@@ -42,7 +39,7 @@ const seedReviewsTables = () => {
 // seedReviewsTables();
 
 const seedLikesTables = () => {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 1; i < 10; i++) {
         if (i % 2 === 0) {
             console.log(`{ like: true, user_id: ${i}, review_id: ${i}, createdAt: new Date(), updatedAt: new Date() },`);
         } else {
@@ -51,14 +48,6 @@ const seedLikesTables = () => {
     }
 }
 // seedLikesTables();
-
-
-
-
-
-
-
-
 
 
 

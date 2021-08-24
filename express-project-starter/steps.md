@@ -9,7 +9,6 @@
 
 + npx dotenv sequelize db:migrate
 
-
 + npx sequelize seed:generate --name game-seeder
 + npx sequelize seed:generate --name like-seeder
 + npx sequelize seed:generate --name user-seeder
@@ -17,10 +16,14 @@
 
 + npx dotenv sequelize db:seed:all
 
++ if neeeded
+    + npx dotenv sequelize db:drop
+    + npx dotenv sequelize db:create
+
 + if needed
     + npx dotenv sequelize db:seed:undo:all
     + npx dotenv sequelize db:migrate:undo:all
 
-+ if neeeded
-    + npx dotenv sequelize db:drop
-    + npx dotenv sequelize db:create
++ if needed
+    + npx dotenv sequelize db:migrate
+    + npx dotenv sequelize db:seed:all
