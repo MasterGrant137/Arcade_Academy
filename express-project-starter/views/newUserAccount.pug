@@ -9,10 +9,10 @@ block content
     legend Sign Up
       input(name="_csrf" type="hidden" value=csrfToken)
       input(name="fullName" value=fullName placeholder="Duke Nukem" required)
-      input(name="email"  type="email" placeholder="Dukel@gonuclear.com" required)
+      input(name="email"  value=email type="email" placeholder="Dukel@gonuclear.com" required)
       input(name="password"  type="password" required)
       input(name="confirmPassword"  type="password" required)
-      input(name="screenName"  placeholder="TheDukinator" required)
+      input(name="screenName"  value=screenName placeholder="TheDukinator" required)
       button Submit
       div Profile Picture
         img(src="https://cdn.iconscout.com/icon/premium/png-256-thumb/airplane-2475078-2062395.png", alt="")

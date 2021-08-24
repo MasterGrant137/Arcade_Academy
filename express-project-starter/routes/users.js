@@ -88,7 +88,10 @@ router.post('/register', csrfProtection, userValidators, asyncHandler(async(req,
     const errors = validationErrors.array().map((error) => error.msg)
     res.render('newUserAccount.pug', {
       title: 'Register',
-      user,
+      // user,
+      fullName,
+      screenName,
+      email,
       errors,
       csrfToken: req.csrfToken()
     })
