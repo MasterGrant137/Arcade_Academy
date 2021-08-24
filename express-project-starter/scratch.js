@@ -1,65 +1,79 @@
 /*
 * Considerations:
-    ! 1) When seeding tables that require USERS (like 'Likes'), make sure there are sufficent users seeded.
-    ! 2) When seeding tables that require REVIEWS (like 'Likes') make sure there are sufficent (at least 2) reviews seeded.
+! 1) When seeding tables that require GAMES (e.g. 'Reviews`) make sure there are sufficient games seeded.
+! 2) When seeding tables that require USERS (e.g. 'Likes'), make sure there are sufficent users seeded.
+! 3) When seeding tables that require REVIEWS (e.g. 'Likes') make sure there are sufficent reviews seeded.
 */
 
-const isPrimeHelper = 
 
 const seedUsersTables = () => {
     for (let i = 0; i < 10; i++) {
-        console.log(`{ fullName: 'User${i}', email: 'user${i}@email.com', hashedPassword: '$aB${i}', screenName: 'PugLife${i}' }`);
+        console.log(`{ fullName: 'User${i}', email: 'user${i}@email.com', hashedPassword: '$aB${i}', screenName: 'PugLife${i}', createdAt: new Date(), updatedAt: new Date() },`);
     }
 }
-//$ seedUsersTables();
-
-
-
-const seedLikesTables = () => {
-    for (let i = 0; i < 10; i++) {
-        if (i % 2 === 0) {
-            console.log(`{ like: true, user_id: ${i}, review_id: 1 }`);
-        } else {
-            console.log(`{ like: false, user_id: ${i}, review_id: 2 }`);
-        }
-    }
-}
-//$ seedLikesTables();
-
-
-
-const seedReviewsTables = () => {
-    for (let i = 0; i < 10; i++) {
-        if (i !== 0 && i !== 1 && ) {
-
-        }
-    }
-}
-seedReviewsTables();
-//$ ReviewsSeeder
-// { content: 'This is a pretty good game.', user_id: 1, game_id: 1}
-// { content: 'I\'m less than enthused.', user_id: 2, game_id: 2}
-// { content: 'What site am I on?', user_id: 3, game_id: 3}
-
-
-
-
+// seedUsersTables();
 
 
 const seedGamesTables = () => {
     for (let i = 0; i < 10; i++) {
-        console.log(`{ fullName: User${i}, email: user${i}@email.com, hashedPassword: xx00, screenName: MrDonkey${i} }`);
+        if (isPrimeHelper(i)) {
+            console.log(`{ name: 'Game${i}', genre: 'Type${i}', createdAt: new Date(), updatedAt: new Date() },`);
+        } else if ( i % 2 === 0) {
+            console.log(`{ name: 'Game0', genre: 'Type0', createdAt: new Date(), updatedAt: new Date() },`);
+        } else if (i % 2 !== 0) {
+            console.log(`{ name: 'Game1', genre: 'Type1', createdAt: new Date(), updatedAt: new Date() },`);
+        }
     }
 }
 seedGamesTables();
-//$ GamesSeeder { name: 'Game${i}', genre: 'Type${i % 2}' }
-// { name: 'Game0', genre: 'Type0' },
-// { name: 'Game1', genre: 'Type1' },
-// { name: 'Game2', genre: 'Type0' },
-// { name: 'Game3', genre: 'Type1' },
-// { name: 'Game4', genre: 'Type0' },
-// { name: 'Game5', genre: 'Type1' },
-// { name: 'Game6', genre: 'Type0' },
-// { name: 'Game7', genre: 'Type1' },
-// { name: 'Game8', genre: 'Type0' },
-// { name: 'Game9', genre: 'Type1' }
+
+
+const seedReviewsTables = () => {
+    for (let i = 0; i < 10; i++) {
+        if (isPrimeHelper(i)) {
+            console.log(`{ content: 'This game was absolutely excellent!', user_id: ${i}, game_id: ${i}, createdAt: new Date(), updatedAt: new Date() },`);
+        } else if ( i % 2 === 0) {
+            console.log(`{ content: 'I had some fun playing it.', user_id: ${i}, game_id: ${i}, createdAt: new Date(), updatedAt: new Date() },`);
+        } else if (i % 2 !== 0) {
+            console.log(`{ content: 'It was okay...', user_id: ${i}, game_id: ${i}, createdAt: new Date(), updatedAt: new Date() },`);
+        }
+    }
+}
+// seedReviewsTables();
+
+const seedLikesTables = () => {
+    for (let i = 0; i < 10; i++) {
+        if (i % 2 === 0) {
+            console.log(`{ like: true, user_id: ${i}, review_id: ${i}, createdAt: new Date(), updatedAt: new Date() },`);
+        } else {
+            console.log(`{ like: false, user_id: ${i}, review_id: ${i}, createdAt: new Date(), updatedAt: new Date() },`);
+        }
+    }
+}
+// seedLikesTables();
+
+
+
+
+
+
+
+
+
+
+
+/* HELPER FUNCTIONS */
+
+function isPrimeHelper(index) {
+    if (index === 0 || index === 1) {
+        return false;
+    }
+
+    for (let i = 2; i < index; i++) {
+        if (index % i === 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
