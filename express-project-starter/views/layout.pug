@@ -5,22 +5,23 @@ html
         title #{title}
         link(rel='stylesheet' href='/stylesheets/main.css')
         link(rel="stylesheet", href="/stylesheets/form-style.css")
+        link(rel="stylesheet" href="/stylesheets/game-style.css")
   body
     header
-      if locals.authenticated 
+      if locals.authenticated
        span Hey #{user.screenName}! Lets Game 🎮
        form(action='/users/logout' method='post')
          button(type='submit') Logout
-      else 
+      else
         .auth-buttons
         a(href="/users/login") Log In
         span |
         a(href="/users/register") Sign Up
       //- span
-      //-   img(src="/images/mainLogo.jpg", alt="") need to fix sizing  
+      //-   img(src="/images/mainLogo.jpg", alt="") need to fix sizing
       h1 Arcade Academy
 
-      
+
     nav
       ul
         li Top 10
@@ -31,7 +32,6 @@ html
 
     main
       section
-
         block content
       aside
         block side-content

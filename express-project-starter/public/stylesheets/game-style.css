@@ -1,12 +1,12 @@
 main{
-  width: 85%;
+  width: 100%;
   display: grid;
   grid-template-columns: 80% 20%;
   grid-column-gap: 15px;
 }
 
 section{
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,9 +42,18 @@ section{
 
 /* .voter{} */
 
+.game-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
 
 /* gaming news sidebar */
 .game-news-container>iframe{
-  width: 460px;
-  height: 300px;
+  width: 90%;
+  /* height: 15rem; */
+}
+
+.game-news-container {
 }
