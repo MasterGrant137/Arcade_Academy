@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const { Game } = require('../db/models');
 const { asyncHandler } = require('./utils');
-const csrfProtection = require('./utils');
+const { csrfProtection } = require('./utils');
 const { check, validationResult } = require('express-validator');
-
+const { requireAuth } = require('../auth.js')
 
 
 const genres = ['Action', 'Action-adventure', 'Adventure', 'RPG', 'Simulation', 'First-person Shooter', 'Sports', 'MMO', ]
@@ -17,9 +17,10 @@ router.get('/', asyncHandler( async (req, res, next) => {
 
 router.get(`/:id(\\d+)`, csrfProtection, asyncHandler( async (req, res, next) => {
   const gameId = parseInt(req.params.id, 10);
+  // console.log(gameId)
   const game = await Game.findByPk(gameId);
-  
-  res.render('game.pug', { title: `AA-${game.name}`, game, csrfToken:req.csrfToken() });
+
+  res.render('game.pug', { title: `AA-${game.name}`, game, gameId, csrfToken:req.csrfToken() });
 }));
 
 
@@ -37,16 +38,16 @@ const reviewsValidators = [
   //   .withMessage('Gamescore must not be empty')
 ];
 
-router.post("/:id(\\d+)/new-review", csrfProtection, reviewsValidators, asyncHandler (async(req, res, next)=> {
-  const gameId = parseInt(req.params.id, 10);
-  const {content} = req.body;
-  const newReview = await Review.create({
-    content,
-    game_id: gameId
-  });
 
-
-
+router.post("/:id(\\d+)", requireAuth, csrfProtection,  asyncHandler (async(req, res, next)=> {
+  const userId = req.session.auth.userId
+  const { gameId, content} = req.body;
+  console.log(gameId, userId)
+  // const newReview = await Review.create({
+  //   content,
+  //   game_id: gameId
+  // });
+  res.redirect('/')
   // res.render('/:id(\\d+)', { title: `AA-${game.name}`, csrfToken: req.csrfToken() });
 }));
 
