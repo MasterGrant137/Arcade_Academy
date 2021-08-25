@@ -1,0 +1,29 @@
+When you want to migrate your Heroku Postgres database, you'll need to run the migration command prefaced with heroku run from inside your repository.
+
+** heroku run npx sequelize-cli db:migrate
+
+You should see the normal output from the Sequelize CLI.
+
+If you need to seed, run the seed command prefaced with heroku run as well.
+
+** heroku run npx sequelize-cli db:seed:all
+
+You should see the normal output from the Sequelize CLI.
+
+If you ever need to roll back, DO NOT DROP YOUR DATABASE! Instead, migrate down and up.
+
+** heroku run npx sequelize-cli db:seed:undo:all
+** heroku run npx sequelize-cli db:migrate:undo:all
+** heroku run npx sequelize-cli db:migrate
+** heroku run npx sequelize-cli db:seed:all
+
+If undoing the migrations and seeds don't work, you can reset the entire database by removing and adding the Heroku Postgres add-on that you added in the beginning of Step 2. Then migrate and seed again.
+
+====== Additional Info ====================================
+Before pushing to Heroku again in the future, you must add and commit your changes. Your general workflow should be something like this:
+
+1. Team member commits and pushes an update
+2. Somebody reviews and merges the Pull Request to the repository's base branch.
+3. The "Team Lead" pulls the latest code
+4. The "Team Lead" pushes the code to Heroku using the command git push heroku
+5. The person that deploys the app should run any new database migrations. See the next section for that.
