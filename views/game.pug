@@ -15,8 +15,9 @@ block content
   if locals.authenticated
     .review-form
       h4 New Review
-      form(action=`/${gameId}` method="post")
+      form(action=`/games/${gameId}` method="post")
         input(type="hidden" name='gameId' value=gameId)
+        input(type="hidden" name="_csrf" value=csrfToken)
         //- Value not yet accounted for in database
         //- ======================================
         //- select(name="reviewScore")

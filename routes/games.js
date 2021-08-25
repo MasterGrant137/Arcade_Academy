@@ -4,15 +4,21 @@ const { Game } = require('../db/models');
 const { asyncHandler } = require('./utils');
 const { csrfProtection } = require('./utils');
 const { check, validationResult } = require('express-validator');
-const { requireAuth } = require('../auth.js')
+const { requireAuth } = require('../auth')
 
 
 const genres = ['Action', 'Action-adventure', 'Adventure', 'RPG', 'Simulation', 'First-person Shooter', 'Sports', 'MMO', ]
 
 router.get('/', asyncHandler( async (req, res, next) => {
   const games = await Game.findAll();
-  const userId = req.session.auth.userId;
-  res.render('gameCollection.pug', { title: 'Arcade Academy', games, userId });
+  if(req.session.auth){
+
+    const userId = req.session.auth.userId;
+    res.render('gameCollection.pug', { title: 'Arcade Academy', games, userId });
+  }else{
+
+    res.render('gameCollection.pug', { title: 'Arcade Academy', games });
+  }
 }));
 
 router.get(`/:id(\\d+)`, csrfProtection, asyncHandler( async (req, res, next) => {
@@ -39,7 +45,7 @@ const reviewsValidators = [
 ];
 
 
-router.post("/:id(\\d+)", requireAuth, csrfProtection,  asyncHandler (async(req, res, next)=> {
+router.post("/:id(\\d+)", requireAuth, csrfProtection,  asyncHandler(async(req, res)=> {
   const userId = req.session.auth.userId
   const { gameId, content} = req.body;
   console.log(gameId, userId)
