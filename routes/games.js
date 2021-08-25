@@ -15,7 +15,7 @@ router.get('/', asyncHandler( async (req, res, next) => {
 router.get(`/:id(\\d+)`, asyncHandler( async (req, res, next) => {
   const gameId = parseInt(req.params.id, 10)
   const game = await Game.findByPk(gameId);
-
+  
   res.render('game.pug', { title: `AA-${game.name}`, game });
 }));
 
@@ -28,10 +28,55 @@ router.get('/topGames', asyncHandler(async(req,res) => {
   })
 }));
 
-
 router.get('/categories', asyncHandler(async(req, res) => {
   res.render('gameCategories.pug', { genres })
-  
+
 }))
+
+
+
+
+//Routes for categories
+
+router.get('/action', asyncHandler(async(req,res) => {
+  const games = await Game.findAll({ where: {
+    genre: 'Type1'
+  }})
+
+  res.render('filteredGames.pug', { games })
+
+}));
+router.get('/adventure', asyncHandler(async(req,res) => {
+  const games = await Game.findAll({ where: {
+    genre: 'adventure'
+  }})
+
+  res.render('filteredGames.pug', { games })
+
+}));
+router.get('/rpg', asyncHandler(async(req,res) => {
+  const games = await Game.findAll({ where: {
+    genre: 'rpg'
+  }})
+
+  res.render('filteredGames.pug', { games })
+
+}));
+router.get('/fps', asyncHandler(async(req,res) => {
+  const games = await Game.findAll({ where: {
+    genre: 'fps'
+  }})
+
+  res.render('filteredGames.pug', { games })
+
+}));
+router.get('/sports', asyncHandler(async(req,res) => {
+  const games = await Game.findAll({ where: {
+    genre: 'sports'
+  }})
+
+  res.render('filteredGames.pug', { games })
+
+}));
 
 module.exports = router;

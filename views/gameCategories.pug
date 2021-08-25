@@ -2,51 +2,46 @@ extends layout.pug
 
 block content
   .all-games
-    .game-genre-containers
-      .genre-image 
-        img(src="", alt="")
-      .genre-name 
-        h4 Action
-    .game-genre-containers
-      .genre-image 
-        img(src="", alt="")
-      .genre-name 
-        h4 Adventure
-    .game-genre-containers
-      .genre-image 
-        img(src="", alt="")
-      .genre-name 
-        h4 Role-playing Game
-    .game-genre-containers
-      .genre-image 
-        img(src="", alt="")
-      .genre-name 
-        h4 Simulation
-    .game-genre-containers
-      .genre-image 
-        img(src="https://www.denofgeek.com/wp-content/uploads/2021/07/pjimage-52.jpg?resize=768%2C432", alt="")
-      .genre-name 
-        h4 First-person Shooter
-    .game-genre-containers
-      .genre-image 
-        img(src="", alt="")
-      .genre-name 
-        h4 Sports
-    .game-genre-containers
-      .genre-image 
-        img(src="", alt="")
-      .genre-name 
-        h4 MMO
+    a(href='/games/action')
+      .game-genre-containers
+        .genre-image
+          img(src="https://cdn.wccftech.com/wp-content/uploads/2020/01/WCCFbestofdecadeaction-1.jpg", alt="")
+        .genre-name
+          h4 Action
+    a(href='/games/adventure')
+      .game-genre-containers
+        .genre-image
+          img(src="https://cdn.wccftech.com/wp-content/uploads/2018/01/WCCFbest2018actionadventure1.jpg", alt="")
+        .genre-name
+          h4 Adventure
+    a(href='/games/rpg')
+      .game-genre-containers
+        .genre-image
+          img(src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2020/11/PC-Offline-RPGs.jpg", alt="")
+        .genre-name
+          h4 Role-playing Game
+    a(href='/games/fps')
+      .game-genre-containers
+        .genre-image
+          img(src="https://images.pushsquare.com/ce1c595d15e46/best-ps4-fps-games.original.jpg", alt="")
+        .genre-name
+          h4 First-person Shooter
+    a(href='/games/sports')
+      .game-genre-containers
+        .genre-image
+          img(src="https://athlonsports.com/.image/t_share/MTgyMDE4NjkyNjg4MTkyNjQz/sports_video_games_dljpg.jpg", alt="")
+        .genre-name
+          h4 Sports
 block side-content
   .game-sidebar
     h4 Game News
     .game-news-container
-      label#game-news-label-1 Assassin's Creed Movie Trailer
-      <iframe src="https://www.youtube.com/embed/gfJVoF5ko1Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
+      label#game-news-label-1 Interviews with Horizon Zero Dawn Developers
+      <iframe src="https://www.youtube.com/embed/PzomI_VXFLs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
       //- pick 3-5 games we put in our database and write a cool news story
     .game-news-container
-      label#game-news-label-2 Halo Infinite Trailer
-      <iframe src="https://www.youtube.com/embed/MBb88gLmJZY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
+      label#game-news-label-2 Halo Infinite Multiplayer Experience
+      <iframe src="https://www.youtube.com/embed/lOthvD1rMbQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
     .game-news-container
-      label#game-news-label-3 Call of Duty Vanguard Trailer
-      <iframe src="https://www.youtube.com/embed/OQ1CwPhE8KQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
+      label#game-news-label-3 Elon Musk Talks Cyberpunk 2077
+      <iframe src="https://www.youtube.com/embed/k-iqoAl_e00" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>

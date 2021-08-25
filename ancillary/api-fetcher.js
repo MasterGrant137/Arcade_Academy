@@ -10,6 +10,14 @@ const apiUrl = 'https://www.igdb.com/advanced_search'
 // div:nth-child(3)
 // 'div.col-md-6 > div.media > div.media-left > img.img-responsive'
 
+// targetParent[0].querySelector('mar-lg-bottom > div.media > div.media-left > img.img-responsive')
+// Array.from(document.querySelectorAll('img.img-responsive'))
+// Array.from(document.querySelectorAll(".media-left"))
+// targetParent.children[0].querySelector('img.img-responsive')
+let targetParent = Array.from(document.querySelectorAll(".media-left"))
+targetParent.forEach(div => {
+    div.children[0].querySelector('img.img-responsive').src
+})
 axios.get(apiUrl)
     .then(res => {
         let $ = cheerio.load(res.data);
@@ -24,17 +32,18 @@ axios.get(apiUrl)
         // .media .media-left > img.img-responsive
         // $('.fix-heights').each((idx, ele) => {
             // let targetData = $(ele)
-                // .find('col-md-6.mar-lg-bottom');
+                // .find('mar-lg-bottom');
+                // console.log(targetData);
                 // console.log(targetData.children());
                 // console.log($(ele).attr('href'));
         // });
 
-        $('#footer-small a').each((idx, ele) => {
+        // $('#footer-small a').each((idx, ele) => {
             //? prints the innerText of the footer links
             // console.log($(ele).text());
             //? prints the hrefs of the footer links
-            console.log($(ele).attr('href'));
-        })
+            // console.log($(ele).attr('href'));
+        // })
     })
     .catch(err => {
         console.log(err);
