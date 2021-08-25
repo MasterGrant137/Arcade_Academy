@@ -8,7 +8,9 @@
     "start:production": "node ./bin/www"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
+    "cheerio": "^1.0.0-rc.10",
     "connect-session-sequelize": "^7.0.4",
     "cookie-parser": "~1.4.4",
     "csurf": "^1.11.0",
