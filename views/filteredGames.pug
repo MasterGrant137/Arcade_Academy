@@ -1,0 +1,25 @@
+extends layout.pug
+
+block content
+  .all-games
+    each game in games
+      a(href=`/games/${game.id}`) 
+        .game-preview-containers
+           .game-preview-img
+             img(src= game.gameImage, alt="Game Image" class="game-images")
+           .game-preview-info
+             h5= game.name
+             p= game.genre
+block side-content
+  .game-sidebar
+    h4 Game News
+    .game-news-container
+      label#game-news-label-1 Assassin's Creed Movie Trailer
+      <iframe src="https://www.youtube.com/embed/gfJVoF5ko1Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
+      //- pick 3-5 games we put in our database and write a cool news story
+    .game-news-container
+      label#game-news-label-2 Halo Infinite Trailer
+      <iframe src="https://www.youtube.com/embed/MBb88gLmJZY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
+    .game-news-container
+      label#game-news-label-3 Call of Duty Vanguard Trailer
+      <iframe src="https://www.youtube.com/embed/OQ1CwPhE8KQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>

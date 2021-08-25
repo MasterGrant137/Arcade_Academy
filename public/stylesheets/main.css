@@ -9,6 +9,7 @@
 }
  * {
    box-sizing: border-box;
+   font-family: ;
  }
 
 body {
@@ -45,7 +46,7 @@ header {
 }
 
 #page-title{
-  
+
   font-family: 'Varela Round', sans-serif;
   opacity: 1;
   color: #ffffff;
