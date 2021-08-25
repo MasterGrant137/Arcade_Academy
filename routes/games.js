@@ -58,10 +58,10 @@ router.post("/:id(\\d+)", requireAuth, csrfProtection, reviewsValidators,  async
       //where successful review posts will go
   } else {
     const errors = validationErrors.array().map(error => error.msg)
-    res.render('games.pug', { title: 'test', gameId, csrfToken:req.csrfToken(), errors });
-    
+    res.render('game.pug', { title: 'test', gameId, csrfToken:req.csrfToken(), errors });
+
   }
-  res.redirect('/')
+  // res.redirect('/')
   // res.render('/:id(\\d+)', { title: `AA-${game.name}`, csrfToken: req.csrfToken() });
 }));
 
