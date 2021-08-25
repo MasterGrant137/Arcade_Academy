@@ -75,10 +75,16 @@ section{
 }
 
 .game-preview-info {
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* padding: -15px; */
+
+  display: grid;
+  grid-template-rows: 4vw 4vw;
+  /* grid-template-columns: 1fr 1fr; */
   align-items: center;
-  padding: -15px;
+  /* grid-template-columns: 1fr 1fr; */
 }
 
 .game-images{
