@@ -10,6 +10,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const { restoreUser } = require('./auth');
 const gamesRouter = require('./routes/games')
+const reviewsRouter = require('./routes/reviews')
 
 const app = express();
 
@@ -41,7 +42,7 @@ store.sync();
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/games', gamesRouter);
-
+app.use('/games/:id(\\d+)/reviews', reviewsRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
