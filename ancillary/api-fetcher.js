@@ -2,7 +2,42 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const pretty = require('pretty');
 
-const apiUrl = 'https://www.igdb.com/advanced_search'
+// const apiUrl = 'https://www.igdb.com/advanced_search'
+const apiUrl = 'https://www.igdb.com/games/recently_released';
+
+axios.get(apiUrl)
+    .then(res => {
+        let $ = cheerio.load(res.data);
+        // console.log(pretty($.html()));
+
+        $('img.img-responsive').each((idx, ele) => {
+            const targ = $(ele);
+            console.log(targ);
+        })
+    })
+    .catch(err => {
+        console.log(err);
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // .data-reactroot .marg-lg-top .fix-heights
 // .col-md-6
 // .media .media-left .img-responsive thumb
@@ -14,24 +49,20 @@ const apiUrl = 'https://www.igdb.com/advanced_search'
 // Array.from(document.querySelectorAll('img.img-responsive'))
 // Array.from(document.querySelectorAll(".media-left"))
 // targetParent.children[0].querySelector('img.img-responsive')
-let targetParent = Array.from(document.querySelectorAll(".media-left"))
-targetParent.forEach(div => {
-    div.children[0].querySelector('img.img-responsive').src
-})
-axios.get(apiUrl)
-    .then(res => {
-        let $ = cheerio.load(res.data);
-        // console.log(pretty($.html()));
-        // 'div.media-left'
-        // let targetData = $(ele)
-        //     .find('img.img-responsive')
-        //     .attr('src');
-        // console.log(targetData);
+// let targetParent = Array.from(document.querySelectorAll(".media-left"))
+// targetParent.forEach(div => {
+//     div.children[0].querySelector('img.img-responsive').src
+// })
+
+// axios.get(apiUrl)
+//     .then(res => {
+//         let $ = cheerio.load(res.data);
+//         console.log(pretty($.html()));
 
         // .mar-lg-top .fix-heights col-md-6 or .mar-lg-bottom
         // .media .media-left > img.img-responsive
         // $('.fix-heights').each((idx, ele) => {
-            // let targetData = $(ele)
+        //     let targetData = $(ele)
                 // .find('mar-lg-bottom');
                 // console.log(targetData);
                 // console.log(targetData.children());
@@ -44,10 +75,10 @@ axios.get(apiUrl)
             //? prints the hrefs of the footer links
             // console.log($(ele).attr('href'));
         // })
-    })
-    .catch(err => {
-        console.log(err);
-    });
+    // })
+    // .catch(err => {
+    //     console.log(err);
+    // });
 
 
 
