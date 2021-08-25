@@ -45,7 +45,7 @@ const reviewsValidators = [
 ];
 
 
-router.post("/:id(\\d+)", requireAuth, csrfProtection,  asyncHandler(async(req, res)=> {
+router.post("/:id(\\d+)", requireAuth, csrfProtection, reviewsValidators,  asyncHandler(async(req, res)=> {
   const userId = req.session.auth.userId
   const { gameId, content} = req.body;
   console.log(gameId, userId)
@@ -53,6 +53,14 @@ router.post("/:id(\\d+)", requireAuth, csrfProtection,  asyncHandler(async(req, 
   //   content,
   //   game_id: gameId
   // });
+  const validationErrors = validationResult(req);
+  if (validationErrors.isEmpty()) {
+      //where successful review posts will go
+  } else {
+    const errors = validationErrors.array().map(error => error.msg)
+    res.render('games.pug', { title: 'test', gameId, csrfToken:req.csrfToken(), errors });
+    
+  }
   res.redirect('/')
   // res.render('/:id(\\d+)', { title: `AA-${game.name}`, csrfToken: req.csrfToken() });
 }));
