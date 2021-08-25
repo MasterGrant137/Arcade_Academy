@@ -1,0 +1,25 @@
+extends layout.pug
+
+block content
+  .all-games
+    each game in topGames
+      a(href=`/games/${game.id}`)
+        .game-preview-containers
+           .game-preview-img
+             img(src= game.gameImage, alt="Game Image" class="game-images")
+           .game-preview-info
+             h5= game.name
+             p= game.genre
+block side-content
+  .game-sidebar
+    h4 Top Game Trailers
+    .game-news-container
+      label#game-news-label-1 Battlefield 2042
+      <iframe src="https://www.youtube.com/embed/ASzOzrB-a9E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
+      //- pick 3-5 games we put in our database and write a cool news story
+    .game-news-container
+      label#game-news-label-2 Apex Legends
+      <iframe src="https://www.youtube.com/embed/uQBKoZIYNrs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
+    .game-news-container
+      label#game-news-label-3 Call of Duty Vanguard Trailer
+      <iframe src="https://www.youtube.com/embed/79xjgsBzFcE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>

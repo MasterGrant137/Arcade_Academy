@@ -15,5 +15,13 @@ router.get(`/:id(\\d+)`, asyncHandler( async (req, res, next) => {
   res.render('game.pug', { title: `AA-${game.name}`, game });
 }));
 
+router.get('/topGames', asyncHandler(async(req,res) => {
+  const topGames = await Game.findAll({ limit: 10 });
+
+  res.render('topTen.pug', {
+    title: 'Top Games',
+    topGames
+  })
+}));
 
 module.exports = router;
