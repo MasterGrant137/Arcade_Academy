@@ -11,8 +11,11 @@ axios.get(apiUrl)
         // console.log(pretty($.html()));
 
         $('img.img-responsive').each((idx, ele) => {
-            const targ = $(ele);
-            console.log(targ);
+            const targSources = $(ele).attr('src');
+            const targLinks = $(ele).find('')
+
+            // console.log(targSources);
+            console.log(targLinks);
         })
     })
     .catch(err => {
@@ -27,6 +30,36 @@ axios.get(apiUrl)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+//! THIS WORKS
+    // axios.get(apiUrl)
+    // .then(res => {
+    //     let $ = cheerio.load(res.data);
+    //     // console.log(pretty($.html()));
+
+    //     $('img.img-responsive').each((idx, ele) => {
+    //         const targSources = $(ele).attr('src');
+    //         const targLinks = $(ele).find('')
+
+    //         // console.log(targSources);
+    //         console.log(targLinks);
+    //     })
+    // })
+    // .catch(err => {
+    //     console.log(err);
+    // });
 
 
 
