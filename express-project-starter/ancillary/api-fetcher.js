@@ -13,23 +13,28 @@ const apiUrl = 'https://www.igdb.com/advanced_search'
 axios.get(apiUrl)
     .then(res => {
         let $ = cheerio.load(res.data);
-
+        // console.log(pretty($.html()));
         // 'div.media-left'
-        $('body').each((idx, ele) => {
-            // let targetData = $(ele)
-            //     .find('img.img-responsive')
-            //     .attr('src');
-            // console.log(targetData);
+        // let targetData = $(ele)
+        //     .find('img.img-responsive')
+        //     .attr('src');
+        // console.log(targetData);
 
-
-            // > div.container > div.row > div.col-md-9 > div
-            const footer = $(ele)
-                .find('#footer-small a')
-            console.log(footer.attr('href'));
-            // console.log(footer.text());
+        // .mar-lg-top .fix-heights col-md-6 or .mar-lg-bottom
+        // .media .media-left > img.img-responsive
+        $('.fix-heights').each((idx, ele) => {
+            let targetData = $(ele)
+                // .find('col-md-6.mar-lg-bottom');
+                console.log(targetData.children());
+                // console.log($(ele).attr('href'));
         });
 
-
+        // $('#footer-small a').each((idx, ele) => {
+            //? prints the innerText of the footer links
+            // console.log($(ele).text());
+            //? prints the hrefs of the footer links
+            // console.log($(ele).attr('href'));
+        // })
     })
     .catch(err => {
         console.log(err);
