@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { Game } = require('../db/models');
 const { asyncHandler } = require('./utils');
+const csrfProtection = require('./utils');
+const { check, validationResult } = require('express-validator');
 
 
 
@@ -12,12 +14,41 @@ router.get('/', asyncHandler( async (req, res, next) => {
   res.render('gameCollection.pug', { title: 'Arcade Academy', games });
 }));
 
-router.get(`/:id(\\d+)`, asyncHandler( async (req, res, next) => {
-  const gameId = parseInt(req.params.id, 10)
+router.get(`/:id(\\d+)`, csrfProtection, asyncHandler( async (req, res, next) => {
+  const gameId = parseInt(req.params.id, 10);
   const game = await Game.findByPk(gameId);
   
-  res.render('game.pug', { title: `AA-${game.name}`, game });
+  res.render('game.pug', { title: `AA-${game.name}`, game, csrfToken:req.csrfToken() });
 }));
+
+
+// form handling for submitting a new review on a given /game/:id page
+
+const reviewsValidators = [
+  check('content')
+    .exists({ checkFalsy: true })
+    .withMessage('Review field must not be empty')
+    .isLength({ min: 15, max: 255 })
+    .withMessage("Please keep reviews between 15 and 255 characters"),
+  // If we impliment scoring system for games, radio button
+  //  check('reviewScore')
+  //   .exists({ checkFalsy: true })
+  //   .withMessage('Gamescore must not be empty')
+];
+
+router.post("/:id(\\d+)/new-review", csrfProtection, reviewsValidators, asyncHandler (async(req, res, next)=> {
+  const gameId = parseInt(req.params.id, 10);
+  const {content} = req.body;
+  const newReview = await Review.create({
+    content,
+    game_id: gameId
+  });
+
+
+
+  // res.render('/:id(\\d+)', { title: `AA-${game.name}`, csrfToken: req.csrfToken() });
+}));
+
 
 router.get('/topGames', asyncHandler(async(req,res) => {
   const topGames = await Game.findAll({ limit: 10 });
@@ -35,8 +66,7 @@ router.get('/categories', asyncHandler(async(req, res) => {
 
 
 
-
-//Routes for categories
+//--------Routes for categories------------
 
 router.get('/action', asyncHandler(async(req,res) => {
   const games = await Game.findAll({ where: {
@@ -78,5 +108,7 @@ router.get('/sports', asyncHandler(async(req,res) => {
   res.render('filteredGames.pug', { games })
 
 }));
+
+
 
 module.exports = router;
