@@ -11,7 +11,8 @@ html
   body
     header
       div#page-header
-        h1#page-title Arcade Academy
+        a(href="/" class="title-anchor") 
+          h1#page-title Arcade Academy
         if locals.authenticated
           div
             span Hey #{user.screenName}! Lets Game 🎮
@@ -19,9 +20,9 @@ html
               button(type='submit') Logout
         else
           .auth-buttons
-          a(href="/users/login") Log In
-          span |
-          a(href="/users/register") Sign Up
+            a(href="/users/login") Log In
+            span |
+            a(href="/users/register") Sign Up
 
 
     nav
@@ -30,7 +31,7 @@ html
           li • Top 10 ○
         a(href="/" class="nav-bar-button")
           li • New Releases ○
-        a(href="/" class="nav-bar-button")
+        a(href="/games/categories" class="nav-bar-button")
           li • Categories ○
         a(href="/games" class="nav-bar-button")
           li • All Games ○
