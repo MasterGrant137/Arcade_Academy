@@ -133,7 +133,7 @@ aside {
   align-items: center;
 }
 /* ============== footer section ============== */
-footer{
+.footer{
   background-color: var(--floatColor);
   /* position: absolute; */
   margin: 0;
@@ -141,11 +141,38 @@ footer{
   height: 100px;
   /* bottom: 0px; */
   display: flex;
+
+  justify-content: space-between;
+  /* align-self: center; */
+}
+.left {
+  margin-left: 8%;
+  display: flex;
   flex-direction:row;
   justify-content: center;
-  align-self: center;
+  justify-content: space-around;
 }
+.right{
+  margin-right: 8%;
+  display: flex;
+  flex-direction:column;
+}
+.right>.images{
+  display: flex;
+  flex-direction:row;
+}
+.images>img{
+  /* background-color: black; */
+  margin: 3px;
+  border-radius: 3px;
 
+  width: 100px;
+}
+.right>p{
+  align-self: flex-end;
+  padding: 0px;
+  margin-top: -2px;
+}
 .contact, .about, .social-media {
     margin: 0px 20px;
 }
