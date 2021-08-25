@@ -1,19 +1,65 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
+const pretty = require('pretty');
+
 const apiUrl = 'https://www.igdb.com/advanced_search'
-// .data-reactroot .marg-lg-top .fix-heights .row .col-md-6 .media .media-left .img-responsive
+// .data-reactroot .marg-lg-top .fix-heights
+// .col-md-6
+// .media .media-left .img-responsive thumb
+// find('img[class="img-responsive"]')
+// div:nth-child(3)
+// 'div.col-md-6 > div.media > div.media-left > img.img-responsive'
+
 axios.get(apiUrl)
     .then(res => {
         let $ = cheerio.load(res.data);
 
-        $('.marg-lg-top').each((idx, ele) => {
-            let targetData = $(ele).children()
-            console.log(targetData);
+        // 'div.media-left'
+        $('body').each((idx, ele) => {
+            // let targetData = $(ele)
+            //     .find('img.img-responsive')
+            //     .attr('src');
+            // console.log(targetData);
+
+
+            // > div.container > div.row > div.col-md-9 > div
+            const footer = $(ele)
+                .find('#footer-small a')
+            console.log(footer.attr('href'));
+            // console.log(footer.text());
         });
+
+
     })
     .catch(err => {
         console.log(err);
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// axios.get(apiUrl)
+//     .then(res => {
+//         let $ = cheerio.load(res.data);
+//         // console.log(pretty($.html()))
+//         $('.fix-heights > div:nth-child(3) > img').each((idx, ele) => {
+//             let targetData = $(ele).attr('src');
+//             console.log(targetData);
+//         });
+//     })
+//     .catch(err => {
+//         console.log(err);
+//     });
 
 
 
