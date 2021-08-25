@@ -28,10 +28,14 @@ router.get('/topGames', asyncHandler(async(req,res) => {
   })
 }));
 
-
 router.get('/categories', asyncHandler(async(req, res) => {
   res.render('gameCategories.pug', { genres })
-  
+
 }))
+
+router.get('/filtered', asyncHandler(async(req,res) => {
+  // const genre;
+  console.log(req);
+}));
 
 module.exports = router;

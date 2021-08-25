@@ -2,40 +2,42 @@ extends layout.pug
 
 block content
   .all-games
+    a(href='/games/filtered' value='Action')
+      input(type='hidden' name='Action' value='Action')
+      .game-genre-containers
+        .genre-image
+          img(src="", alt="")
+        .genre-name
+          h4 Action
     .game-genre-containers
-      .genre-image 
+      .genre-image
         img(src="", alt="")
-      .genre-name 
-        h4 Action
-    .game-genre-containers
-      .genre-image 
-        img(src="", alt="")
-      .genre-name 
+      .genre-name
         h4 Adventure
     .game-genre-containers
-      .genre-image 
+      .genre-image
         img(src="", alt="")
-      .genre-name 
+      .genre-name
         h4 Role-playing Game
     .game-genre-containers
-      .genre-image 
+      .genre-image
         img(src="", alt="")
-      .genre-name 
+      .genre-name
         h4 Simulation
     .game-genre-containers
-      .genre-image 
+      .genre-image
         img(src="https://www.denofgeek.com/wp-content/uploads/2021/07/pjimage-52.jpg?resize=768%2C432", alt="")
-      .genre-name 
+      .genre-name
         h4 First-person Shooter
     .game-genre-containers
-      .genre-image 
+      .genre-image
         img(src="", alt="")
-      .genre-name 
+      .genre-name
         h4 Sports
     .game-genre-containers
-      .genre-image 
+      .genre-image
         img(src="", alt="")
-      .genre-name 
+      .genre-name
         h4 MMO
 block side-content
   .game-sidebar
