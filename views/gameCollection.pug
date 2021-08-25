@@ -3,14 +3,17 @@ extends layout.pug
 block content
   .all-games
     each game in games
-      a(href=`/games/${game.id}`) 
         .game-preview-containers
+          a(href=`/games/${game.id}`)
            .game-preview-img
              img(src= game.gameImage, alt="Game Image" class="game-images")
            .game-preview-info
              h5= game.name
              p= game.genre
-             
+          if locals.authenticated
+            form(action=`/users/${userId}/gameList` method: "POST")
+              button(type="submit" value="played") Played
+              button(type="submit" value="wantToPlay") Want To Play
 block side-content
   .game-sidebar
     h4 Game News

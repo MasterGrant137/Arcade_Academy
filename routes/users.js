@@ -3,7 +3,7 @@ var router = express.Router();
 const db = require("../db/models")
 const { User } = require('../db/models')
 const { csrfProtection, asyncHandler} = require('./utils');
-const { loginUser, logoutUser } = require('../auth');
+const {  loginUser, logoutUser, requireAuth } = require('../auth');
 const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 
@@ -116,7 +116,7 @@ router.get('/login', csrfProtection, (req, res) => {
 router.post('/login', csrfProtection, loginValidators, asyncHandler(async(req, res) => {
   const { email, password } = req.body
   const validationErrors = validationResult(req)
-  
+
 
   if (validationErrors.isEmpty()) {
       const user = await User.findOne({
@@ -124,14 +124,14 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async(req, r
           email,
         },
       });
-     
+
       console.log("HERE")
 
       if (user) {
           const isPassword = await bcrypt.compare(password, user.hashedPassword.toString());
           if (isPassword) {
             loginUser(req, res, user);
-            
+
           }
           else {
             const errors = ["Password Incorrect"]
@@ -141,8 +141,8 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async(req, r
               errors,
               csrfToken: req.csrfToken()
             })
-            
-           
+
+
           }
       }else{
            const errors = ["Could not find a User with that Email/Password"];
@@ -169,6 +169,13 @@ router.post('/logout', (req, res) => {
   res.redirect('/')
 })
 
+router.get('/:id(\\d+)/gameList', requireAuth, asyncHandler (async(req, res) => {
+  const userId = req.params.id;
+  console.log(userId);
+}))
 
+router.post('/:id(\\d+)/gameList', requireAuth, asyncHandler (async(req, res) => {
+  console.log("I'm working");
+}))
 
 module.exports = router;

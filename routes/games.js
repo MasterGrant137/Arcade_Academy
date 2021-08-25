@@ -11,7 +11,8 @@ const genres = ['Action', 'Action-adventure', 'Adventure', 'RPG', 'Simulation', 
 
 router.get('/', asyncHandler( async (req, res, next) => {
   const games = await Game.findAll();
-  res.render('gameCollection.pug', { title: 'Arcade Academy', games });
+  const userId = req.session.auth.userId;
+  res.render('gameCollection.pug', { title: 'Arcade Academy', games, userId });
 }));
 
 router.get(`/:id(\\d+)`, csrfProtection, asyncHandler( async (req, res, next) => {
