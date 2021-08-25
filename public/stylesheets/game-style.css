@@ -62,13 +62,13 @@ section{
   padding: 1rem;
 }
 
-.game-preview-containers {
+.game-preview-containers, .game-genre.containers {
   background-color: rgba(174, 189, 202, 0.096);
   border: 0 solid rgba(108, 126, 141, 0.411);
   border-radius: 10px;
 }
 
-.game-preview-img > img{
+.game-preview-img > img, .genre-image>img{
   height: 150px;
   width: 120px;
   border-radius: 10px;
