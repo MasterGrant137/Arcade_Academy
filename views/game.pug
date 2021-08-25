@@ -1,5 +1,5 @@
 extends layout.pug
-
+include utils.pug
 block content
   .top
     .game-image
@@ -12,6 +12,7 @@ block content
       span
       span
   .game-description non dolorem ratione sed placeat ea in aut. Reiciendis consequatur minima dolor. Et aut et enim dignissimos illo fugiat eum. Quia sapiente placeat enim est aut. Minima nulla
+  +validationErrors(errors)
   if locals.authenticated
     .review-form
       h4 New Review
