@@ -12,13 +12,15 @@ const reviewsValidators = [
       .withMessage('Review field must not be empty')
       .isLength({ min: 15, max: 255 })
       .withMessage("Please keep reviews between 15 and 255 characters"),
-      //If we impliment scoring system for games, radio button
+    // If we impliment scoring system for games, radio button
     //  check('reviewScore')
     //   .exists({ checkFalsy: true })
     //   .withMessage('Gamescore must not be empty')
 ];
 
-router.get("/new", csrfProtection, asyncHandler (async(req, res, next)=> {
+router.get("/", csrfProtection, asyncHandler (async(req, res, next)=> {
+    console.log("--------->",req.body,"--------->");
+    
     res.render('reviewForm.pug', { title: 'New Review', csrfToken: req.csrfToken() });
 }));
 
