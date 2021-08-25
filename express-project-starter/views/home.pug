@@ -1,11 +1,12 @@
 extends layout.pug
 
 block content
-  each game in games
-    .game-card
-      p= game.name
-      p= game.genre
-      .game-info
+  .games-section
+    each game in games
+      .game-card
+        p= game.name
+        p= game.genre
+        .game-info
 
 block side-content
   h4 Gaming News

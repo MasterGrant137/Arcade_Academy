@@ -3,9 +3,11 @@ html
   head
       block head
         title #{title}
+        <link href="https://fonts.googleapis.com/css2?family=Abel&family=Teko:wght@300&family=Varela+Round&display=swap" rel="stylesheet">
         link(rel='stylesheet' href='/stylesheets/main.css')
         link(rel="stylesheet", href="/stylesheets/form-style.css")
         link(rel="stylesheet" href="/stylesheets/game-style.css")
+        link(rel="stylesheet" href="/stylesheets/game-cards.css")
   body
     header
       if locals.authenticated
@@ -24,11 +26,11 @@ html
 
     nav
       ul
-        li Top 10
-        li New Releases
-        li Categories
-        li AA Points
-        li Play Now
+        li • Top 10 ○
+        li • New Releases ○
+        li • Categories ○
+        li • AA Points ○
+        li • Play Now ○
 
     main
       section
@@ -38,16 +40,16 @@ html
 
     footer
       .contact
-        ul Contact
+        ul <span>Contact</span>
           li Careers
           li Support
           li Invest
       .about
-        ul About
+        ul <span>About</span>
           li Terms
           li Privacy
       .social-media
-        ul Social Media
-          li X
-          li X
-          li X
+        ul <span>Social Media</span>
+          li ☒ Tweeter
+          li ☒ Instacam
+          li ☒ Fanbook
