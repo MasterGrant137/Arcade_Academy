@@ -83,7 +83,8 @@ section{
   display: grid;
   grid-template-rows: 4vw 4vw;
   /* grid-template-columns: 1fr 1fr; */
-  align-items: center;
+  /* align-items: center; */
+  justify-content: center;
   /* grid-template-columns: 1fr 1fr; */
 }
 
