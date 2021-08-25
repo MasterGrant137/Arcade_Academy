@@ -22,19 +22,19 @@ axios.get(apiUrl)
 
         // .mar-lg-top .fix-heights col-md-6 or .mar-lg-bottom
         // .media .media-left > img.img-responsive
-        $('.fix-heights').each((idx, ele) => {
-            let targetData = $(ele)
+        // $('.fix-heights').each((idx, ele) => {
+            // let targetData = $(ele)
                 // .find('col-md-6.mar-lg-bottom');
-                console.log(targetData.children());
+                // console.log(targetData.children());
                 // console.log($(ele).attr('href'));
-        });
+        // });
 
-        // $('#footer-small a').each((idx, ele) => {
+        $('#footer-small a').each((idx, ele) => {
             //? prints the innerText of the footer links
             // console.log($(ele).text());
             //? prints the hrefs of the footer links
-            // console.log($(ele).attr('href'));
-        // })
+            console.log($(ele).attr('href'));
+        })
     })
     .catch(err => {
         console.log(err);

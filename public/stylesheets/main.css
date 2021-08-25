@@ -34,29 +34,31 @@ ul>span{
 /* ============== top section ============== */
 header {
   background-color: var(--headerColor);
-  height: 100px;
   width: 100%;
   text-align: center;
 }
-/* .auth-buttons {
 
-}*/
+#page-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-header>h1{
+#page-title{
   font-family: 'Varela Round', sans-serif;
-  opacity: 1; 
+  opacity: 1;
   color: #ffffff;
   font-size: 28pt;
-  text-shadow: 
-    0 0 2px #fff, 
-    0 0 4px var(--neonColor), 
-    0 0 6px var(--neonColor), 
-    0 0 8px var(--neonColor), 
-    0 0 10px var(--neonColor), 
-    0 0 12px var(--neonColor), 
+  text-shadow:
+    0 0 2px #fff,
+    0 0 4px var(--neonColor),
+    0 0 6px var(--neonColor),
+    0 0 8px var(--neonColor),
+    0 0 10px var(--neonColor),
+    0 0 12px var(--neonColor),
     0 0 14px var(--neonColor),
     0 0 15px var(--neonColor);
-} 
+}
 nav {
   width: 100%;
 }
@@ -66,33 +68,33 @@ nav>ul{
   flex-direction: row;
   justify-content: space-around;
 }
-nav>ul>li {
+.nav-bar-button {
   list-style:none;
   font-family: 'Varela Round', sans-serif;
   opacity: 75%;
   padding: 0 3px 0 3px;
   color: #fff2f4;
   text-decoration: none;
-  text-shadow: 
-  0 0 2px #fff, 
-  0 0 4px var(--neonColor), 
-  0 0 6px var(--neonColor), 
-  0 0 8px var(--neonColor), 
-  0 0 10px var(--neonColor), 
-  0 0 12px var(--neonColor), 
+  text-shadow:
+  0 0 2px #fff,
+  0 0 4px var(--neonColor),
+  0 0 6px var(--neonColor),
+  0 0 8px var(--neonColor),
+  0 0 10px var(--neonColor),
+  0 0 12px var(--neonColor),
   0 0 14px var(--neonColor);
 }
-nav>ul>li:hover{
+.nav-bar-button:hover{
   style:none;
-    opacity: 1; 
+    opacity: 1;
     color: #ffffff;
-    text-shadow: 
-    0 0 2px #fff, 
-    0 0 4px var(--neonColor2), 
-    0 0 6px var(--neonColor2), 
-    0 0 8px var(--neonColor2), 
-    0 0 10px var(--neonColor2), 
-    0 0 12px var(--neonColor2), 
+    text-shadow:
+    0 0 2px #fff,
+    0 0 4px var(--neonColor2),
+    0 0 6px var(--neonColor2),
+    0 0 8px var(--neonColor2),
+    0 0 10px var(--neonColor2),
+    0 0 12px var(--neonColor2),
     0 0 14px var(--neonColor2),
     0 0 15px var(--neonColor2);
 
