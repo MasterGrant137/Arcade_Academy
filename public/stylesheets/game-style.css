@@ -28,17 +28,27 @@ section{
 
 
  /* ============== reviews section ================*/
-.reviews{
- display: flex;
- flex-direction: columns;
- align-items: center;
-}
-.review{
-  width: 100%;
-  grid-template-columns: 10% 20% 70%;
-  grid-column-gap: 10px;
+ .review-form {
+   display: grid;
+   grid-template-rows: 1fr;
+   grid-template-columns: 1fr 1fr 1fr;
+   grid-template-areas:
+   "a a a"
+   "b b b"
+   "c c c";
 
-}
+ }
+ #review-form-title{
+  grid-area: 'a';
+ }
+ .review-textbox {
+  grid-area: 'b';
+  border-radius: 5px;
+ }
+ .submit-review {
+  grid-area: 'c';
+  border-radius: 5px;
+ }
 
 .review-container {
   display: flex;
@@ -54,6 +64,9 @@ section{
   width: 60%;
   overflow: wrap;
   word-wrap: break-word;
+  background-color: blanchedalmond;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px #b7410e ;
 }
 
 /* ============== sidebar section ================*/
