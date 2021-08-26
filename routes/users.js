@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const db = require("../db/models")
-const { User, GameList, Game } = require('../db/models')
+const { User, GameList, Game, Review } = require('../db/models')
 const { csrfProtection, asyncHandler} = require('./utils');
 const {  loginUser, logoutUser, requireAuth } = require('../auth');
 const { check, validationResult } = require('express-validator');
@@ -243,10 +243,9 @@ router.get("/:id(\\d+)/userProfile",requireAuth,csrfProtection,asyncHandler(asyn
       where:{
         user_id: userId,
         have_played: true
-
       },
       include: Game
-    })
+    });
     const wtpGamesList = await GameList.findAll({
       where:{
         user_id: userId,
@@ -254,11 +253,16 @@ router.get("/:id(\\d+)/userProfile",requireAuth,csrfProtection,asyncHandler(asyn
 
       },
       include: Game
-    })
-
+    });
+    const reviews = await Review.findAll({
+      where:{
+        user_id: userId,
+      },
+      include: Game
+    });
     // console.log(wtpGamesList[0])
     
-    res.render("userProfile.pug", { title: "userProfile", playedGamesList, wtpGamesList, userId });
+    res.render("userProfile.pug", { title: "userProfile", playedGamesList, wtpGamesList, reviews, userId });
   })
 );
 
