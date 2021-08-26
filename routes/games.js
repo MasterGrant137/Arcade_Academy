@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Game, Review, User } = require('../db/models');
+const { Game, Review, User, Like } = require('../db/models');
 const { asyncHandler } = require('./utils');
 const { csrfProtection } = require('./utils');
 const { check, validationResult } = require('express-validator');
@@ -29,6 +29,8 @@ router.get(`/:id(\\d+)`, csrfProtection, asyncHandler( async (req, res, next) =>
       game_id: gameId
     }
   });
+  console.log(reviews.length)
+  
 
   const game = await Game.findByPk(gameId);
 
@@ -55,6 +57,7 @@ router.post("/:id(\\d+)", requireAuth, csrfProtection, reviewsValidators, asyncH
   const userId = req.session.auth.userId;
   const { gameId, content} = req.body;
   console.log(req.session);
+
 
   const reviews = await Review.findAll({
     where: {
@@ -93,6 +96,63 @@ router.post("/:id(\\d+)", requireAuth, csrfProtection, reviewsValidators, asyncH
   }
 
 }));
+
+router.post('/:id(\\d+)/likes', requireAuth ,csrfProtection,asyncHandler(async(req, res) => {
+  const {like, dislike} = req.body
+  const userId = req.session.auth.userId
+
+  if(like){
+    const review_id = like
+    const currLike = await Like.findOne({
+      user_id: userId,
+      review_id,
+    })
+    if(currLike){
+      if(currLike.like === false){
+        currLike.like = true
+        await currLike.save()
+      }else{
+        res.status(204).send()
+      }
+    }else{
+      const newLike = await Like.create({
+        user_id: userId,
+        review_id,
+        like: true
+      })
+      res.status(204).send()
+    }
+  }
+
+  if(dislike){
+    const review_id = dislike
+    const currLike = await Like.findOne({
+      user_id: userId,
+      review_id,
+    })
+
+    if(currLike){
+      if(currLike.like === true){
+        currLike.like = false
+        await currLike.save()
+      }else{
+        res.status(204).send
+      }
+    }else{
+      const newLike = await Like.create({
+        user_id: userId,
+        review_id,
+        like: false
+      })
+      res.status(204).send()
+    }
+  }
+
+
+
+  console.log(review_id)
+  res.status(204).send()
+}))
 
 router.get('/topGames', asyncHandler(async(req,res) => {
   const topGames = await Game.findAll({ limit: 10 });
