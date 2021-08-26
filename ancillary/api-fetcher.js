@@ -4,18 +4,33 @@ const pretty = require('pretty');
 
 // const apiUrl = 'https://www.igdb.com/advanced_search'
 const apiUrl = 'https://www.igdb.com/games/recently_released';
-
+// console.log('still working');
 axios.get(apiUrl)
     .then(res => {
         let $ = cheerio.load(res.data);
         // console.log(pretty($.html()));
 
-        $('img.img-responsive').each((idx, ele) => {
-            const targSources = $(ele).attr('src');
-            const targLinks = $(ele).find('')
+        // when in doubt: return word[0].toUpperCase() + word.slice(1); with no conditions works
+        $('.col-md-1').each((idx, ele) => {
+            const gameLinks = $(ele).find('a').attr('href');
 
+            const gameTitles = gameLinks
+                .split('/')[2]
+                .split('-')
+                .map(word => {
+                    if (word) {
+                        return word[0].toUpperCase() + word.slice(1);
+                    } else if (!word) {
+                        return;
+                    }
+                })
+                .join(' ');
+                
+            const targSources = $(ele).find('img').attr('src');
+
+            // console.log(gameLinks);
+            console.log(gameTitles);
             // console.log(targSources);
-            console.log(targLinks);
         })
     })
     .catch(err => {
@@ -23,10 +38,22 @@ axios.get(apiUrl)
     });
 
 
+//! superfluous security
+    // else if (word[0] === '/[A-Z]' || word[0] !== '/[a-z]') {
+    //     return word[0] + word.slice(1);
+    // }
 
 
+//! worked at one point
+// if (word[0] !== '/[a-z]|[A-Z]') {
+                    //     return word;
+                    // }
 
+                    // if (word[0] === '/[a-z]|[A-Z]') {
+                    //      word[0].toUpperCase() + word.slice(1)
+                    // }
 
+                    // word[0].toUpperCase() + word.slice(1)
 
 
 
