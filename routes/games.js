@@ -58,11 +58,7 @@ router.post("/:id(\\d+)", requireAuth, csrfProtection, reviewsValidators, asyncH
 
 console.log(gameId, content, userId);
 
-  await Review.create({
-    user_id: userId,
-    content,
-    game_id: gameId
-  });
+  
 
   const reviews = await Review.findAll({
     where: {
@@ -75,9 +71,14 @@ console.log(gameId, content, userId);
   
   if (validationErrors.isEmpty()) {
     res.render('game.pug', { game, reviews, gameId, csrfToken:req.csrfToken() });
+    await Review.create({
+      user_id: userId,
+      content,
+      game_id: gameId
+    });
   } else {
     const errors = validationErrors.array().map(error => error.msg)
-    res.render('game.pug', { gameId, csrfToken:req.csrfToken(), errors });
+    res.render('game.pug', { game, reviews, gameId, csrfToken:req.csrfToken(), errors });
 
   }
 
