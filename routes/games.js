@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Game } = require('../db/models');
-const { Review } = require('../db/models');
+const { Game, Review, User } = require('../db/models');
 const { asyncHandler } = require('./utils');
 const { csrfProtection } = require('./utils');
 const { check, validationResult } = require('express-validator');
@@ -44,7 +43,7 @@ const reviewsValidators = [
     .exists({ checkFalsy: true })
     .withMessage('Review field must not be empty')
     .isLength({ min: 15, max: 255 })
-    .withMessage("Please keep reviews between 15 and 255 characters"),
+    .withMessage("Please keep reviews between 15 and 255 characters")
   // If we impliment scoring system for games, radio button
   //  check('reviewScore')
   //   .exists({ checkFalsy: true })
@@ -56,10 +55,6 @@ router.post("/:id(\\d+)", requireAuth, csrfProtection, reviewsValidators, asyncH
   const userId = req.session.auth.userId;
   const { gameId, content} = req.body;
 
-console.log(gameId, content, userId);
-
-  
-
   const reviews = await Review.findAll({
     where: {
       game_id: gameId
@@ -67,23 +62,32 @@ console.log(gameId, content, userId);
   });
 
   const game = await Game.findByPk(gameId);
+
+
+  const userReview = await Review.findOne({
+    where: {
+      game_id: gameId,
+      user_id: userId
+    }
+  })
+console.log(userReview, '<==============================')
   const validationErrors = validationResult(req);
-  
-  if (validationErrors.isEmpty()) {
-    res.render('game.pug', { game, reviews, gameId, csrfToken:req.csrfToken() });
+
+  if (userReview) {
+    const errors = ['You have already posted a review'];
+    return res.render('game.pug', { game, reviews, gameId, csrfToken:req.csrfToken(), errors });
+  } else if (validationErrors.isEmpty()) {
     await Review.create({
       user_id: userId,
       content,
       game_id: gameId
     });
+    return res.render('game.pug', { game, reviews, gameId, csrfToken:req.csrfToken() });
   } else {
     const errors = validationErrors.array().map(error => error.msg)
-    res.render('game.pug', { game, reviews, gameId, csrfToken:req.csrfToken(), errors });
-
+    return res.render('game.pug', { game, reviews, gameId, csrfToken:req.csrfToken(), errors });
   }
 
-  // res.redirect('/')
-  // res.render('/:id(\\d+)', { title: `AA-${game.name}`, csrfToken: req.csrfToken() });
 }));
 
 router.get('/topGames', asyncHandler(async(req,res) => {
