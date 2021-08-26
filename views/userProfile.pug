@@ -27,7 +27,7 @@ block content
              p= gameList.Game.genre 
              form(action=`/users/${userId}/userProfile/delete` method= "post")
               input(type="hidden" value=userId name="user_id")
-              button(type="submit" id=userId value=gameList.Game.id name="game_id" class="remove-game-btn") Remove
+              button(type="submit" id=userId value=gameList.Game.id name="game_id" class="remove-game-btn remove-btn") Remove
         
     .divider 
       p.no-padding Played
@@ -43,12 +43,18 @@ block content
              p= gameList.Game.genre 
              form(action=`/users/${userId}/userProfile/delete` method= "post")
               input(type="hidden" value=userId name="user_id")
-              button(type="submit"  id=userId value=gameList.Game.id name="game_id" class="remove-game-btn") Remove
+              button(type="submit"  id=userId value=gameList.Game.id name="game_id" class="remove-game-btn remove-btn") Remove
     .divider 
       p.no-padding My Reviews
     .users-reviews
       each review in reviews
-        div.(id=`review-container-`)
-          h4= review.Game.name
-          p= review.content
+        div(id=`review-container-${review.id}` class='review-preview-container')
+          div.rev-image
+            img(src=review.Game.gameImage)
+          div.rev-title
+            h4= review.Game.name
+          div.rev-content
+            p= review.content
+          div.rev-remove-button
+            button(type="submit" id=userId value=review.id name="remove-review-btn" class="remove-review-btn remove-btn") Remove
     // all the reviews that the user has made, starting with msot recent
