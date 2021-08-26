@@ -14,16 +14,16 @@ const seedUsersTables = async() => {
         console.log(`{ fullName: 'User${i}', email: 'user${i}@email.com', hashedPassword: '${hashedPassword}', screenName: 'PugLife${i}', createdAt: new Date(), updatedAt: new Date() },`);
     }
 }
-seedUsersTables();
+// seedUsersTables();
 
-const seedGamesTables = () => {
+const seedGamesTables = (name, gameImage, genre) => {
     for (let i = 1; i < 10; i++) {
         if (isPrimeHelper(i)) {
-            console.log(`{ name: 'Game${i}', genre: 'Type${i}', createdAt: new Date(), updatedAt: new Date() },`);
+            console.log(`{ name: 'Game${name}',  gameImage: ${gameImage}, genre: 'Type${i}', createdAt: new Date(), updatedAt: new Date() },`);
         } else if ( i % 2 === 0) {
-            console.log(`{ name: 'Game${i}', genre: 'Type0', createdAt: new Date(), updatedAt: new Date() },`);
+            console.log(`{ name: 'Game${name}', gameImage: ${gameImage}, genre: 'Type0', createdAt: new Date(), updatedAt: new Date() },`);
         } else if (i % 2 !== 0) {
-            console.log(`{ name: 'Game${i}', genre: 'Type1', createdAt: new Date(), updatedAt: new Date() },`);
+            console.log(`{ name: 'Game${name}', gameImage: ${gameImage}, genre: 'Type1', createdAt: new Date(), updatedAt: new Date() },`);
         }
     }
 }
