@@ -1,6 +1,7 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const pretty = require('pretty');
+const { seedGamesTables } = require('./seeder-functions');
 
 const apiUrl = 'https://www.igdb.com/games/recently_released';
 
@@ -11,6 +12,7 @@ const fetcher = () => {
             // console.log(pretty($.html()));
 
             $('.col-md-1').each((idx, ele) => {
+
                 const gameLinks = $(ele).find('a').attr('href');
 
                 const gameTitles = gameLinks
@@ -28,11 +30,14 @@ const fetcher = () => {
                     })
                     .join(' ');
 
-                const targSources = $(ele).find('img').attr('src');
-
+                const gameSources = $(ele).find('img').attr('src');
+                // https://images.igdb.com/igdb/image/upload/t_cover_small/co3gmz.jpg
+                // https://images.igdb.com/igdb/image/upload/t_cover_small/co3dli.jpg
                 // console.log(gameLinks);
-                console.log(gameTitles);
+                // console.log(gameTitles);
                 // console.log(targSources);
+
+                seedGamesTables(gameTitles, gameSources, gameLinks)
             })
         })
         .catch(err => {

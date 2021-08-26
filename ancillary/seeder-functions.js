@@ -70,3 +70,5 @@ function isPrimeHelper(index) {
 
     return true;
 }
+
+module.exports = { seedGamesTables };
