@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
 const db = require("../db/models")
-const { User } = require('../db/models')
+const { User, GameList, Game } = require('../db/models')
 const { csrfProtection, asyncHandler} = require('./utils');
 const {  loginUser, logoutUser, requireAuth } = require('../auth');
 const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
+const { route } = require('./games');
 
 
 const userValidators = [
@@ -169,17 +170,125 @@ router.post('/logout', (req, res) => {
   res.redirect('/')
 })
 
-router.get('/:id(\\d+)/gameList', requireAuth, asyncHandler (async(req, res) => {
-  const userId = req.params.id;
-  console.log(userId);
-}))
 
-router.post('/:id(\\d+)/gameList', requireAuth, asyncHandler (async(req, res) => {
-  console.log("I'm working");
+router.post("/:id(\\d+)/userProfile",requireAuth,asyncHandler(async (req, res) => {
+    // console.log("I'm working");
+    // console.log(req.params.id)
+    // console.log(req.body);
+    const userId = req.params.id
+    const { played, wantToPlay } = req.body
+    if(played){
+      console.log("PLAYED WORKS")
+      console.log(played)
+      const gameId = played
+      const game = await GameList.findOne({
+        where: {
+          user_id: userId,
+          game_id: gameId,
+        }
+      })
+      //if there is a gameList found do this
+      if(game){
+        if(game.have_played === false){
+          game.have_played = true
+          await game.save()
+        }else{
+          res.status(204).send();
+        }
+      }else{ //if there is no gameList found do this
+        const newGameList = await GameList.create({
+          user_id: userId,
+          game_id: gameId,
+          have_played: true
+        })
+        res.status(204).send()
+      }
+
+      
+
+    }
+
+    if(wantToPlay){
+      const gameId = wantToPlay
+      console.log("WTP WORKS")
+      const game = await GameList.findOne({
+        where:{
+          user_id: userId,
+          game_id: gameId,
+        }
+      })
+
+      if(game){
+        if(game.have_played === true){
+          game.have_played = false
+          await game.save()
+        }else{
+          res.status(204).send()
+        }
+      }else{
+        const newGameList = await GameList.create({
+          user_id: userId,
+          game_id: gameId,
+          have_played: false,
+        });
+        res.status(204).send();
+      }
+    }
+  })
+);
+
+router.get("/:id(\\d+)/userProfile",requireAuth,csrfProtection,asyncHandler(async (req, res) => {
+    const userId = req.params.id
+    const playedGamesList = await GameList.findAll({
+      where:{
+        user_id: userId,
+        have_played: true
+
+      },
+      include: Game
+    })
+    const wtpGamesList = await GameList.findAll({
+      where:{
+        user_id: userId,
+        have_played: false
+
+      },
+      include: Game
+    })
+
+    // console.log(wtpGamesList[0])
+    
+    res.render("userProfile.pug", { title: "userProfile", playedGamesList, wtpGamesList, userId });
+  })
+);
+
+router.post("/:id(\\d+)/userProfile/delete", requireAuth, asyncHandler(async(req, res) => {
+  //  console.log(req.body)  
+   const { user_id, game_id} = req.body
+   console.log(user_id, game_id)
+   const gameList = await GameList.findOne({
+     where: {
+       user_id,
+       game_id
+     }
+   })
+   await gameList.destroy()
+  //  res.json({"message": "Successful"})
+   res.status(204).send()
+
 }));
 
-router.get('/userProfile', csrfProtection, asyncHandler (async(req, res) => {
-  res.render("userProfile.pug", {title: "userProfile" });
+router.delete("/:id(\\d+)/userProfile", asyncHandler(async(req, res, next)=> {
+  const { user_id, game_id } = req.body
+  // console.log(req)
+  const gameList = await GameList.findOne({
+    where: {
+      user_id,
+      game_id
+    }
+  })
+  await gameList.destroy()
+  res.json({"message": "Successful"})
 }));
 
 module.exports = router;

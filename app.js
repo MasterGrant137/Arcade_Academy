@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const { sequelize } = require('./db/models');
+const { sequelize, Game, GameList } = require('./db/models');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const indexRouter = require('./routes/index');
@@ -38,6 +38,10 @@ app.use(
 app.use( restoreUser );
 // create Session table if it doesn't already exist
 store.sync();
+
+
+
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
