@@ -295,4 +295,12 @@ router.delete("/:id(\\d+)/userProfile", asyncHandler(async(req, res, next)=> {
   res.json({"message": "Successful"})
 }));
 
+router.delete("/:id(\\d+)/review", asyncHandler(async(req, res, next)=>{
+  const { user_id, reviewId } = req.body;
+  const review = await Review.findByPk(reviewId);
+  await review.destroy();
+  res.json({"message": "Successful"})
+}));
+
+
 module.exports = router;
