@@ -24,10 +24,17 @@ router.get('/', asyncHandler( async (req, res, next) => {
 
 router.get(`/:id(\\d+)`, csrfProtection, asyncHandler( async (req, res, next) => {
   const gameId = parseInt(req.params.id, 10);
+
+  const reviews = await Review.findAll({
+    where: {
+      game_id: gameId
+    }
+  });
+  console.log(reviews)
   // console.log(gameId)
   const game = await Game.findByPk(gameId);
 
-  res.render('game.pug', { title: `AA-${game.name}`, game, gameId, csrfToken:req.csrfToken() });
+  res.render('game.pug', { title: `AA-${game.name}`, game, gameId, reviews, csrfToken:req.csrfToken() });
 }));
 
 
@@ -61,6 +68,7 @@ console.log(gameId, userId);
   const validationErrors = validationResult(req);
   if (validationErrors.isEmpty()) {
       //where successful review posts will go
+    res.render('game.pug', { title: 'Success', gameId, csrfToken:req.csrfToken() });
   } else {
     const errors = validationErrors.array().map(error => error.msg)
     res.render('game.pug', { title: 'test', gameId, csrfToken:req.csrfToken(), errors });

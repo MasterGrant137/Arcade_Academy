@@ -39,7 +39,9 @@ block content
   .reviews
     //- === add all of the review sections here ===
     //- ...........................................
-    //- each review in reviews
+    each review in reviews
+      .review-container
+        p= review.content
     //- .review
     //-   .voter
     //-   .profile-image
