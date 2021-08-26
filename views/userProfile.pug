@@ -1,0 +1,29 @@
+extends layout.pug
+
+block content
+  .user-profile-container
+    .top
+      .profile-picture
+        p.no-padding 👽
+      .user-profile-info
+        div 
+          .user-profile-info-top
+            h4.user-name.no-padding User1234 
+            p.user-email.no-padding user1234@games.com
+          .user-profile-info-bottom 
+            p.no-padding Favorite Genres
+            p.no-padding Action RPG Strategy Puzzle
+    .divider 
+      p.no-padding Want to Play 
+    .want-to-play-section
+      //-all games user WANTS TO play
+      p.no-padding ***all games user wants to play***
+    .divider 
+      p.no-padding Played
+    .played-section
+      //- all games user HAS played
+      p.no-padding ***all games user has played***
+    .divider 
+      p.no-padding My Reviews
+    .users-reviews 
+    // all the reviews that the user has made, starting with msot recent
