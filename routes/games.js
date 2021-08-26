@@ -88,10 +88,13 @@ console.log(gameId, content, userId);
 
 router.get('/topGames', asyncHandler(async(req,res) => {
   const topGames = await Game.findAll({ limit: 10 });
+  const userId = req.session.auth.userId
+  console.log(userId)
 
   res.render('topTen.pug', {
     title: 'Top Games',
-    topGames
+    topGames,
+    userId
   })
 }));
 
@@ -105,43 +108,48 @@ router.get('/categories', asyncHandler(async(req, res) => {
 //--------Routes for categories------------
 
 router.get('/action', asyncHandler(async(req,res) => {
+  const userId = req.session.auth.userId
   const games = await Game.findAll({ where: {
     genre: 'Type1'
   }})
 
-  res.render('filteredGames.pug', { games })
+  res.render('filteredGames.pug', { games, userId })
 
 }));
 router.get('/adventure', asyncHandler(async(req,res) => {
+  const userId = req.session.auth.userId
   const games = await Game.findAll({ where: {
     genre: 'adventure'
   }})
 
-  res.render('filteredGames.pug', { games })
+  res.render('filteredGames.pug', { games, userId })
 
 }));
 router.get('/rpg', asyncHandler(async(req,res) => {
+  const userId = req.session.auth.userId
   const games = await Game.findAll({ where: {
     genre: 'rpg'
   }})
 
-  res.render('filteredGames.pug', { games })
+  res.render('filteredGames.pug', { games, userId })
 
 }));
 router.get('/fps', asyncHandler(async(req,res) => {
+  const userId = req.session.auth.userId
   const games = await Game.findAll({ where: {
     genre: 'fps'
   }})
 
-  res.render('filteredGames.pug', { games })
+  res.render('filteredGames.pug', { games, userId })
 
 }));
 router.get('/sports', asyncHandler(async(req,res) => {
+  const userId = req.session.auth.userId
   const games = await Game.findAll({ where: {
     genre: 'sports'
   }})
 
-  res.render('filteredGames.pug', { games })
+  res.render('filteredGames.pug', { games, userId })
 
 }));
 
