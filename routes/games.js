@@ -29,10 +29,28 @@ router.get(`/:id(\\d+)`, csrfProtection, asyncHandler( async (req, res, next) =>
       game_id: gameId
     }
   });
-  console.log(reviews.length)
-  
-
   const game = await Game.findByPk(gameId);
+  // console.log(reviews.length)
+
+  for(i=0; i< reviews.length; i++) {
+    const review = reviews[i];
+    const reviewId = reviews[i].id;
+    const allLikes = await Like.findAll({
+      where: {
+        review_id: reviewId,
+        like:true
+      }
+    });
+    const allDislikes = await Like.findAll({
+      where: {
+        review_id: reviewId,
+        like:false
+      }
+    });
+    console.log(allLikes,allDislikes);
+    const score = allLikes.length-allDislikes.length;
+    review.score = score;
+  }
 
   res.render('game.pug', { game, gameId, reviews, csrfToken:req.csrfToken() });
 }));
@@ -150,8 +168,8 @@ router.post('/:id(\\d+)/likes', requireAuth ,csrfProtection,asyncHandler(async(r
 
 
 
-  console.log(review_id)
-  res.status(204).send()
+  // console.log(review_id)
+  // res.status(204).send()
 }))
 
 router.get('/topGames', asyncHandler(async(req,res) => {
