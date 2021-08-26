@@ -28,27 +28,48 @@ section{
 
 
  /* ============== reviews section ================*/
- .review-form {
-   display: grid;
-   grid-template-rows: 1fr;
-   grid-template-columns: 1fr 1fr 1fr;
-   grid-template-areas:
-   "a a a"
-   "b b b"
-   "c c c";
+ .review-form-div {
+    width: 90%;
+ }
 
+ #review-form {
+   display: grid;
+   grid-template-rows: 1fr 3fr 1fr;
+   grid-template-columns: auto;
+   grid-template-areas:
+   "a"
+   "b"
+   "c";
+   grid-gap: 1rem;
  }
- #review-form-title{
+
+ #review-form-title {
   grid-area: 'a';
+  justify-self: center;
+  margin-top: 1rem;
+  margin-bottom: 0;
  }
- .review-textbox {
+
+ #review-textbox {
   grid-area: 'b';
   border-radius: 5px;
+  background-color: blanchedalmond;
  }
- .submit-review {
+
+ #submit-review {
   grid-area: 'c';
   border-radius: 5px;
+  border: solid black 2px;
+  height: 1.3rem;
+  justify-self: center;
+  background-color: #b7410e;
  }
+
+ #submit-review:hover {
+   background-color: #da571f;
+ }
+
+
 
 .review-container {
   display: flex;
@@ -66,7 +87,7 @@ section{
   word-wrap: break-word;
   background-color: blanchedalmond;
   border-radius: 5px;
-  box-shadow: 5px 5px 10px #b7410e ;
+  box-shadow: 5px 5px 10px #b7410e;
 }
 
 /* ============== sidebar section ================*/
