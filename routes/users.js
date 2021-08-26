@@ -176,6 +176,10 @@ router.get('/:id(\\d+)/gameList', requireAuth, asyncHandler (async(req, res) => 
 
 router.post('/:id(\\d+)/gameList', requireAuth, asyncHandler (async(req, res) => {
   console.log("I'm working");
-}))
+}));
+
+router.get('/userProfile', csrfProtection, asyncHandler (async(req, res) => {
+  res.render("userProfile.pug", {title: "userProfile" });
+}));
 
 module.exports = router;

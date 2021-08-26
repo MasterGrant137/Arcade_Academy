@@ -1,0 +1,86 @@
+.no-padding{padding:0; margin: 0;}
+
+.user-profile-container{
+  display: flex;
+  flex-direction: column;
+  min-height:500px;
+  width: 100%;
+}
+.top {
+  background-color:blanchedalmond;
+  width: 100%;
+  min-height: 200px;
+  padding: 15px;
+  display: flex;
+  flex-direction: rows;
+}
+.profile-picture{
+  background-color:green;
+  font-size: 72pt;
+  padding: 0;
+  margin-left: 5px;
+  border-radius: 50px;
+  /* grid-column: 1, 2;
+  grid-row: 1,4; */
+}
+.profile-picture>p{
+  font-size: 72pt;
+  margin:0;
+}
+.user-profile-info{
+  display: flex;
+  flex-direction: columns;
+  align-items: space-between;
+  margin-left: 35px
+  /* justify-content: flex-start; */
+}
+
+.user-profile-info-top{
+  background-color:orange;
+  margin-top: 5px;
+  /* grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2; */
+}
+.user-name{
+  font-size: 30pt;
+  margin: 0;
+}
+.user-profile-info-bottom{
+  background-color: red;
+  align-self: flex-end;
+  margin-bottom: 5px;
+  /* grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 4; */
+}
+.user-name{
+
+} 
+.user-email{
+
+}
+.divider{
+  background-color:rgb(73, 143, 85);
+  border-bottom: 1px solid darkgreen;
+} 
+.divider>p{
+  font-weight: bold;
+  font-size: 10pt;
+  margin: 4px;
+  padding-left: 15px;
+}
+
+.want-to-play-section{
+
+}
+
+.played-section{
+
+}
+
+.users-reviews{
+
+} 
