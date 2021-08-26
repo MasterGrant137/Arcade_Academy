@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { Game } = require('../db/models');
+const { Review } = require('../db/models');
 const { asyncHandler } = require('./utils');
 const { csrfProtection } = require('./utils');
 const { check, validationResult } = require('express-validator');
@@ -23,10 +24,16 @@ router.get('/', asyncHandler( async (req, res, next) => {
 
 router.get(`/:id(\\d+)`, csrfProtection, asyncHandler( async (req, res, next) => {
   const gameId = parseInt(req.params.id, 10);
-  // console.log(gameId)
+
+  const reviews = await Review.findAll({
+    where: {
+      game_id: gameId
+    }
+  });
+
   const game = await Game.findByPk(gameId);
 
-  res.render('game.pug', { title: `AA-${game.name}`, game, gameId, csrfToken:req.csrfToken() });
+  res.render('game.pug', { game, gameId, reviews, csrfToken:req.csrfToken() });
 }));
 
 
@@ -45,26 +52,38 @@ const reviewsValidators = [
 ];
 
 
-router.post("/:id(\\d+)", requireAuth, csrfProtection, reviewsValidators,  asyncHandler(async(req, res)=> {
-  const userId = req.session.auth.userId
+router.post("/:id(\\d+)", requireAuth, csrfProtection, reviewsValidators, asyncHandler(async(req, res)=> {
+  const userId = req.session.auth.userId;
   const { gameId, content} = req.body;
-  console.log(gameId, userId)
-  // const newReview = await Review.create({
-  //   content,
-  //   game_id: gameId
-  // });
+
+console.log(gameId, content, userId);
+
+  await Review.create({
+    user_id: userId,
+    content,
+    game_id: gameId
+  });
+
+  const reviews = await Review.findAll({
+    where: {
+      game_id: gameId
+    }
+  });
+
+  const game = await Game.findByPk(gameId);
   const validationErrors = validationResult(req);
+  
   if (validationErrors.isEmpty()) {
-      //where successful review posts will go
+    res.render('game.pug', { game, reviews, gameId, csrfToken:req.csrfToken() });
   } else {
     const errors = validationErrors.array().map(error => error.msg)
-    res.render('game.pug', { title: 'test', gameId, csrfToken:req.csrfToken(), errors });
+    res.render('game.pug', { gameId, csrfToken:req.csrfToken(), errors });
 
   }
+
   // res.redirect('/')
   // res.render('/:id(\\d+)', { title: `AA-${game.name}`, csrfToken: req.csrfToken() });
 }));
-
 
 router.get('/topGames', asyncHandler(async(req,res) => {
   const topGames = await Game.findAll({ limit: 10 });
