@@ -4,10 +4,10 @@ block content
   .top
     .game-image
     .top-content
-      h2 Title
+      h2= game.name
       <p>Studio - <span>XX/XX/XXXX</span></p>
       <h2>X<span>/10</span></h2>
-      p Genres
+      p= game.genre
       span
       span
       span
@@ -37,17 +37,6 @@ block content
 
   block reviewContent
   .reviews
-    //- === add all of the review sections here ===
-    //- ...........................................
-    each review in reviews
-      .review-container
-        p= review.content
-    //- .review
-    //-   .voter
-    //-   .profile-image
-    //-     p
-    //-   .rev-container
-    //-     .rev-container-header
-    //-       p.username
-    //-       p.rating
-    //-     .rev-content
+    .review-container
+      each review in reviews
+        p.comment= review.content

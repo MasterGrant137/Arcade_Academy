@@ -30,11 +30,10 @@ router.get(`/:id(\\d+)`, csrfProtection, asyncHandler( async (req, res, next) =>
       game_id: gameId
     }
   });
-  console.log(reviews)
-  // console.log(gameId)
+
   const game = await Game.findByPk(gameId);
 
-  res.render('game.pug', { title: `AA-${game.name}`, game, gameId, reviews, csrfToken:req.csrfToken() });
+  res.render('game.pug', { game, gameId, reviews, csrfToken:req.csrfToken() });
 }));
 
 
@@ -57,7 +56,7 @@ router.post("/:id(\\d+)", requireAuth, csrfProtection, reviewsValidators, asyncH
   const userId = req.session.auth.userId;
   const { gameId, content} = req.body;
 
-console.log(gameId, userId);
+console.log(gameId, content, userId);
 
   await Review.create({
     user_id: userId,
@@ -65,13 +64,20 @@ console.log(gameId, userId);
     game_id: gameId
   });
 
+  const reviews = await Review.findAll({
+    where: {
+      game_id: gameId
+    }
+  });
+
+  const game = await Game.findByPk(gameId);
   const validationErrors = validationResult(req);
+  
   if (validationErrors.isEmpty()) {
-      //where successful review posts will go
-    res.render('game.pug', { title: 'Success', gameId, csrfToken:req.csrfToken() });
+    res.render('game.pug', { game, reviews, gameId, csrfToken:req.csrfToken() });
   } else {
     const errors = validationErrors.array().map(error => error.msg)
-    res.render('game.pug', { title: 'test', gameId, csrfToken:req.csrfToken(), errors });
+    res.render('game.pug', { gameId, csrfToken:req.csrfToken(), errors });
 
   }
 
