@@ -36,6 +36,10 @@ header {
   background-color: var(--headerColor);
   width: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 12%;
 }
 
 #page-header {
@@ -43,9 +47,13 @@ header {
   flex-direction: column;
   justify-content: center;
 }
+#page-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 #page-title{
-
   font-family: 'Varela Round', sans-serif;
   opacity: 1;
   color: #ffffff;
@@ -76,7 +84,14 @@ nav>ul{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  padding: 0 7%;
 }
+/* .dot{
+  opacity: 0;
+}
+.dot:hover{
+   opacity: 100;
+} */
 .nav-bar-button {
   list-style:none;
   font-family: 'Varela Round', sans-serif;
@@ -112,12 +127,12 @@ nav>ul{
 
 /* ============== middle section ============== */
 main {
-  width:85%;
-  margin: 20px auto;
+  width:90%;
+  margin: 15px auto;
   display: grid;
   grid-template-columns: 70% 1fr;
   grid-column-gap: 20px;
-  padding: 1rem;
+  padding: 0 15%;
 }
 section {
   background-color: var(--mainColor);

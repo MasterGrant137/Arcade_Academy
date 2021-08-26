@@ -13,6 +13,7 @@ html
       div#page-header
         a(href="/" class="title-anchor") 
           h1#page-title Arcade Academy
+      div#page-header-right
         if locals.authenticated
           div
             span Hey #{user.screenName}! Lets Game 🎮
@@ -28,13 +29,13 @@ html
     nav
       ul
         a(href="/games/topGames" class="nav-bar-button")
-          li • Top 10 ○
+          li.x <span class="dot">•</span> Top 10 <span class="dot">•</span>
         a(href="/" class="nav-bar-button")
-          li • New Releases ○
+          li.x <span class="dot">•</span> New Releases <span class="dot">•</span>
         a(href="/games/categories" class="nav-bar-button")
-          li • Categories ○
+          li.x <span class="dot">•</span> Categories <span class="dot">•</span>
         a(href="/games" class="nav-bar-button")
-          li • All Games ○
+          li.x <span class="dot">•</span> All Games <span class="dot">•</span>
 
     main
       section
