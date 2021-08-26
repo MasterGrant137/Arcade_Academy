@@ -62,13 +62,15 @@ router.post("/:id(\\d+)", requireAuth, csrfProtection, reviewsValidators, asyncH
   });
 
   const game = await Game.findByPk(gameId);
-  const userReview = await Review.findAll({
+
+
+  const userReview = await Review.findOne({
     where: {
       game_id: gameId,
       user_id: userId
     }
   })
-
+console.log(userReview, '<==============================')
   const validationErrors = validationResult(req);
 
   if (userReview) {
