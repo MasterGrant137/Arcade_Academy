@@ -1,6 +1,6 @@
-window.addEventListener("load", (event) => {
-  console.log("hello from javascript!");
-});
+// window.addEventListener("load", (event) => {
+//   console.log("hello from javascript!");
+// });
 
 const buttons = document.querySelectorAll(".remove-game-btn");
 // console.log(buttons)
@@ -55,7 +55,7 @@ for (let i = 0; i < reviewButtons.length; i++) {
     if (data.message === "Successful") {
       console.log("Success");
       const container = document.querySelector(
-        `#review-container-${reviewId}`
+      `#review-container-${reviewId}`
       );
     //   console.log(container);
       container.remove();
@@ -64,3 +64,18 @@ for (let i = 0; i < reviewButtons.length; i++) {
     }
   });
 }
+
+// new comment simulator
+const newReviewButton = document.getElementById("submit-review");
+  newReviewButton.addEventListener('click', async(event)=>{
+  const reviewContainer = document.querySelector('.review-container');
+  
+  const newReviewText = document.getElementById('review-textbox');
+  const newCommentEle = document.createElement("p",'.comment');
+  newCommentEle.classList.add('comment');
+  newCommentEle.innerText = newReviewText.value;
+  reviewContainer.appendChild(newCommentEle);
+  // setTimeout(()=>{
+  //   newReviewText.value = "";
+  // }, 0);
+});

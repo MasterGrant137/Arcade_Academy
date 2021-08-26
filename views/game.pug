@@ -17,7 +17,8 @@ block content
     .review-form-div
       form#review-form(action=`/games/${gameId}` method="post")
         h4#review-form-title New Review
-        input(type="hidden" name='gameId' value=gameId)
+        input(type="hidden" id="gameId" name='gameId' value=gameId)
+        input(type="hidden" id="userId" name='userId' value=userId)
         input(type="hidden" name="_csrf" value=csrfToken)
         textarea#review-textbox(name="content" required)
         button#submit-review Submit Review

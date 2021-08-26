@@ -18,23 +18,24 @@ block content
     .want-to-play-section
       //-all games user WANTS TO play
       each gameList in wtpGamesList
-        div(id=`game-preview-containers-${gameList.Game.id}` class="game-preview-containers")
-          a(href=`/games/${gameList.Game.id}`)
-           .game-preview-img
-             img(src= gameList.Game.gameImage, alt="Game Image" class="game-images")
-           .game-preview-info
-             h5= gameList.Game.name
-             p= gameList.Game.genre 
-             form(action=`/users/${userId}/userProfile/delete` method= "post")
-              input(type="hidden" value=userId name="user_id")
-              button(type="submit" id=userId value=gameList.Game.id name="game_id" class="remove-game-btn remove-btn") Remove
+        div(id=`game-preview-containers-${gameList.Game.id}` class="user-game-preview-containers")
+          .game-flex-container
+            a(href=`/games/${gameList.Game.id}`)
+            .game-preview-img
+              img(src= gameList.Game.gameImage, alt="Game Image" class="game-images")
+            .game-preview-info
+              h5= gameList.Game.name
+              p= gameList.Game.genre 
+              form(action=`/users/${userId}/userProfile/delete` method= "post")
+                input(type="hidden" value=userId name="user_id")
+                button(type="submit" id=userId value=gameList.Game.id name="game_id" class="remove-game-btn remove-btn") Remove
         
     .divider 
       p.no-padding Played
     .played-section
       //- all games user HAS played
       each gameList in playedGamesList
-        div(id=`game-preview-containers-${gameList.Game.id}` class="game-preview-containers")
+        div(id=`game-preview-containers-${gameList.Game.id}` class="user-game-preview-containers")
           a(href=`/games/${gameList.Game.id}`)
            .game-preview-img
              img(src= gameList.Game.gameImage, alt="Game Image" class="game-images")
