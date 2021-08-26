@@ -11,9 +11,10 @@ block content
              h5= game.name
              p= game.genre
           if locals.authenticated
-            form(action=`/users/${userId}/gameList` method: "POST")
-              button(type="submit" value="played") Played
-              button(type="submit" value="wantToPlay") Want To Play
+            form(action=`/users/${userId}/userProfile` method= "POST")
+              button(type="submit" value=game.id name="played") Played
+            form(action=`/users/${userId}/userProfile` method="POST") 
+              button(type="submit" value=game.id name="wantToPlay") Want To Play
 block side-content
   .game-sidebar
     h4 Game News

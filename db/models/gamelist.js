@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   GameList.associate = function(models) {
     // associations can be defined here
+    GameList.belongsTo(models.Game, { foreignKey: 'game_id'})
   };
   return GameList;
 };
