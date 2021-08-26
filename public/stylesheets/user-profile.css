@@ -74,8 +74,26 @@
 }
 
 .want-to-play-section{
-
+  margin: 5px 3px;
 }
+.user-game-preview-containers{
+  width: 100%;
+}
+.game-flex-container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.game-preview-image>img{
+  max-width: 120px;
+}
+.game-preview-info>h5{
+  font-size: 18pt;
+}
+.game-preview-info>p{
+  font-size: 14pt;
+}
+
 
 .played-section{
 

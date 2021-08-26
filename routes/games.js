@@ -54,6 +54,7 @@ const reviewsValidators = [
 router.post("/:id(\\d+)", requireAuth, csrfProtection, reviewsValidators, asyncHandler(async(req, res)=> {
   const userId = req.session.auth.userId;
   const { gameId, content} = req.body;
+  console.log(req.session);
 
   const reviews = await Review.findAll({
     where: {
@@ -63,14 +64,13 @@ router.post("/:id(\\d+)", requireAuth, csrfProtection, reviewsValidators, asyncH
 
   const game = await Game.findByPk(gameId);
 
-
   const userReview = await Review.findOne({
     where: {
       game_id: gameId,
       user_id: userId
     }
   })
-console.log(userReview, '<==============================')
+// console.log(userReview, '<==============================')
   const validationErrors = validationResult(req);
 
   if (userReview) {
@@ -82,7 +82,11 @@ console.log(userReview, '<==============================')
       content,
       game_id: gameId
     });
-    return res.render('game.pug', { game, reviews, gameId, csrfToken:req.csrfToken() });
+    // =============== This part needs work. Clearing out the text box after leaving a comment
+    // =============== for comment simulation.
+    // window.document.getElementById('review-textbox').value = "";
+    // return res.render('game.pug', { game, reviews, gameId, csrfToken:req.csrfToken() });
+    return res.status(204).send();
   } else {
     const errors = validationErrors.array().map(error => error.msg)
     return res.render('game.pug', { game, reviews, gameId, csrfToken:req.csrfToken(), errors });
