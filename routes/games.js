@@ -223,10 +223,10 @@ router.get('/arcade', asyncHandler(async(req,res) => {
   const games = await Game.findAll({
     where: {
       genre: 'Arcade'
-    }  
+    }
   });
   if(userId){
-    res.render('filteredGames.pug', { games, userId }
+    res.render('filteredGames.pug', { games, userId })
   }else{
     res.render('filteredGames.pug', { games })
   }
@@ -291,7 +291,7 @@ router.get('/sports', asyncHandler(async(req,res) => {
   if (req.session.auth) {
     userId = req.session.auth.userId;
   }
-  const games = await Game.findAll({ 
+  const games = await Game.findAll({
     where: {
       genre: 'Sport'
     }
