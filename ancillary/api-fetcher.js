@@ -22,10 +22,7 @@ const linkFetcher = () => {
             console.log(err);
         });
 }
-
 linkFetcher();
-
-// { 'Rogue SpiritEdit', https://images.igdb.com/igdb/image/upload/t_cover_small/co3a3d.jpg, '', createdAt: new Date(), updatedAt: new Date() },
 
 /*------------Helper Functions----------------*/
 
@@ -36,10 +33,6 @@ const linkTraverser = (gameLink, gameImage) => {
             const $ = cheerio.load(res.data);
             const gameName = $('.gamepage-title-wrapper').find('h1').text();
             const gameGenre = $('.gamepage-tabs p > a').first().text();
-//a[data-reactid=42]
-// console.log(gameName);
-// console.log(gameImage);
-// console.log(gameGenre);
 
             seedGameTables(gameName, gameImage, gameGenre)
         })
@@ -47,8 +40,6 @@ const linkTraverser = (gameLink, gameImage) => {
             console.log(err);
         });
 }
-
-// linkTraverser('https://www.igdb.com/games/rents-due-the-game')
 
 //? This is capable of parsing and formatting titles from links
 // titleParser = (gameLink) => {
