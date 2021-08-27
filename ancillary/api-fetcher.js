@@ -26,7 +26,7 @@ const gameSet = new Set();
 ? This web scraper runs a DFS on every url provided in the linkFetcher function
 ? More explicitly, the linkFetcher func will scour every game's href from each of those pages (alongside its src)
 ? it will then pass the collected href (and src for later data compilation) to the linkTraverser helper func
-? ...which wiil each href to each game's profile page and collect data (title, genre, bio)
+? ...which will follow each href to each game's profile page and collect data (title, genre, bio),
 ? it will then pass all of that (alongside the src which it was given)
 ? ...to a seeder function which formats it and prints it to console
 */
