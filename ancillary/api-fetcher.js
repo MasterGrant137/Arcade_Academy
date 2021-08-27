@@ -5,6 +5,9 @@ const { seedGameTables } = require('./seeder-functions');
 
 const apiUrl = 'https://www.igdb.com/games/recently_released';
 
+/* *****************Considerations*****************
+! Scraping the same page twice (especially in close succession) for seeding purposes runs a high chance of producing duplicate results which can result in a vaidation error in Sequelize if you don't fully overwrite the content in your seeder file
+*/
 
 const linkFetcher = () => {
     axios.get(apiUrl)
