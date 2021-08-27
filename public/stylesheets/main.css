@@ -206,11 +206,9 @@ aside {
   margin: 0;
   width: 100%;
   height: 100px;
-  /* bottom: 0px; */
   display: flex;
-
   justify-content: space-between;
-  /* align-self: center; */
+  align-items: center;
   box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
 }
 .left {
@@ -224,6 +222,8 @@ aside {
   margin-right: 8%;
   display: flex;
   flex-direction:column;
+  justify-content: center;
+  align-items: flex-end;
 }
 .right>.images{
   display: flex;
@@ -239,7 +239,7 @@ aside {
 .right>p{
   align-self: flex-end;
   padding: 0px;
-  margin-top: -2px;
+  margin-top: 4px;
 }
 .contact, .about, .social-media {
     margin: 0px 20px;

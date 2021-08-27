@@ -6,6 +6,7 @@
   --floatColor: rgb(54, 38, 49);
   --mainColor: rgb(46, 36, 43);
   --footerColor: rgb(8, 8, 8);
+  --footerFontColor: rgb(20, 20, 20);
 
   --neonColor: #d622be;
   --neonColor2:#a1298d;
@@ -133,6 +134,7 @@ aside {
 .footer{
   background-color: var(--footerColor);
   box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
+  color:var(--footerFontColor);
 }
 .images>img{
   border-radius: 3px;
