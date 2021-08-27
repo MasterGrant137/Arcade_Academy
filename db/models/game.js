@@ -3,7 +3,8 @@ module.exports = (sequelize, DataTypes) => {
   const Game = sequelize.define('Game', {
     name: DataTypes.STRING,
     genre: DataTypes.STRING,
-    gameImage: DataTypes.STRING
+    gameImage: DataTypes.STRING,
+    bio: DataTypes.TEXT
   }, {});
   Game.associate = function(models) {
     // associations can be defined here

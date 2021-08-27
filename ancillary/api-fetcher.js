@@ -34,6 +34,10 @@ const linkTraverser = (gameLink, gameImage) => {
             const gameNameRaw = $('.gamepage-title-wrapper').find('h1').text()
             const gameName = gameNameRaw.slice(0, gameNameRaw.length - 4);
             const gameGenre = $('.gamepage-tabs p > a').first().text();
+            const gameBio = $('.gamepage-tabs div > div')
+                .get(0)
+                .children[0]
+                .data
 
             seedGameTables(gameName, gameImage, gameGenre)
         })
