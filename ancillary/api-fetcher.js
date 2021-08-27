@@ -3,27 +3,31 @@ const cheerio = require('cheerio');
 const pretty = require('pretty');
 const { seedGameTables } = require('./seeder-functions');
 
-const apiUrl = 'https://www.igdb.com/games/recently_released';
+const mainApiUrl = 'https://www.igdb.com/games/recently_released';
+
+const gameSet = new Set();
 
 /* *****************Considerations*****************
 ! Scraping the same page twice (especially in close succession) for seeding purposes runs a high chance of producing duplicate results which can result in a vaidation error in Sequelize if you don't fully overwrite the content in your seeder file
 */
 
 const linkFetcher = () => {
-    axios.get(apiUrl)
+    axios.get(mainApiUrl)
         .then(res => {
             const $ = cheerio.load(res.data);
 
             $('.col-md-1').each((idx, ele) => {
                 const gameLink = `https://www.igdb.com/${$(ele).find('a').attr('href')}`;
                 const gameImage = `https:${$(ele).find('img').attr('src')}`
-
+                if (idx === 3) return false;
                 linkTraverser(gameLink, gameImage);
             })
         })
         .catch(err => {
             console.log(err);
         });
+
+
 }
 linkFetcher();
 
@@ -38,11 +42,12 @@ const linkTraverser = (gameLink, gameImage) => {
             const gameName = gameNameRaw.slice(0, gameNameRaw.length - 4);
             const gameGenre = $('.gamepage-tabs p > a').first().text();
             const gameBio = $('.gamepage-tabs div > div')
-                .get(0)
-                .children[0]
-                .data
+            .get(0)
+            .children[0]
+            .data
 
-            seedGameTables(gameName, gameImage, gameGenre, gameBio)
+            if (!gameSet.has(gameLink)) seedGameTables(gameName, gameImage, gameGenre, gameBio)
+            gameSet.add(gameLink);
         })
         .catch(err => {
             console.log(err);
