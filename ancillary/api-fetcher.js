@@ -35,8 +35,8 @@ const linkTraverser = (gameLink, gameImage) => {
         .then(res => {
             const $ = cheerio.load(res.data);
             const gameName = $('.gamepage-title-wrapper').find('h1').text();
-            const gameGenre = $('a[data-reactid=42]').text();
-
+            const gameGenre = $('.gamepage-tabs p > a').first().text();
+//a[data-reactid=42]
 // console.log(gameName);
 // console.log(gameImage);
 // console.log(gameGenre);
