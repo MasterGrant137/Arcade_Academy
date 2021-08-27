@@ -39,7 +39,7 @@ const linkTraverser = (gameLink, gameImage) => {
                 .children[0]
                 .data
 
-            seedGameTables(gameName, gameImage, gameGenre)
+            seedGameTables(gameName, gameImage, gameGenre, gameBio)
         })
         .catch(err => {
             console.log(err);

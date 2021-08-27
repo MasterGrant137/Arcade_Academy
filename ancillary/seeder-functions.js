@@ -16,9 +16,9 @@ const seedUserTables = async() => {
 }
 // seedUserTables();
 
-const seedGameTables = (name, gameImage, genre) => {
+const seedGameTables = (name, gameImage, genre, gameBio) => {
     // for (let i = 1; i < 10; i++) {
-        console.log(`{ name: "${name}", gameImage: "${gameImage}", genre: "${genre}", createdAt: new Date(), updatedAt: new Date() },`);
+        console.log(`{ name: "${name}", gameImage: "${gameImage}", genre: "${genre}", bio: \`${gameBio}\`, createdAt: new Date(), updatedAt: new Date() },`);
     // }
 }
 // seedGameTables();
