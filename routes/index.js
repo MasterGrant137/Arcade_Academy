@@ -7,9 +7,16 @@ const { asyncHandler } = require('./utils');
 
 // GET home page.
 router.get('/', asyncHandler( async (req, res, next) => {
+  let userId;
+  if(req.session.auth){
+    userId = req.session.auth.userId
+  }
   const games = await Game.findAll({ limit: 8 });
-
-  res.render('home.pug', { title: 'Arcade Academy', games });
+  if(userId){
+    res.render('home.pug', { title: 'Arcade Academy', games, userId });
+  }else{
+    res.render('home.pug', { title: 'Arcade Academy', games });
+  }
 }));
 
 module.exports = router;
