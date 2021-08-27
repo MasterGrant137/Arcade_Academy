@@ -23,9 +23,17 @@ const gameSet = new Set();
 /* *****************Considerations*****************
 ! Scraping a page twice will produce duplicates which can result in a vaidation error in Sequelize if you don't fully overwrite the content in your seeder file when you paste
 ! For diversity of data with the assurance of uniqueness, I've equipped this web scraper to run multiple scrapes while being checked by a Set object
+? This web scraper runs a DFS on every url provided in the linkFetcher function
+? More explicitly, the linkFetcher func will scour every game's href from each of those pages (alongside its src)
+? it will then pass the collected href (and src for later data compilation) to the linkTraverser helper func
+? ...which wiil each href to each game's profile page and collect data (title, genre, bio)
+? it will then pass all of that (alongside the src which it was given)
+? ...to a seeder function which formats it and prints it to console
 */
 
 const linkFetcher = () => {
+    const fetchLimiter = 2;
+
     axios.get(url)
         .then(res => {
             const $ = cheerio.load(res.data);
@@ -33,7 +41,7 @@ const linkFetcher = () => {
             $('.col-md-1').each((idx, ele) => {
                 const gameLink = `https://www.igdb.com/${$(ele).find('a').attr('href')}`;
                 const gameImage = `https:${$(ele).find('img').attr('src')}`
-                if (idx === 1) return false;
+                if (idx === fetchLimiter) return false;
                 linkTraverser(gameLink, gameImage);
             })
         })
@@ -48,7 +56,7 @@ const linkFetcher = () => {
             $('.col-md-1').each((idx, ele) => {
                 const gameLink = `https://www.igdb.com/${$(ele).find('a').attr('href')}`;
                 const gameImage = `https:${$(ele).find('img').attr('src')}`
-                if (idx === 1) return false;
+                if (idx === fetchLimiter) return false;
                 linkTraverser(gameLink, gameImage);
             })
         })
@@ -63,111 +71,104 @@ const linkFetcher = () => {
             $('.col-md-1').each((idx, ele) => {
                 const gameLink = `https://www.igdb.com/${$(ele).find('a').attr('href')}`;
                 const gameImage = `https:${$(ele).find('img').attr('src')}`
-                if (idx === 1) return false;
+                if (idx === fetchLimiter) return false;
                 linkTraverser(gameLink, gameImage);
             })
         })
         .catch(err => {
             console.log(err);
         });
-    axios.get(`${url}${fltr}${pform['PC (Microsoft Windows)']}`)
+
+    axios.get(`${url}${fltr}${pform['PlayStation 5']}`)
         .then(res => {
             const $ = cheerio.load(res.data);
 
             $('.col-md-1').each((idx, ele) => {
                 const gameLink = `https://www.igdb.com/${$(ele).find('a').attr('href')}`;
                 const gameImage = `https:${$(ele).find('img').attr('src')}`
-                if (idx === 1) return false;
+                if (idx === fetchLimiter) return false;
                 linkTraverser(gameLink, gameImage);
             })
         })
         .catch(err => {
             console.log(err);
         });
-    axios.get(`${url}${fltr}${pform['PC (Microsoft Windows)']}`)
+
+    axios.get(`${url}${fltr}${pform['Nintendo Switch']}`)
         .then(res => {
             const $ = cheerio.load(res.data);
 
             $('.col-md-1').each((idx, ele) => {
                 const gameLink = `https://www.igdb.com/${$(ele).find('a').attr('href')}`;
                 const gameImage = `https:${$(ele).find('img').attr('src')}`
-                if (idx === 1) return false;
+                if (idx === fetchLimiter) return false;
                 linkTraverser(gameLink, gameImage);
             })
         })
         .catch(err => {
             console.log(err);
         });
-    axios.get(`${url}${fltr}${pform['PC (Microsoft Windows)']}`)
+
+    axios.get(`${url}${fltr}${pform['iOS']}`)
         .then(res => {
             const $ = cheerio.load(res.data);
 
             $('.col-md-1').each((idx, ele) => {
                 const gameLink = `https://www.igdb.com/${$(ele).find('a').attr('href')}`;
                 const gameImage = `https:${$(ele).find('img').attr('src')}`
-                if (idx === 1) return false;
+                if (idx === fetchLimiter) return false;
                 linkTraverser(gameLink, gameImage);
             })
         })
         .catch(err => {
             console.log(err);
         });
-    axios.get(`${url}${fltr}${pform['PC (Microsoft Windows)']}`)
+
+    axios.get(`${url}${fltr}${pform['Android']}`)
         .then(res => {
             const $ = cheerio.load(res.data);
 
             $('.col-md-1').each((idx, ele) => {
                 const gameLink = `https://www.igdb.com/${$(ele).find('a').attr('href')}`;
                 const gameImage = `https:${$(ele).find('img').attr('src')}`
-                if (idx === 1) return false;
+                if (idx === fetchLimiter) return false;
                 linkTraverser(gameLink, gameImage);
             })
         })
         .catch(err => {
             console.log(err);
         });
-    axios.get(`${url}${fltr}${pform['PC (Microsoft Windows)']}`)
+
+    axios.get(`${url}${fltr}${pform['Linux']}`)
         .then(res => {
             const $ = cheerio.load(res.data);
 
             $('.col-md-1').each((idx, ele) => {
                 const gameLink = `https://www.igdb.com/${$(ele).find('a').attr('href')}`;
                 const gameImage = `https:${$(ele).find('img').attr('src')}`
-                if (idx === 1) return false;
+                if (idx === fetchLimiter) return false;
                 linkTraverser(gameLink, gameImage);
             })
         })
         .catch(err => {
             console.log(err);
         });
-    axios.get(`${url}${fltr}${pform['PC (Microsoft Windows)']}`)
+
+    axios.get(`${url}${fltr}${pform['Mac']}`)
         .then(res => {
             const $ = cheerio.load(res.data);
 
             $('.col-md-1').each((idx, ele) => {
                 const gameLink = `https://www.igdb.com/${$(ele).find('a').attr('href')}`;
                 const gameImage = `https:${$(ele).find('img').attr('src')}`
-                if (idx === 1) return false;
+                if (idx === fetchLimiter) return false;
                 linkTraverser(gameLink, gameImage);
             })
         })
         .catch(err => {
             console.log(err);
         });
-    axios.get(`${url}${fltr}${pform['PC (Microsoft Windows)']}`)
-        .then(res => {
-            const $ = cheerio.load(res.data);
 
-            $('.col-md-1').each((idx, ele) => {
-                const gameLink = `https://www.igdb.com/${$(ele).find('a').attr('href')}`;
-                const gameImage = `https:${$(ele).find('img').attr('src')}`
-                if (idx === 1) return false;
-                linkTraverser(gameLink, gameImage);
-            })
-        })
-        .catch(err => {
-            console.log(err);
-        });
 
 }
 linkFetcher();
