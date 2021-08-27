@@ -194,59 +194,112 @@ router.get('/categories', asyncHandler(async(req, res) => {
 //--------Routes for categories------------
 
 router.get('/arcade', asyncHandler(async(req,res) => {
-  const userId = req.session.auth.userId
+  let userId;
+
+  if (req.session.auth) {
+    userId = req.session.auth.userId;
+  }
   const games = await Game.findAll({ where: {
     genre: 'Arcade'
   }})
+  if(userId){
+    res.render('filteredGames.pug', { games, userId })
+    
+  }else{
 
-  res.render('filteredGames.pug', { games, userId })
+    res.render('filteredGames.pug', { games })
+  }
+
 
 }));
 router.get('/adventure', asyncHandler(async(req,res) => {
-  const userId = req.session.auth.userId
+  let userId;
+ 
+  if(req.session.auth){
+    userId = req.session.auth.userId
+  }
+
   const games = await Game.findAll({ where: {
     genre: 'Adventure'
   }})
 
-  res.render('filteredGames.pug', { games, userId })
+   if (userId) {
+     res.render("filteredGames.pug", { games, userId });
+   } else {
+     res.render("filteredGames.pug", { games, userId: 1 });
+   }
 
 }));
 router.get('/rpg', asyncHandler(async(req,res) => {
-  const userId = req.session.auth.userId
+  let userId;
+
+  if (req.session.auth) {
+    userId = req.session.auth.userId;
+  }
   const games = await Game.findAll({
     where: {
       genre: "Role-playing (RPG)",
     },
   });
 
-  res.render('filteredGames.pug', { games, userId })
+   if(userId){
+    res.render('filteredGames.pug', { games, userId })
+    
+  }else{
+
+    res.render('filteredGames.pug', { games })
+  }
 
 }));
 router.get('/fps', asyncHandler(async(req,res) => {
-  const userId = req.session.auth.userId
+  let userId;
+
+  if (req.session.auth) {
+    userId = req.session.auth.userId;
+  }
   const games = await Game.findAll({ where: {
     genre: 'Shooter'
   }})
 
-  res.render('filteredGames.pug', { games, userId })
+   if (userId) {
+     res.render("filteredGames.pug", { games, userId });
+   } else {
+     res.render("filteredGames.pug", { games });
+   }
 
 }));
 router.get('/sports', asyncHandler(async(req,res) => {
-  const userId = req.session.auth.userId
+  let userId;
+
+  if (req.session.auth) {
+    userId = req.session.auth.userId;
+  }
   const games = await Game.findAll({ where: {
     genre: 'Sport'
   }})
 
-  res.render('filteredGames.pug', { games, userId })
+   if (userId) {
+     res.render("filteredGames.pug", { games, userId });
+   } else {
+     res.render("filteredGames.pug", { games });
+   }
 
 }));
 router.get('/indie', asyncHandler(async(req,res) => {
-  const userId = req.session.auth.userId
+  let userId;
+
+  if (req.session.auth) {
+    userId = req.session.auth.userId;
+  }
   const games = await Game.findAll({ where: {
     genre: 'Indie'
   }})
 
-  res.render('filteredGames.pug', { games, userId })
+   if (userId) {
+     res.render("filteredGames.pug", { games, userId });
+   } else {
+     res.render("filteredGames.pug", { games });
+   }
 
 }));
 
