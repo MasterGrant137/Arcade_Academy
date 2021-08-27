@@ -1,7 +1,7 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const pretty = require('pretty');
-const { seedGamesTables } = require('./seeder-functions');
+const { seedGameTables } = require('./seeder-functions');
 
 const apiUrl = 'https://www.igdb.com/games/recently_released';
 
@@ -11,10 +11,11 @@ const linkFetcher = () => {
         .then(res => {
             const $ = cheerio.load(res.data);
 
-            $('.col-md-1').each(ele => {
+            $('.col-md-1').each((idx, ele) => {
                 const gameLink = `https://www.igdb.com/${$(ele).find('a').attr('href')}`;
+                const gameImage = `https:${$(ele).find('img').attr('src')}`
 
-                // linkTraverser(gameLink);
+                linkTraverser(gameLink, gameImage);
             })
         })
         .catch(err => {
@@ -24,33 +25,30 @@ const linkFetcher = () => {
 
 linkFetcher();
 
-
+// { 'Rogue SpiritEdit', https://images.igdb.com/igdb/image/upload/t_cover_small/co3a3d.jpg, '', createdAt: new Date(), updatedAt: new Date() },
 
 /*------------Helper Functions----------------*/
 
-const linkTraverser = (gameLink) => {
+const linkTraverser = (gameLink, gameImage) => {
 
     axios.get(gameLink)
         .then(res => {
             const $ = cheerio.load(res.data);
-// console.log(pretty($.html()));
             const gameName = $('.gamepage-title-wrapper').find('h1').text();
-            // const gameImage = `https:${$('img.cover_big')}`;
-            const gameImage = 
             const gameGenre = $('a[data-reactid=42]').text();
-// .img-responsive .attr('src')
+
 // console.log(gameName);
-console.log(gameImage);
+// console.log(gameImage);
 // console.log(gameGenre);
 
-            // seedGameTables(gameName, gameImage, gameGenre)
+            seedGameTables(gameName, gameImage, gameGenre)
         })
         .catch(err => {
             console.log(err);
         });
 }
 
-linkTraverser('https://www.igdb.com/games/rents-due-the-game')
+// linkTraverser('https://www.igdb.com/games/rents-due-the-game')
 
 //? This is capable of parsing and formatting titles from links
 // titleParser = (gameLink) => {
