@@ -148,7 +148,6 @@ background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
 .profile-logout-btn button:hover:after{
     content: "✌️";
     cursor: pointer;
-    
 }
 
 .auth-buttons{
@@ -159,8 +158,8 @@ background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
   padding-bottom: 5px;
   gap: 1rem;
   border-radius: 5px;
-  background-color: #5d4257;
-  background-image: linear-gradient(315deg, #5d4257 0%, #a5c7b7 74%);
+  background-color: #2f4353;
+  background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
   padding: 1rem 1rem;
   margin-right: -3rem;
   
@@ -320,6 +319,7 @@ aside {
   align-items: center;
   box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
   height: 40rem;
+  width: 18rem;
 
 }
 

@@ -8,7 +8,7 @@ block content
            .game-preview-img
              img(src= game.gameImage, alt="Game Image" class="game-images")
            .game-preview-info
-             h5= game.name
+             p= game.name
              p= game.genre
           if locals.authenticated
             form(action=`/users/${userId}/userProfile` method= "POST")

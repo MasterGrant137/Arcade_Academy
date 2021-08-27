@@ -95,9 +95,9 @@
 .game-flex-container:last-child{ border-bottom: none; }
 
 .game-preview-img{
-  margin: 5px 8px;
+  margin: 5px 5px;
   max-height: 150px;
-  max-width: 120px;
+  max-width: 15rem;
 }
 .game-preview-info{
   display: flex;
