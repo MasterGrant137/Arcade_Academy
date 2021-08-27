@@ -12,18 +12,32 @@ section{
   align-items: center;
 }
 
-.top{
+.game-info {
+  float: left;
+  width: 625px;
+  padding-right: 10px;
+  padding-left: 8px;
+}
+/* .top{
   display: flex;
   flex-direction: rows;
-}
+} */
 
-.game-image {
-  display: grid;
+/* .game-image {
 
+
+} */
+
+.game-cover-primary {
+  height: 100%;
+  width: 100%;
 }
 
 #game-image-tag{
-  height: 15rem;
+  max-width: 150px;
+  margin: 0 auto 10px;
+  box-shadow: 0px 8px 8px rgb(7, 20, 32);
+
 }
 .game-description{
  width: 100%;
