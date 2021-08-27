@@ -2,17 +2,27 @@ extends layout.pug
 include utils.pug
 block content
   .top
-    .game-image
-    .top-content
-      h2= game.name
-      <p>Studio - <span>XX/XX/XXXX</span></p>
-      <h2>X<span>/10</span></h2>
-      p= game.genre
-      span
-      span
-      span
-  .game-description 
-    p= game.bio
+  .game-info
+    div.parent-info
+      div.image-child
+        #topcol
+          #image-col
+            .game-cover-primary
+              .game-image
+                img#game-image-tag(src=game.gameImage, alt="Game cover art")
+      div.content-child
+        .top-content
+          h2= game.name
+          //- <p>Studio - <span>XX/XX/XXXX</span></p>
+          //- <h2>X<span>/10</span></h2>
+          <span>Genre: </span>
+          span= game.genre
+          //- p= game.genre
+          span
+          span
+          span
+    .game-description
+      p= game.bio
   +validationErrors(errors)
   if locals.authenticated
     .review-form-div
@@ -49,6 +59,6 @@ block content
             form(action=`/games/${gameId}/likes` method="POST")
               input(type="hidden" name="_csrf" value=csrfToken)
               button(type="submit" value=review.id name="like") Like
-            form(action=`/games/${gameId}/likes` method="POST")  
+            form(action=`/games/${gameId}/likes` method="POST")
               input(type="hidden" name="_csrf" value=csrfToken)
               button(type="submit" value=review.id name="dislike") Dislike

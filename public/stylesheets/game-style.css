@@ -12,24 +12,56 @@ section{
   align-items: center;
 }
 
-.top{
-  display: flex;
-  flex-direction: rows;
+.game-info {
+  width: 100%;
+  padding-right: 8px;
+  padding-left: 8px;
 }
 
-.game-image{
-  background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.lFqVj82Ek7m4HgKo2o8migHaHa%26pid%3DApi&f=1");
-  width: 30%
+.parent-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
-.game-description{
- width: 100%;
- border-bottom: 1px solid darkgrey;
+
+
+#image-col {
+  float: left;
+  width: 150px;
+  text-align: center;
+}
+.game-cover-container {
+  position: relative;
+  text-align: center;
+}
+.game-cover-primary {
+  height: 100%;
+  width: 100%;
+}
+
+.game-cover-primary {
+  height: 100%;
+  width: 100%;
+}
+
+#game-image-tag{
+  max-width: 150px;
+  margin: 0 auto 10px;
+  box-shadow: 0px 8px 8px rgb(7, 20, 32);
+
+}
+.game-description {
+  text-align: left;
+  /* display: flex;
+  justify-content: center; */
+  width: 80%;
 }
 
 
  /* ============== reviews section ================*/
  .review-form-div {
     width: 90%;
+    border-top: 2px solid rgb(73, 69, 69);
  }
 
  #review-form {
@@ -82,9 +114,16 @@ section{
   border-radius: 5px;
   background-color: rgb(58, 68, 58);
   box-shadow: 0px 8px 8px rgb(7, 20, 32);
+  /* background-color: black;
+  background-image: radial-gradient(
+    rgba(0, 150, 0, 0.75), black 120%
+  );
+  color: white;
+  font: 1.3rem Inconsolata, monospace; */
   opacity: 75%;
   color: #fff2f4;
   text-decoration: none;
+
   text-shadow:
   0 0 2px #fff,
   0 0 4px var(--neonColor),
@@ -148,6 +187,9 @@ section{
   width: 27rem;
   height: 15rem;
   overflow: auto;
+  border: 2px solid rgb(73, 69, 69);
+  border-radius: 8px;
+  margin-bottom: 2rem;
 }
 
 .comment {
