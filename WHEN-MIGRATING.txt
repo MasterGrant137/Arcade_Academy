@@ -17,6 +17,10 @@ If you ever need to roll back, DO NOT DROP YOUR DATABASE! Instead, migrate down 
 ** heroku run npx sequelize-cli db:migrate
 ** heroku run npx sequelize-cli db:seed:all
 
+git add .
+git commit -m 'message'
+git push heroku main
+
 If undoing the migrations and seeds don't work, you can reset the entire database by removing and adding the Heroku Postgres add-on that you added in the beginning of Step 2. Then migrate and seed again.
 
 ====== Additional Info ====================================

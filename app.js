@@ -33,7 +33,7 @@ app.use(
     saveUninitialized: false,
     resave: false,
   })
-  );
+);
 
 app.use( restoreUser );
 // create Session table if it doesn't already exist

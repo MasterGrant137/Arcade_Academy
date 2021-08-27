@@ -1,12 +1,13 @@
 var express = require('express');
 var router = express.Router();
 const db = require("../db/models")
-const { User, GameList, Game, Review } = require('../db/models')
+const { User, GameList, Game, Review, Like } = require('../db/models')
 const { csrfProtection, asyncHandler} = require('./utils');
 const {  loginUser, logoutUser, requireAuth } = require('../auth');
 const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const { route } = require('./games');
+
 
 
 const userValidators = [
@@ -70,12 +71,15 @@ router.get('/register', csrfProtection, asyncHandler (async(req, res) => {
 }));
 
 router.post('/register', csrfProtection, userValidators, asyncHandler(async(req, res) => {
-  const { fullName, screenName, email, password } = req.body
+  const { fullName, screenName, email, password, profilePic } = req.body
+  console.log("==========",profilePic)
+
 
   const user = User.build({
     fullName,
     screenName,
-    email
+    email,
+    profileImage: profilePic
   })
 
   const validationErrors = validationResult(req)
@@ -84,7 +88,6 @@ router.post('/register', csrfProtection, userValidators, asyncHandler(async(req,
     user.hashedPassword = hashedPassword
     await user.save()
     loginUser(req, res, user)
-    res.redirect('/')
   }else{
     const errors = validationErrors.array().map((error) => error.msg)
     res.render('newUserAccount.pug', {
@@ -269,25 +272,26 @@ router.get("/:id(\\d+)/userProfile",requireAuth,csrfProtection,asyncHandler(asyn
   })
 );
 
+// Delete a game from the users 'Played' or 'Want to Play' list
 router.post("/:id(\\d+)/userProfile/delete", requireAuth, asyncHandler(async(req, res) => {
   //  console.log(req.body)  
-   const { user_id, game_id} = req.body
-   console.log(user_id, game_id)
-   const gameList = await GameList.findOne({
-     where: {
-       user_id,
-       game_id
-     }
-   })
-   await gameList.destroy()
+  // console.log(user_id, game_id)
+  const { user_id, game_id} = req.body
+  const gameList = await GameList.findOne({
+    where: {
+      user_id,
+      game_id
+    }
+  })
+  await gameList.destroy()
   //  res.json({"message": "Successful"})
-   res.status(204).send()
-
+  res.status(204).send()
 }));
 
+// Delete a game from the users 'Played' or 'Want to Play' list
 router.delete("/:id(\\d+)/userProfile", asyncHandler(async(req, res, next)=> {
-  const { user_id, game_id } = req.body
   // console.log(req)
+  const { user_id, game_id } = req.body
   const gameList = await GameList.findOne({
     where: {
       user_id,
@@ -298,9 +302,18 @@ router.delete("/:id(\\d+)/userProfile", asyncHandler(async(req, res, next)=> {
   res.json({"message": "Successful"})
 }));
 
+// Delete a Review that a user previously made
 router.delete("/:id(\\d+)/review", asyncHandler(async(req, res, next)=>{
   const { user_id, reviewId } = req.body;
   // console.log(reviewId)
+  const allLikes = await Like.findAll({
+    where:{
+      review_id: reviewId
+    }
+  })
+  allLikes.forEach(async(like) => {
+    await like.destroy()
+  })
   const review = await Review.findByPk(reviewId);
   // console.log(review)
   await review.destroy();
