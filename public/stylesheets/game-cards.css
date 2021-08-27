@@ -2,14 +2,11 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
 }
-
 .game-card {
     width: 100px;
     background-color: magenta;
 }
-
 .game-info {
     width: 100px;
     background-color: magenta;
