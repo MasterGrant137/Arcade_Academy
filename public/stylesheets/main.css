@@ -6,7 +6,7 @@
 
   --neonColor: #98f84a;
   --neonColor2:#98f84a;
-  --userNeonColor: rgb(64, 234, 240);
+  --userNeonColor: #4a81f8;
 
   --mainBoxShadow: rgba(2, 2, 2, 0.7);
   --mBSSpread: 6px;
@@ -73,8 +73,152 @@ header {
   text-decoration: none;
 }
 
+.profile-card-og{
+  display: flex;
+  /* flex-direction: column; */
+  height: 7rem;
+  width: 20rem;
+  
+  border-radius: 10px;
+  justify-content: space-between;
+  margin: 10px auto;
+  margin-right: -5rem;
+background-color: #537895;
+background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
+  ;
+}
+.profile-card-img{
+  align-self: flex-start;
+  width: 5rem;
+}
+.profile-card-img>img{
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+}
+.profile-card-name{
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  /* border: 2px solid red; */
+  justify-content: flex-end;
+  padding-left: 1rem;
+  text-shadow:
+    0 0 2px #fff,
+    0 0 4px #4a81f8,
+    0 0 6px #4a81f8,
+    0 0 8px #4a81f8,
+    0 0 10px #4a81f8,
+    0 0 12px #4a81f8,
+    0 0 14px #4a81f8,
+    0 0 15px #4a81f8;
+  
+}
+.profile-logout-btn{
+  /* border: 4px solid red; */
+  width: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3px;
+  color: black;
+  text-shadow: 0 0 2px #fff,
+  0 0 4px var(--neonColor),
+  0 0 6px var(--neonColor),
+  0 0 8px var(--neonColor),
+  0 0 10px var(--neonColor),
+  0 0 12px var(--neonColor),
+  0 0 14px var(--neonColor),
+  0 0 15px var(--neonColor);
+}
+.profile-logout-btn button{
+  border-radius: 20px;
+  padding: 3px 6px;
+  color: #000;
+  font-weight: bold;
+  background: #66ff66;
+  border: 2px solid #4a81f863;
+  background-color: #4a81f862;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#66ff66', endColorstr='#66ff66', GradientType=0);
+}
+.profile-logout-btn button:after{
+  content: "Logout";
+}
+.profile-logout-btn button:hover:after{
+    content: "✌️";
+    cursor: pointer;
+    
+}
+
 .auth-buttons{
+  margin: 1rem auto;
+  display: flex;
+  width: 13rem;
+  flex-direction: column;
   padding-bottom: 5px;
+  gap: 1rem;
+  border-radius: 5px;
+  background-color: #5d4257;
+  background-image: linear-gradient(315deg, #5d4257 0%, #a5c7b7 74%);
+  padding: 1rem 1rem;
+  margin-right: -3rem;
+  
+  color: black;
+  text-shadow: 0 0 2px #fff,
+  0 0 4px black,
+  0 0 6px black,
+  0 0 8px black,
+  0 0 10px black,
+  0 0 12px black,
+  0 0 14px black,
+  0 0 15px black;
+  box-shadow: 0 0 2px #fff,
+  0 0 4px var(--neonColor),
+  0 0 6px var(--neonColor),
+  0 0 8px var(--neonColor),
+  0 0 10px var(--neonColor),
+  0 0 12px var(--neonColor),
+  0 0 14px var(--neonColor),
+  0 0 15px var(--neonColor);
+}
+.demo-user-btn button{
+  border: none;
+  background: #404040;
+  color: #ffffff ;
+  font-weight: 100;
+  padding: 10px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+}
+.demo-user-btn button:after{
+  content: "Demo User";
+}
+.demo-user-btn button:hover:after{
+  content: "Welcome Demo";
+  color: #404040 ;
+  font-weight: 700;
+  letter-spacing: 3px;
+  background: none;
+  background-color: white;
+  transition: all 0.3s ease 0s;
+}
+.login-anchors{
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.657);
+  font-size: 18px;
+}
+.login-anchors:hover{
+  text-shadow: 0 0 2px #fff,
+  0 0 4px var(--neonColor),
+  0 0 6px var(--neonColor),
+  0 0 8px var(--neonColor),
+  0 0 10px var(--neonColor),
+  0 0 12px var(--neonColor),
+  0 0 14px var(--neonColor),
+  0 0 15px var(--neonColor);
 }
 
 nav {
@@ -175,6 +319,7 @@ aside {
   flex-direction: column;
   align-items: center;
   box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
+  height: 40rem;
 
 }
 
