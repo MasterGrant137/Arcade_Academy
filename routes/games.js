@@ -193,10 +193,10 @@ router.get('/categories', asyncHandler(async(req, res) => {
 
 //--------Routes for categories------------
 
-router.get('/action', asyncHandler(async(req,res) => {
+router.get('/arcade', asyncHandler(async(req,res) => {
   const userId = req.session.auth.userId
   const games = await Game.findAll({ where: {
-    genre: 'Type1'
+    genre: 'Arcade'
   }})
 
   res.render('filteredGames.pug', { games, userId })
@@ -225,7 +225,7 @@ router.get('/rpg', asyncHandler(async(req,res) => {
 router.get('/fps', asyncHandler(async(req,res) => {
   const userId = req.session.auth.userId
   const games = await Game.findAll({ where: {
-    genre: 'fps'
+    genre: 'Shooter'
   }})
 
   res.render('filteredGames.pug', { games, userId })
