@@ -1,12 +1,13 @@
 var express = require('express');
 var router = express.Router();
 const db = require("../db/models")
-const { User, GameList, Game, Review } = require('../db/models')
+const { User, GameList, Game, Review, Like } = require('../db/models')
 const { csrfProtection, asyncHandler} = require('./utils');
 const {  loginUser, logoutUser, requireAuth } = require('../auth');
 const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const { route } = require('./games');
+
 
 
 const userValidators = [
@@ -70,12 +71,15 @@ router.get('/register', csrfProtection, asyncHandler (async(req, res) => {
 }));
 
 router.post('/register', csrfProtection, userValidators, asyncHandler(async(req, res) => {
-  const { fullName, screenName, email, password } = req.body
+  const { fullName, screenName, email, password, profilePic } = req.body
+  console.log("==========",profilePic)
+
 
   const user = User.build({
     fullName,
     screenName,
-    email
+    email,
+    profileImage: profilePic
   })
 
   const validationErrors = validationResult(req)
@@ -84,7 +88,6 @@ router.post('/register', csrfProtection, userValidators, asyncHandler(async(req,
     user.hashedPassword = hashedPassword
     await user.save()
     loginUser(req, res, user)
-    res.redirect('/')
   }else{
     const errors = validationErrors.array().map((error) => error.msg)
     res.render('newUserAccount.pug', {
@@ -303,6 +306,14 @@ router.delete("/:id(\\d+)/userProfile", asyncHandler(async(req, res, next)=> {
 router.delete("/:id(\\d+)/review", asyncHandler(async(req, res, next)=>{
   const { user_id, reviewId } = req.body;
   // console.log(reviewId)
+  const allLikes = await Like.findAll({
+    where:{
+      review_id: reviewId
+    }
+  })
+  allLikes.forEach(async(like) => {
+    await like.destroy()
+  })
   const review = await Review.findByPk(reviewId);
   // console.log(review)
   await review.destroy();

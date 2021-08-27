@@ -263,3 +263,18 @@ section{
  height: 100%;
  width: 100%;
 }
+
+
+#profile-picture-select{
+  width: 5rem;
+  height: 5rem;
+}
+.profile-pic-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.all-profile-pic-container{
+  display: flex;
+  
+}
