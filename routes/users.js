@@ -240,7 +240,7 @@ router.post("/:id(\\d+)/userProfile",requireAuth,asyncHandler(async (req, res) =
 router.post("/demoUser", asyncHandler(async(req,res) => {
   const demoUser = await User.findByPk(1)
   loginUser(req, res, demoUser)
-  res.redirect('/')
+  // res.redirect('/')
 }))
 
 
