@@ -5,39 +5,60 @@ const { seedGamesTables } = require('./seeder-functions');
 
 const apiUrl = 'https://www.igdb.com/games/recently_released';
 
+
+
+
+
+
+
+const regexNonMatcher = (word, regex) => {
+
+    word.find((subStr, idx) => {
+        // if (!subStr.match(regex)) {
+        //     return "idx";
+        // }
+        console.log("SUBSTRING")
+    })
+}
+
+
 const fetcher = () => {
     axios.get(apiUrl)
         .then(res => {
             let $ = cheerio.load(res.data);
-            // console.log(pretty($.html()));
 
             $('.col-md-1').each((idx, ele) => {
 
-                const gameLinks = $(ele).find('a').attr('href');
+                const gameLinks = `https://www.igdb.com/${$(ele).find('a').attr('href')}`;
 
                 const gameTitles = gameLinks
-                    .split('/')[2]
+                    .split('/')[5]
                     .split('-')
                     .map(word => {
                         if (word) {
-                            if ((word.slice(0,2) === 'ii') || (word.slice(0,2) === 'vs')) {
-                                return word[0].toUpperCase() + word[1].toUpperCase() + word.slice(2);
+                            let regex = /^(i{2,3}|iv|vi{1,3}|v[sr])/
+                            // console.log("WORD 11111111" + word)
+                            if (word.match(regex)) {
+                                // console.log("WOOOOOOORRD" + word)
+                                // + `REGEX !INDEX${regexNonMatcher(word, regex)}`
+                                // word[0].toUpperCase() + word.slice(1);
+                                return word.toUpperCase()
+                            } else {
+                              return word[0].toUpperCase() + word.slice(1);
                             }
-                            return word[0].toUpperCase() + word.slice(1);
                         } else if (!word) {
                             return;
                         }
                     })
                     .join(' ');
+//
+                const gameSources = `https:${$(ele).find('img').attr('src')}`;
 
-                const gameSources = $(ele).find('img').attr('src');
-                // https://images.igdb.com/igdb/image/upload/t_cover_small/co3gmz.jpg
-                // https://images.igdb.com/igdb/image/upload/t_cover_small/co3dli.jpg
                 // console.log(gameLinks);
-                // console.log(gameTitles);
-                // console.log(targSources);
+                console.log(gameTitles);
+                // console.log(gameSources);
 
-                seedGamesTables(gameTitles, gameSources, gameLinks)
+                // seedGamesTables(gameTitles, gameSources, gameLinks)
             })
         })
         .catch(err => {
