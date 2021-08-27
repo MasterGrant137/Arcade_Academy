@@ -109,7 +109,7 @@ router.post("/:id(\\d+)", requireAuth, csrfProtection, reviewsValidators, asyncH
     // =============== for comment simulation. (see public/javascripts/index.js)
     // window.document.getElementById('review-textbox').value = "";
     // return res.render('game.pug', { game, reviews, gameId, csrfToken:req.csrfToken() });
-    return res.status(204).send();
+    res.redirect("back");
   } else {
     const errors = validationErrors.array().map(error => error.msg)
     return res.render('game.pug', { game, reviews, gameId, csrfToken:req.csrfToken(), errors });
