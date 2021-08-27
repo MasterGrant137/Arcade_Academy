@@ -2,60 +2,86 @@ extends layout.pug
 
 block content
   .user-profile-container
+    //-========================== USER DATA
     .top
-      .profile-picture
-        p.no-padding 👽
+      .profile-picture.no-padding
+        if user.image
+          p.no-padding= user.image 
+        else 
+          p.no-padding 👽
       .user-profile-info
         div 
           .user-profile-info-top
-            h4.user-name.no-padding User1234 
-            p.user-email.no-padding user1234@games.com
-          .user-profile-info-bottom 
-            p.no-padding Favorite Genres
-            p.no-padding Action RPG Strategy Puzzle
+            h4.user-name.no-padding= user.screenName 
+            p.user-stuff.no-padding= user.fullName
+            p.user-stuff.no-padding(style="margin: 0 8px;") |
+            p.user-stuff.no-padding= user.email
+          .user-profile-info-bottom
+            if user.favGenres
+              p.no-padding.genre-title Favorite Genres:
+              each genre in user.favGenres
+                a(href=`/games/${genre}`).no-padding.genre= genre
+            else 
+              p.no-padding.genre-title Favorite Genres:
+              a(href=`/games/adventure`).no-padding.genre Adventure
+              a(href=`/games/action`).no-padding.genre Action
+
     .divider 
-      p.no-padding Want to Play 
+      p.no-padding Want to Play
+    //-========================== WANT TO PLAY 
     .want-to-play-section
-      //-all games user WANTS TO play
       each gameList in wtpGamesList
-        div(id=`game-preview-containers-${gameList.Game.id}` class="user-game-preview-containers")
+        .user-game-preview-containers(id=`game-preview-containers-${gameList.Game.id}`)
+          // OG Container ^^ (fallback plan)
           .game-flex-container
             a(href=`/games/${gameList.Game.id}`)
             .game-preview-img
               img(src= gameList.Game.gameImage, alt="Game Image" class="game-images")
             .game-preview-info
-              h5= gameList.Game.name
-              p= gameList.Game.genre 
-              form(action=`/users/${userId}/userProfile/delete` method= "post")
-                input(type="hidden" value=userId name="user_id")
-                button(type="submit" id=userId value=gameList.Game.id name="game_id" class="remove-game-btn remove-btn") Remove
+              .sub-info
+                p.game-name.no-padding= gameList.Game.name
+              .sub-info
+                p.genre-title.no-padding Genres:
+                a(href=`/games/${gameList.Game.genre}`).no-padding.genre= gameList.Game.genre 
+              .sub-info
+                form(action=`/users/${userId}/userProfile/delete` method= "post")
+                  input(type="hidden" value=userId name="user_id")
+                  button(type="submit" id=userId value=gameList.Game.id name="game_id" class="remove-game-btn remove-btn") X
         
     .divider 
       p.no-padding Played
+      //-========================== PLAYED
     .played-section
-      //- all games user HAS played
       each gameList in playedGamesList
-        div(id=`game-preview-containers-${gameList.Game.id}` class="user-game-preview-containers")
-          a(href=`/games/${gameList.Game.id}`)
-           .game-preview-img
-             img(src= gameList.Game.gameImage, alt="Game Image" class="game-images")
-           .game-preview-info
-             h5= gameList.Game.name
-             p= gameList.Game.genre 
-             form(action=`/users/${userId}/userProfile/delete` method= "post")
-              input(type="hidden" value=userId name="user_id")
-              button(type="submit"  id=userId value=gameList.Game.id name="game_id" class="remove-game-btn remove-btn") Remove
+        .user-game-preview-containers(id=`game-preview-containers-${gameList.Game.id}`)
+          .game-flex-container
+            a(href=`/games/${gameList.Game.id}`)
+            .game-preview-img
+              img(src= gameList.Game.gameImage, alt="Game Image" class="game-images")
+            .game-preview-info
+              .sub-info
+                p.game-name.no-padding= gameList.Game.name
+              .sub-info
+                p.genre-title.no-padding Genres 
+                a(href=`/games/${gameList.Game.genre}`).no-padding.genre= gameList.Game.genre 
+              .sub-info
+                form(action=`/users/${userId}/userProfile/delete` method= "post")
+                  input(type="hidden" value=userId name="user_id")
+                  button(type="submit" id=userId value=gameList.Game.id name="game_id" class="remove-game-btn remove-btn") X
+    
     .divider 
       p.no-padding My Reviews
+      //-========================== REVIEWS BY USER
     .users-reviews
       each review in reviews
-        div(id=`review-container-${review.id}` class='review-preview-container')
-          div.rev-image
-            img(src=review.Game.gameImage)
-          div.rev-title
-            h4= review.Game.name
-          div.rev-content
-            p= review.content
-          div.rev-remove-button
-            button(type="submit" id=userId value=review.id name="remove-review-btn" class="remove-review-btn remove-btn") Remove
+        .review-preview-container(id=`review-container-${review.id}`)
+          .rev-flex-container
+            .rev-sub-info
+              .rev-image
+                img(src=review.Game.gameImage alt="Game Image" class="game-images")
+                h4.no-padding= review.Game.name
+            .rev-sub-info
+              .rev-content
+                p.no-padding= review.content
+                button.no-padding(type="submit" id=userId value=review.id name="remove-review-btn" class="remove-review-btn remove-btn") X
     // all the reviews that the user has made, starting with msot recent

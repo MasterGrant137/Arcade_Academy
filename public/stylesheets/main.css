@@ -6,6 +6,10 @@
 
   --neonColor: #98f84a;
   --neonColor2:#98f84a;
+  --userNeonColor: rgb(64, 234, 240);
+
+  --mainBoxShadow: rgba(2, 2, 2, 0.7);
+  --mBSSpread: 6px;
 }
  * {
    box-sizing: border-box;
@@ -40,17 +44,14 @@ header {
   flex-direction: row;
   justify-content: space-between;
   padding: 0 12%;
+  box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
 }
 
 #page-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-#page-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+
 }
 
 #page-title{
@@ -78,6 +79,7 @@ header {
 
 nav {
   width: 100%;
+  
 }
 nav>ul{
   background-color: var(--floatColor);
@@ -85,6 +87,7 @@ nav>ul{
   flex-direction: row;
   justify-content: space-around;
   padding: 0 7%;
+  box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
 }
 /* .dot{
   opacity: 0;
@@ -109,21 +112,45 @@ nav>ul{
   0 0 14px var(--neonColor);
 }
 .nav-bar-button:hover{
-    list-style:none;
-    opacity: 1;
-    color: #ffffff;
-    text-shadow:
-    0 0 2px #fff,
-    0 0 4px var(--neonColor2),
-    0 0 6px var(--neonColor2),
-    0 0 8px var(--neonColor2),
-    0 0 10px var(--neonColor2),
-    0 0 12px var(--neonColor2),
-    0 0 14px var(--neonColor2),
-    0 0 15px var(--neonColor2);
-
+  list-style:none;
+  opacity: 1;
+  color: #ffffff;
+  text-shadow:
+  0 0 2px #fff,
+  0 0 4px var(--neonColor2),
+  0 0 6px var(--neonColor2),
+  0 0 8px var(--neonColor2),
+  0 0 10px var(--neonColor2),
+  0 0 12px var(--neonColor2),
+  0 0 14px var(--neonColor2),
+  0 0 15px var(--neonColor2);
 }
 
+.nav-user-profile-button{
+  text-shadow:
+  0 0 2px #fff,
+  0 0 4px var(--userNeonColor),
+  0 0 6px var(--userNeonColor),
+  0 0 8px var(--userNeonColor),
+  0 0 10px var(--userNeonColor),
+  0 0 12px var(--userNeonColor),
+  0 0 14px var(--userNeonColor),
+  0 0 15px var(--userNeonColor);
+}
+.nav-user-profile-button:hover{
+  list-style:none;
+  opacity: 1;
+  color: #ffffff;
+  text-shadow:
+  0 0 2px #fff,
+  0 0 4px var(--userNeonColor),
+  0 0 6px var(--userNeonColor),
+  0 0 8px var(--userNeonColor),
+  0 0 10px var(--userNeonColor),
+  0 0 12px var(--userNeonColor),
+  0 0 14px var(--userNeonColor),
+  0 0 15px var(--userNeonColor);
+}
 
 /* ============== middle section ============== */
 main {
@@ -138,6 +165,7 @@ section {
   background-color: var(--mainColor);
   grid-column-start: 1;
   grid-column-end: 2;
+  box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
 }
 aside {
   background-color: var(--floatColor);
@@ -146,6 +174,8 @@ aside {
   display:flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
+
 }
 
 /*============== error content ==================*/
@@ -181,6 +211,7 @@ aside {
 
   justify-content: space-between;
   /* align-self: center; */
+  box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
 }
 .left {
   margin-left: 8%;
