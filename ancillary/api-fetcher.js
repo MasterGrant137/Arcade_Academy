@@ -39,12 +39,26 @@ const linkTraverser = (gameLink, gameImage) => {
                 .children[0]
                 .data
 
-            seedGameTables(gameName, gameImage, gameGenre, gameBio)
+            findGenres(gameGenre);
+
+            // seedGameTables(gameName, gameImage, gameGenre, gameBio)
         })
         .catch(err => {
             console.log(err);
         });
 }
+
+//? This is capable of isolating genres
+// const findGenres = (gameGenre) => {
+//     let genreTypes = new Set();
+
+//     genreTypes.add(gameGenre);
+
+//     genreTypesArray = Array.from(genreTypes);
+
+//     console.log(genreTypesArray);
+// }
+
 
 //? This is capable of parsing and formatting titles from links
 // titleParser = (gameLink) => {
