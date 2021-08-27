@@ -1,5 +1,10 @@
+:root{
+  --dividerGreen: rgb(76, 161, 42);
+}
 .no-padding{padding:0; margin: 0;}
 
+
+/* ================ TOP SECTION ================== */
 .user-profile-container{
   display: flex;
   flex-direction: column;
@@ -7,61 +12,62 @@
   width: 100%;
 }
 .top {
-  background-color:blanchedalmond;
   width: 100%;
-  min-height: 200px;
   padding: 15px;
   display: flex;
   flex-direction: rows;
+  box-sizing: border-box;
+  border: 4px solid var(--dividerGreen);
 }
 .profile-picture{
-  background-color:green;
-  font-size: 72pt;
-  padding: 0;
-  margin-left: 5px;
+  /* background-color:green; */
   border-radius: 50px;
-  /* grid-column: 1, 2;
-  grid-row: 1,4; */
+  margin-bottom: 5px;
 }
-.profile-picture>p{
+.profile-picture > p{
   font-size: 72pt;
-  margin:0;
 }
 .user-profile-info{
   display: flex;
   flex-direction: columns;
   align-items: space-between;
   margin-left: 35px
-  /* justify-content: flex-start; */
 }
-
 .user-profile-info-top{
-  background-color:orange;
+  /* background-color:orange; */
   margin-top: 5px;
-  /* grid-column-start: 3;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 2; */
 }
 .user-name{
   font-size: 30pt;
   margin: 0;
 }
+
+.user-stuff{
+  display: inline;
+  color: darkgrey;
+}
 .user-profile-info-bottom{
-  background-color: red;
   align-self: flex-end;
-  margin-bottom: 5px;
-  /* grid-column-start: 1;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 4; */
+  margin-left: 2px;
+  margin-top: 15px;
 }
-.user-name{
-
-} 
-.user-email{
-
+.genre-title{
+  display: inline;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  text-decoration: underline;
 }
+.genre{
+  font-size: 8pt;
+  font-family: Arial, Helvetica, sans-serif;
+  display: inline;
+  padding: 3px 8px;
+  margin: 3px 5px; 
+  background-color: rgb(36, 36, 36);
+  color:rgb(76, 161, 42);
+}
+/* ================ MID ================== */
 .divider{
   background-color:rgb(73, 143, 85);
   border-bottom: 1px solid darkgreen;
@@ -73,38 +79,112 @@
   padding-left: 15px;
 }
 
-.want-to-play-section{
-  margin: 5px 3px;
-}
-.user-game-preview-containers{
+/* ================ WTP ================== */
+
+.want-to-play-section{ margin: 5px 3px; }
+
+/* .user-game-preview-containers{
   width: 100%;
-}
+} */
 .game-flex-container{
   width: 100%;
   display: flex;
   flex-direction: row;
+  border-bottom: 1px solid rgb(22, 22, 22, .35);
 }
-.game-preview-image>img{
+.game-flex-container:last-child{ border-bottom: none; }
+
+.game-preview-img{
+  margin: 5px 8px;
+  max-height: 150px;
   max-width: 120px;
 }
-.game-preview-info>h5{
+.game-preview-info{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
   font-size: 18pt;
+  padding-left: 10px;
 }
-.game-preview-info>p{
-  font-size: 14pt;
+.sub-info{
+  display: flex;
+  align-items: center;
+}
+.subform{
+  background-color: hotpink;
+  float: right;
+}
+.game-name{
+  align-self: flex-start;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18pt;
+  font-weight: 700;
 }
 
-
-.played-section{
-
+/* ================ PLAYED ================== */
+.played-section{ margin: 5px 3px; }
+.user-game-preview-containers{
+  border-bottom: 1px solid rgb(22, 22, 22, .35);
 }
+.user-game-preview-containers:last-child{ border-bottom: none; }
 
-.users-reviews{
-
-} 
-
-.rev-image > img{
-  height: 150px;
+/* ================ REVIEWS ================== */
+.rev-flex-container{
   width: 100%;
+  min-height: 150px;
+  display: flex;
+  border-bottom: 1px solid rgb(22, 22, 22, .35);
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.game-flex-container:last-child{ border-bottom: none; }
+
+.rev-sub-info{
+  /* background-color: rgb(16, 32, 170); */
+  max-height: 120px;
+  width: 100%;
+  padding: 20px;
+}
+.rev-image {
+  /* background-color: rgb(80, 28, 28); */
+  display: flex;
+  flex-direction: row;
   border-radius: 10px;
+  align-items: center;
+  justify-self:center;
+}
+.rev-image > img{
+  /* background-color: rgb(177, 63, 171); */
+  max-width: 80px;
+  max-height: 100px;
+}
+.rev-image > h4 {
+  margin-left: 20px;
+  /* background-color: rgb(175, 173, 24); */
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.rev-content > p{
+  padding-bottom: 10px;
+}
+
+.remove-btn{
+  position: relative;
+  height: 25px;
+  width:  25px;
+  padding:3px;
+  background-color: rgb(175, 10, 10);
+  float: right;
+  align-self:flex-end;
+  justify-self: flex-end;
+  color:rgb(243, 95, 95);
+  font-family: 'Varela Round', Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 2px;
+  border: 2px solid rgb(124, 34, 34);
+  box-shadow: 0 0 3px rgb(0, 0, 0, 0.3);
+  text-align: center;
 }

@@ -245,7 +245,8 @@ router.post("/demoUser", asyncHandler(async(req,res) => {
 
 
 router.get("/:id(\\d+)/userProfile",requireAuth,csrfProtection,asyncHandler(async (req, res) => {
-    const userId = req.params.id
+    const userId = req.params.id;
+    const user = await User.findByPk(userId);
     const playedGamesList = await GameList.findAll({
       where:{
         user_id: userId,
@@ -269,7 +270,7 @@ router.get("/:id(\\d+)/userProfile",requireAuth,csrfProtection,asyncHandler(asyn
     });
     // console.log(wtpGamesList[0])
     
-    res.render("userProfile.pug", { title: "userProfile", playedGamesList, wtpGamesList, reviews, userId });
+    res.render("userProfile.pug", { title: "userProfile", user, playedGamesList, wtpGamesList, reviews, userId });
   })
 );
 

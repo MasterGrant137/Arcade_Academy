@@ -6,6 +6,9 @@
 
   --neonColor: #98f84a;
   --neonColor2:#98f84a;
+
+  --mainBoxShadow: rgba(2, 2, 2, 0.7);
+  --mBSSpread: 6px;
 }
  * {
    box-sizing: border-box;
@@ -40,17 +43,14 @@ header {
   flex-direction: row;
   justify-content: space-between;
   padding: 0 12%;
+  box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
 }
 
 #page-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-#page-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+
 }
 
 #page-title{
@@ -78,6 +78,7 @@ header {
 
 nav {
   width: 100%;
+  
 }
 nav>ul{
   background-color: var(--floatColor);
@@ -85,6 +86,7 @@ nav>ul{
   flex-direction: row;
   justify-content: space-around;
   padding: 0 7%;
+  box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
 }
 /* .dot{
   opacity: 0;
@@ -138,6 +140,7 @@ section {
   background-color: var(--mainColor);
   grid-column-start: 1;
   grid-column-end: 2;
+  box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
 }
 aside {
   background-color: var(--floatColor);
@@ -146,6 +149,8 @@ aside {
   display:flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
+
 }
 
 /*============== error content ==================*/
@@ -181,6 +186,7 @@ aside {
 
   justify-content: space-between;
   /* align-self: center; */
+  box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
 }
 .left {
   margin-left: 8%;
