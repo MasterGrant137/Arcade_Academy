@@ -31,22 +31,22 @@ block content
     //-========================== WANT TO PLAY 
     .want-to-play-section
       each gameList in wtpGamesList
-        //.user-game-preview-containers(id=`game-preview-containers-${gameList.Game.id}`)
-        // OG Container ^^ (fallback plan)
-        .game-flex-container
-          a(href=`/games/${gameList.Game.id}`)
-          .game-preview-img
-            img(src= gameList.Game.gameImage, alt="Game Image" class="game-images")
-          .game-preview-info
-            div.sub-info
-              p.game-name.no-padding= gameList.Game.name
-            div.sub-info
-              p.genre-title.no-padding Genres:
-              p.genre= gameList.Game.genre 
-            div.sub-info.sub-form
-              form(action=`/users/${userId}/userProfile/delete` method= "post")
-                input(type="hidden" value=userId name="user_id")
-                button(type="submit" id=userId value=gameList.Game.id name="game_id" class="remove-game-btn remove-btn") X
+        .user-game-preview-containers(id=`game-preview-containers-${gameList.Game.id}`)
+          // OG Container ^^ (fallback plan)
+          .game-flex-container
+            a(href=`/games/${gameList.Game.id}`)
+            .game-preview-img
+              img(src= gameList.Game.gameImage, alt="Game Image" class="game-images")
+            .game-preview-info
+              .sub-info
+                p.game-name.no-padding= gameList.Game.name
+              .sub-info
+                p.genre-title.no-padding Genres:
+                p.genre= gameList.Game.genre 
+              .sub-info
+                form(action=`/users/${userId}/userProfile/delete` method= "post")
+                  input(type="hidden" value=userId name="user_id")
+                  button(type="submit" id=userId value=gameList.Game.id name="game_id" class="remove-game-btn remove-btn") X
         
     .divider 
       p.no-padding Played
@@ -67,21 +67,21 @@ block content
               .sub-info
                 form(action=`/users/${userId}/userProfile/delete` method= "post")
                   input(type="hidden" value=userId name="user_id")
-                  button(type="submit"  id=userId value=gameList.Game.id name="game_id" class="remove-game-btn remove-btn") X
+                  button(type="submit" id=userId value=gameList.Game.id name="game_id" class="remove-game-btn remove-btn") X
     
     .divider 
       p.no-padding My Reviews
       //-========================== REVIEWS BY USER
     .users-reviews
       each review in reviews
-        //- .review-preview-container(id=`review-container-${review.id}`)
-        .rev-flex-container
-          .rev-sub-info
-            .rev-image
-              img(src=review.Game.gameImage alt="Game Image" class="game-images")
-              h4.no-padding= review.Game.name
-          .rev-sub-info
-            .rev-content
-              p.no-padding= review.content
-              button.no-padding(type="submit" id=userId value=review.id name="remove-review-btn" class="remove-review-btn remove-btn") X
+        .review-preview-container(id=`review-container-${review.id}`)
+          .rev-flex-container
+            .rev-sub-info
+              .rev-image
+                img(src=review.Game.gameImage alt="Game Image" class="game-images")
+                h4.no-padding= review.Game.name
+            .rev-sub-info
+              .rev-content
+                p.no-padding= review.content
+                button.no-padding(type="submit" id=userId value=review.id name="remove-review-btn" class="remove-review-btn remove-btn") X
     // all the reviews that the user has made, starting with msot recent
