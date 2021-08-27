@@ -8,23 +8,22 @@ const bcrypt = require('bcryptjs');
 ! When seeding tables that require REVIEWS (e.g. 'Likes') make sure there are sufficent reviews seeded.
 */
 
-const seedUsersTables = async() => {
+const seedUserTables = async() => {
     for (let i = 1; i < 10; i++) {
         const hashedPassword = await bcrypt.hash(`$aB${i}`, 10);
         console.log(`{ fullName: 'User${i}', email: 'user${i}@email.com', hashedPassword: '${hashedPassword}', screenName: 'PugLife${i}', createdAt: new Date(), updatedAt: new Date() },`);
     }
 }
-// seedUsersTables();
+// seedUserTables();
 
-const seedGamesTables = (name, gameImage, genre) => {
-    for (let i = 1; i < 10; i++) {
-        if (isPrimeHelper(i)) {
-            console.log(`{ '${name}', ${gameImage}, '${genre}', createdAt: new Date(), updatedAt: new Date() },`);
-    }
+const seedGameTables = (name, gameImage, genre) => {
+    // for (let i = 1; i < 10; i++) {
+        console.log(`{ '${name}', ${gameImage}, '${genre}', createdAt: new Date(), updatedAt: new Date() },`);
+    // }
 }
-// seedGamesTables();
+// seedGameTables();
 
-const seedReviewsTables = () => {
+const seedReviewTables = () => {
     for (let i = 1; i < 10; i++) {
         if (isPrimeHelper(i)) {
             console.log(`{ content: 'This game was absolutely excellent!', user_id: ${i}, game_id: ${i}, createdAt: new Date(), updatedAt: new Date() },`);
@@ -35,9 +34,9 @@ const seedReviewsTables = () => {
         }
     }
 }
-// seedReviewsTables();
+// seedReviewTables();
 
-const seedLikesTables = () => {
+const seedLikeTables = () => {
     for (let i = 1; i < 10; i++) {
         if (i % 2 === 0) {
             console.log(`{ like: true, user_id: ${i}, review_id: ${i}, createdAt: new Date(), updatedAt: new Date() },`);
@@ -46,7 +45,7 @@ const seedLikesTables = () => {
         }
     }
 }
-// seedLikesTables();
+// seedLikeTables();
 
 
 
@@ -66,4 +65,4 @@ function isPrimeHelper(index) {
     return true;
 }
 
-module.exports = { seedGamesTables };
+module.exports = { seedGameTables };
