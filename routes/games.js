@@ -47,7 +47,8 @@ router.get(`/:id(\\d+)`, csrfProtection, asyncHandler( async (req, res, next) =>
         like:false
       }
     });
-    console.log(allLikes,allDislikes);
+    // console.log(allLikes,allDislikes);
+    // console.log(allLikes.length, allDislikes.length)
     const score = allLikes.length-allDislikes.length;
     review.score = score;
   }
@@ -118,17 +119,24 @@ router.post("/:id(\\d+)", requireAuth, csrfProtection, reviewsValidators, asyncH
 router.post('/:id(\\d+)/likes', requireAuth ,csrfProtection,asyncHandler(async(req, res) => {
   const {like, dislike} = req.body
   const userId = req.session.auth.userId
+  // console.log(userId)
+  // console.log(like)
 
   if(like){
     const review_id = like
     const currLike = await Like.findOne({
-      user_id: userId,
-      review_id,
+      where: {
+        user_id: userId,
+        review_id,
+      }
     })
+    // console.log(currLike)
     if(currLike){
       if(currLike.like === false){
         currLike.like = true
         await currLike.save()
+        // res.status(204).send()
+        res.redirect("back");
       }else{
         res.status(204).send()
       }
@@ -138,23 +146,28 @@ router.post('/:id(\\d+)/likes', requireAuth ,csrfProtection,asyncHandler(async(r
         review_id,
         like: true
       })
-      res.status(204).send()
+      // res.status(204).send()
+      res.redirect("back");
     }
   }
 
   if(dislike){
     const review_id = dislike
     const currLike = await Like.findOne({
-      user_id: userId,
-      review_id,
+      where: {
+        user_id: userId,
+        review_id,
+      }
     })
 
     if(currLike){
       if(currLike.like === true){
         currLike.like = false
         await currLike.save()
+        // res.status(204).send()
+        res.redirect("back");
       }else{
-        res.status(204).send
+        res.status(204).send()
       }
     }else{
       const newLike = await Like.create({
@@ -162,7 +175,8 @@ router.post('/:id(\\d+)/likes', requireAuth ,csrfProtection,asyncHandler(async(r
         review_id,
         like: false
       })
-      res.status(204).send()
+      // res.status(204).send()
+      res.redirect("back");
     }
   }
 
