@@ -20,11 +20,11 @@ block content
             if user.favGenres
               p.no-padding.genre-title Favorite Genres:
               each genre in user.favGenres
-                p.no-padding.genre
+                a(href=`/games/${genre}`).no-padding.genre= genre
             else 
               p.no-padding.genre-title Favorite Genres:
-              p.no-padding.genre Adventure 
-              p.no-padding.genre RPG
+              a(href=`/games/adventure`).no-padding.genre Adventure
+              a(href=`/games/action`).no-padding.genre Action
 
     .divider 
       p.no-padding Want to Play

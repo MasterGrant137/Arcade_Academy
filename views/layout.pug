@@ -39,7 +39,7 @@ html
         a(href="/games" class="nav-bar-button")
           li.x <span class="dot">•</span> All Games <span class="dot">•</span>
         if locals.authenticated  
-          a(href=`/users/${user.id}/userProfile` class="nav-bar-button")
+          a(href=`/users/${user.id}/userProfile` class="nav-bar-button nav-user-profile-button")
             li.x <span class="dot">•</span> My Profile <span class="dot">•</span>  
 
     main

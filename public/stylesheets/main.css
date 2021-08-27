@@ -6,6 +6,7 @@
 
   --neonColor: #98f84a;
   --neonColor2:#98f84a;
+  --userNeonColor: rgb(64, 234, 240);
 
   --mainBoxShadow: rgba(2, 2, 2, 0.7);
   --mBSSpread: 6px;
@@ -111,21 +112,45 @@ nav>ul{
   0 0 14px var(--neonColor);
 }
 .nav-bar-button:hover{
-    list-style:none;
-    opacity: 1;
-    color: #ffffff;
-    text-shadow:
-    0 0 2px #fff,
-    0 0 4px var(--neonColor2),
-    0 0 6px var(--neonColor2),
-    0 0 8px var(--neonColor2),
-    0 0 10px var(--neonColor2),
-    0 0 12px var(--neonColor2),
-    0 0 14px var(--neonColor2),
-    0 0 15px var(--neonColor2);
-
+  list-style:none;
+  opacity: 1;
+  color: #ffffff;
+  text-shadow:
+  0 0 2px #fff,
+  0 0 4px var(--neonColor2),
+  0 0 6px var(--neonColor2),
+  0 0 8px var(--neonColor2),
+  0 0 10px var(--neonColor2),
+  0 0 12px var(--neonColor2),
+  0 0 14px var(--neonColor2),
+  0 0 15px var(--neonColor2);
 }
 
+.nav-user-profile-button{
+  text-shadow:
+  0 0 2px #fff,
+  0 0 4px var(--userNeonColor),
+  0 0 6px var(--userNeonColor),
+  0 0 8px var(--userNeonColor),
+  0 0 10px var(--userNeonColor),
+  0 0 12px var(--userNeonColor),
+  0 0 14px var(--userNeonColor),
+  0 0 15px var(--userNeonColor);
+}
+.nav-user-profile-button:hover{
+  list-style:none;
+  opacity: 1;
+  color: #ffffff;
+  text-shadow:
+  0 0 2px #fff,
+  0 0 4px var(--userNeonColor),
+  0 0 6px var(--userNeonColor),
+  0 0 8px var(--userNeonColor),
+  0 0 10px var(--userNeonColor),
+  0 0 12px var(--userNeonColor),
+  0 0 14px var(--userNeonColor),
+  0 0 15px var(--userNeonColor);
+}
 
 /* ============== middle section ============== */
 main {

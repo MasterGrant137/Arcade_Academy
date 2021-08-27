@@ -109,7 +109,7 @@ const loginValidators = [
     .withMessage('Please provide your password')
 ]
 
-// login page
+// ========== login page================================
 router.get('/login', csrfProtection, (req, res) => {
   res.render('signInForm.pug', { title: "Login", email: "",csrfToken: req.csrfToken()})
 })
@@ -170,16 +170,14 @@ router.post('/logout', (req, res) => {
   res.redirect('/')
 })
 
-
+// ======== Add/remove games to/from the active users played/unplayed games list ==============
 router.post("/:id(\\d+)/userProfile",requireAuth,asyncHandler(async (req, res) => {
-    // console.log("I'm working");
-    // console.log(req.params.id)
-    // console.log(req.body);
+    // Add a game to the logged in users "Played" games section
     const userId = req.params.id
     const { played, wantToPlay } = req.body
     if(played){
-      console.log("PLAYED WORKS")
-      console.log(played)
+      // console.log("PLAYED WORKS")
+      // console.log(played)
       const gameId = played
       const game = await GameList.findOne({
         where: {
@@ -203,29 +201,25 @@ router.post("/:id(\\d+)/userProfile",requireAuth,asyncHandler(async (req, res) =
         })
         res.status(204).send()
       }
-
-      
-
     }
-
+    // Add a game to the logged in users "Played" games section
     if(wantToPlay){
       const gameId = wantToPlay
-      console.log("WTP WORKS")
+      // console.log("WTP WORKS")
       const game = await GameList.findOne({
         where:{
           user_id: userId,
           game_id: gameId,
         }
       })
-
-      if(game){
+      if(game){ //if there is a gameList found do this
         if(game.have_played === true){
           game.have_played = false
           await game.save()
         }else{
           res.status(204).send()
         }
-      }else{
+      }else{ //if there is no gameList found do this
         const newGameList = await GameList.create({
           user_id: userId,
           game_id: gameId,
@@ -237,13 +231,14 @@ router.post("/:id(\\d+)/userProfile",requireAuth,asyncHandler(async (req, res) =
   })
 );
 
+// Log in the Demo User
 router.post("/demoUser", asyncHandler(async(req,res) => {
   const demoUser = await User.findByPk(1)
   loginUser(req, res, demoUser)
   // res.redirect('/')
 }))
 
-
+// === Navigate to the active users profile page ===================================
 router.get("/:id(\\d+)/userProfile",requireAuth,csrfProtection,asyncHandler(async (req, res) => {
     const userId = req.params.id;
     const user = await User.findByPk(userId);
@@ -270,7 +265,7 @@ router.get("/:id(\\d+)/userProfile",requireAuth,csrfProtection,asyncHandler(asyn
     });
     // console.log(wtpGamesList[0])
     
-    res.render("userProfile.pug", { title: "userProfile", user, playedGamesList, wtpGamesList, reviews, userId });
+    res.render("userProfile.pug", { title: `${user.screenName}'s Profile`, user, playedGamesList, wtpGamesList, reviews, userId });
   })
 );
 

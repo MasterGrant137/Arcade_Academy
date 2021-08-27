@@ -6,7 +6,6 @@ const { csrfProtection } = require('./utils');
 const { check, validationResult } = require('express-validator');
 const { requireAuth } = require('../auth')
 
-
 const genres = ['Action', 'Action-adventure', 'Adventure', 'RPG', 'Simulation', 'First-person Shooter', 'Sports', 'MMO', ]
 
 router.get('/', asyncHandler( async (req, res, next) => {
@@ -185,7 +184,7 @@ router.get('/topGames', asyncHandler(async(req,res) => {
 }));
 
 router.get('/categories', asyncHandler(async(req, res) => {
-  res.render('gameCategories.pug', { genres })
+  res.render('gameCategories.pug', { title: `Games by Category`,genres })
 
 }))
 
