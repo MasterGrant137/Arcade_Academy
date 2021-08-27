@@ -24,17 +24,23 @@ html
           h1#page-title Arcade Academy
       div#page-header-right
         if locals.authenticated
-          div
-            span Hey #{user.screenName}! Lets Game 🎮
-            form(action='/users/logout' method='post')
-              button(type='submit') Logout
+          div.profile-card-og
+            .profile-card-img 
+              img(src="https://ca.slack-edge.com/T03GU501J-ULWR1NB0B-9fe136407b1a-512", alt="")
+            .profile-card-name  
+              h4 #{user.screenName} 
+              
+            .profile-logout-btn  
+              h5 Online
+              form(action='/users/logout' method='post')
+                button(type='submit')
         else
           .auth-buttons
-            a(href="/users/login") Log In
-            span |
-            a(href="/users/register") Sign Up
-            form(action="/users/demoUser" method="POST")
-              button Demo User 
+            a(href="/users/login" class="login-anchors") Log In
+            a(href="/users/register" class="login-anchors") Sign Up
+            .demo-user-btn
+              form(action="/users/demoUser" method="POST")
+                button 
 
 
     nav
