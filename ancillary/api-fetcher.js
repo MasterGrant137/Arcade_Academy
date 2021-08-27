@@ -31,7 +31,8 @@ const linkTraverser = (gameLink, gameImage) => {
     axios.get(gameLink)
         .then(res => {
             const $ = cheerio.load(res.data);
-            const gameName = $('.gamepage-title-wrapper').find('h1').text();
+            const gameNameRaw = $('.gamepage-title-wrapper').find('h1').text()
+            const gameName = gameNameRaw.slice(0, gameNameRaw.length - 4);
             const gameGenre = $('.gamepage-tabs p > a').first().text();
 
             seedGameTables(gameName, gameImage, gameGenre)
