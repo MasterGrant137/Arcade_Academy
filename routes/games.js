@@ -187,8 +187,11 @@ router.post('/:id(\\d+)/likes', requireAuth ,csrfProtection,asyncHandler(async(r
 
 router.get('/topGames', asyncHandler(async(req,res) => {
   const topGames = await Game.findAll({ limit: 10 });
-  const userId = req.session.auth.userId
-  console.log(userId)
+  let userId;
+  if (req.session.auth) {
+    userId = req.session.auth.userId;
+  }
+  // console.log(userId)
 
   res.render('topTen.pug', {
     title: 'Top Games',
@@ -202,10 +205,7 @@ router.get('/categories', asyncHandler(async(req, res) => {
 
 }))
 
-
-
 //--------Routes for categories------------
-
 router.get('/arcade', asyncHandler(async(req,res) => {
   let userId;
 
@@ -217,14 +217,11 @@ router.get('/arcade', asyncHandler(async(req,res) => {
   }})
   if(userId){
     res.render('filteredGames.pug', { games, userId })
-    
   }else{
-
     res.render('filteredGames.pug', { games })
   }
-
-
 }));
+
 router.get('/adventure', asyncHandler(async(req,res) => {
   let userId;
  
