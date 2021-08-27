@@ -44,16 +44,61 @@ section{
  }
 
  #review-form-title {
+  opacity: 75%;
+  color: #fff2f4;
+  text-decoration: none;
+  text-shadow:
+  0 0 2px #fff,
+  0 0 4px var(--neonColor),
+  0 0 6px var(--neonColor),
+  0 0 8px var(--neonColor),
+  0 0 10px var(--neonColor),
+  0 0 12px var(--neonColor),
+  0 0 14px var(--neonColor);
   grid-area: 'a';
   justify-self: center;
   margin-top: 1rem;
   margin-bottom: 0;
  }
 
+ #review-form-title:hover{
+  list-style:none;
+  opacity: 1;
+  color: #ffffff;
+  text-shadow:
+  0 0 2px #fff,
+  0 0 4px var(--neonColor2),
+  0 0 6px var(--neonColor2),
+  0 0 8px var(--neonColor2),
+  0 0 10px var(--neonColor2),
+  0 0 12px var(--neonColor2),
+  0 0 14px var(--neonColor2),
+  0 0 15px var(--neonColor2);
+  transition: 1s;
+}
+
  #review-textbox {
   grid-area: 'b';
   border-radius: 5px;
-  background-color: blanchedalmond;
+  background-color: rgb(58, 68, 58);
+  box-shadow: 0px 8px 8px rgb(7, 20, 32);
+  opacity: 75%;
+  color: #fff2f4;
+  text-decoration: none;
+  text-shadow:
+  0 0 2px #fff,
+  0 0 4px var(--neonColor),
+  0 0 6px var(--neonColor),
+  0 0 8px var(--neonColor),
+  0 0 10px var(--neonColor),
+  0 0 12px var(--neonColor),
+  0 0 14px var(--neonColor);
+ }
+
+ #review-textbox:hover {
+  background-color: rgb(65, 75, 68);
+  box-shadow: 0px 12px 12px rgb(7, 20, 32);
+  transition-duration: 1s;
  }
 
  #submit-review {
@@ -62,11 +107,36 @@ section{
   border: solid black 2px;
   height: 1.3rem;
   justify-self: center;
-  background-color: #b7410e;
+  background-color: rgb(58, 68, 58);
+  box-shadow: 0px 8px 8px rgb(7, 20, 32);
+  opacity: 75%;
+  color: #fff2f4;
+  text-decoration: none;
+  text-shadow:
+  0 0 2px #fff,
+  0 0 4px var(--neonColor),
+  0 0 6px var(--neonColor),
+  0 0 8px var(--neonColor),
+  0 0 10px var(--neonColor),
+  0 0 12px var(--neonColor),
+  0 0 14px var(--neonColor);
  }
 
  #submit-review:hover {
-   background-color: #da571f;
+  background-color: rgb(65, 75, 68);
+  box-shadow: 0px 12px 12px rgb(7, 20, 32);
+  transition-duration: 1s;
+  opacity: 1;
+  color: #ffffff;
+  text-shadow:
+  0 0 2px #fff,
+  0 0 4px var(--neonColor2),
+  0 0 6px var(--neonColor2),
+  0 0 8px var(--neonColor2),
+  0 0 10px var(--neonColor2),
+  0 0 12px var(--neonColor2),
+  0 0 14px var(--neonColor2),
+  0 0 15px var(--neonColor2);
  }
 
 
@@ -82,14 +152,44 @@ section{
 
 .comment {
   border: 1px solid black;
-  width: 60%;
+  padding: 10px;
+  width: 100%;
   overflow: wrap;
   word-wrap: break-word;
-  background-color: blanchedalmond;
+  background-color: rgb(211, 215, 219);
   border-radius: 5px;
-  box-shadow: 5px 5px 10px #b7410e;
+  box-shadow: 0px 8px 8px rgb(211, 215, 219);
+  background-color: rgb(58, 68, 58);
+  box-shadow: 0px 8px 8px rgb(7, 20, 32);
+  opacity: 75%;
+  color: #fff2f4;
+  text-decoration: none;
+  text-shadow:
+  0 0 2px #fff,
+  0 0 4px var(--neonColor),
+  0 0 6px var(--neonColor),
+  0 0 8px var(--neonColor),
+  0 0 10px var(--neonColor),
+  0 0 12px var(--neonColor),
+  0 0 14px var(--neonColor);
 }
 
+.comment:hover {
+  background-color: rgb(65, 75, 68);
+  box-shadow: 0px 12px 12px rgb(7, 20, 32);
+  transition-duration: 1s;
+  opacity: 1;
+  color: #ffffff;
+  text-shadow:
+  0 0 2px #fff,
+  0 0 4px var(--neonColor2),
+  0 0 6px var(--neonColor2),
+  0 0 8px var(--neonColor2),
+  0 0 10px var(--neonColor2),
+  0 0 12px var(--neonColor2),
+  0 0 14px var(--neonColor2),
+  0 0 15px var(--neonColor2);
+}
 /* ============== sidebar section ================*/
 /* .voter{} */
 
