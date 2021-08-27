@@ -31,15 +31,32 @@ const linkTraverser = (gameLink, gameImage) => {
     axios.get(gameLink)
         .then(res => {
             const $ = cheerio.load(res.data);
-            const gameName = $('.gamepage-title-wrapper').find('h1').text();
+            const gameNameRaw = $('.gamepage-title-wrapper').find('h1').text()
+            const gameName = gameNameRaw.slice(0, gameNameRaw.length - 4);
             const gameGenre = $('.gamepage-tabs p > a').first().text();
+            const gameBio = $('.gamepage-tabs div > div')
+                .get(0)
+                .children[0]
+                .data
 
-            seedGameTables(gameName, gameImage, gameGenre)
+            seedGameTables(gameName, gameImage, gameGenre, gameBio)
         })
         .catch(err => {
             console.log(err);
         });
 }
+
+//? This is capable of isolating genres
+// const findGenres = (gameGenre) => {
+//     let genreTypes = new Set();
+
+//     genreTypes.add(gameGenre);
+
+//     genreTypesArray = Array.from(genreTypes);
+
+//     console.log(genreTypesArray);
+// }
+
 
 //? This is capable of parsing and formatting titles from links
 // titleParser = (gameLink) => {
