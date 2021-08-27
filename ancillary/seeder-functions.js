@@ -19,12 +19,7 @@ const seedUsersTables = async() => {
 const seedGamesTables = (name, gameImage, genre) => {
     for (let i = 1; i < 10; i++) {
         if (isPrimeHelper(i)) {
-            console.log(`{ name: 'Game${name}',  gameImage: ${gameImage}, genre: 'Type${i}', createdAt: new Date(), updatedAt: new Date() },`);
-        } else if ( i % 2 === 0) {
-            console.log(`{ name: 'Game${name}', gameImage: ${gameImage}, genre: 'Type0', createdAt: new Date(), updatedAt: new Date() },`);
-        } else if (i % 2 !== 0) {
-            console.log(`{ name: 'Game${name}', gameImage: ${gameImage}, genre: 'Type1', createdAt: new Date(), updatedAt: new Date() },`);
-        }
+            console.log(`{ '${name}', ${gameImage}, '${genre}', createdAt: new Date(), updatedAt: new Date() },`);
     }
 }
 // seedGamesTables();

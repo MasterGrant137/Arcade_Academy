@@ -1,1 +1,0 @@
-const testArray = ['Hawaii', 'ii', ''']
