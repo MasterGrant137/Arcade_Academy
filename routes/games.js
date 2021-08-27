@@ -6,23 +6,24 @@ const { csrfProtection } = require('./utils');
 const { check, validationResult } = require('express-validator');
 const { requireAuth } = require('../auth')
 
+// hardcoded list of genres
+// delete?
 const genres = ['Action', 'Action-adventure', 'Adventure', 'RPG', 'Simulation', 'First-person Shooter', 'Sports', 'MMO', ]
 
+// GET /games
 router.get('/', asyncHandler( async (req, res, next) => {
   const games = await Game.findAll();
   if(req.session.auth){
-
     const userId = req.session.auth.userId;
     res.render('gameCollection.pug', { title: 'Arcade Academy', games, userId });
   }else{
-
     res.render('gameCollection.pug', { title: 'Arcade Academy', games });
   }
 }));
 
+// GET games/:id
 router.get(`/:id(\\d+)`, csrfProtection, asyncHandler( async (req, res, next) => {
   const gameId = parseInt(req.params.id, 10);
-
   const reviews = await Review.findAll({
     where: {
       game_id: gameId
@@ -30,10 +31,10 @@ router.get(`/:id(\\d+)`, csrfProtection, asyncHandler( async (req, res, next) =>
   });
   const game = await Game.findByPk(gameId);
   // console.log(reviews.length)
-
   for(i=0; i< reviews.length; i++) {
     const review = reviews[i];
     const reviewId = reviews[i].id;
+    // retreive all the likes/dislikes for the game in question
     const allLikes = await Like.findAll({
       where: {
         review_id: reviewId,
@@ -48,6 +49,7 @@ router.get(`/:id(\\d+)`, csrfProtection, asyncHandler( async (req, res, next) =>
     });
     // console.log(allLikes,allDislikes);
     // console.log(allLikes.length, allDislikes.length)
+    // subtract dislikes from likes to get score, return score
     const score = allLikes.length-allDislikes.length;
     review.score = score;
   }
@@ -70,12 +72,12 @@ const reviewsValidators = [
   //   .withMessage('Gamescore must not be empty')
 ];
 
-
+// ======== Post a new review ======================
+// POST games/:id
 router.post("/:id(\\d+)", requireAuth, csrfProtection, reviewsValidators, asyncHandler(async(req, res)=> {
   const userId = req.session.auth.userId;
   const { gameId, content} = req.body;
   console.log(req.session);
-
 
   const reviews = await Review.findAll({
     where: {
@@ -84,14 +86,13 @@ router.post("/:id(\\d+)", requireAuth, csrfProtection, reviewsValidators, asyncH
   });
 
   const game = await Game.findByPk(gameId);
-
   const userReview = await Review.findOne({
     where: {
       game_id: gameId,
       user_id: userId
     }
   })
-// console.log(userReview, '<==============================')
+  // console.log('================>', userReview)
   const validationErrors = validationResult(req);
 
   if (userReview) {
@@ -104,7 +105,7 @@ router.post("/:id(\\d+)", requireAuth, csrfProtection, reviewsValidators, asyncH
       game_id: gameId
     });
     // =============== This part needs work. Clearing out the text box after leaving a comment
-    // =============== for comment simulation.
+    // =============== for comment simulation. (see public/javascripts/index.js)
     // window.document.getElementById('review-textbox').value = "";
     // return res.render('game.pug', { game, reviews, gameId, csrfToken:req.csrfToken() });
     return res.status(204).send();
@@ -112,15 +113,16 @@ router.post("/:id(\\d+)", requireAuth, csrfProtection, reviewsValidators, asyncH
     const errors = validationErrors.array().map(error => error.msg)
     return res.render('game.pug', { game, reviews, gameId, csrfToken:req.csrfToken(), errors });
   }
-
 }));
 
+// Add a like to a review
 router.post('/:id(\\d+)/likes', requireAuth ,csrfProtection,asyncHandler(async(req, res) => {
+  //get the user who is logged in (or check if they are logged in)
   const {like, dislike} = req.body
   const userId = req.session.auth.userId
   // console.log(userId)
   // console.log(like)
-
+  // if this action was a 'like' and users opinion of this game is not already 'like', change it to like
   if(like){
     const review_id = like
     const currLike = await Like.findOne({
@@ -149,7 +151,7 @@ router.post('/:id(\\d+)/likes', requireAuth ,csrfProtection,asyncHandler(async(r
       res.redirect("back");
     }
   }
-
+  // if this action was a 'dislike' and users opinion of this game is not already 'dislike', change it to dislike
   if(dislike){
     const review_id = dislike
     const currLike = await Like.findOne({
@@ -158,7 +160,6 @@ router.post('/:id(\\d+)/likes', requireAuth ,csrfProtection,asyncHandler(async(r
         review_id,
       }
     })
-
     if(currLike){
       if(currLike.like === true){
         currLike.like = false
@@ -178,13 +179,12 @@ router.post('/:id(\\d+)/likes', requireAuth ,csrfProtection,asyncHandler(async(r
       res.redirect("back");
     }
   }
-
-
-
   // console.log(review_id)
   // res.status(204).send()
 }))
 
+
+// GET games/top10 ====================
 router.get('/topGames', asyncHandler(async(req,res) => {
   const topGames = await Game.findAll({ limit: 10 });
   let userId;
@@ -200,21 +200,30 @@ router.get('/topGames', asyncHandler(async(req,res) => {
   })
 }));
 
+// GET games/top10 ====================
 router.get('/categories', asyncHandler(async(req, res) => {
   res.render('gameCategories.pug', { title: `Games by Category`,genres })
 
 }))
 
+
 //--------Routes for categories------------
+
+//============================================================
+//----------Routes for categories-----------------------------
+
+// ==== ARCADE ====
+
 router.get('/arcade', asyncHandler(async(req,res) => {
   let userId;
-
   if (req.session.auth) {
     userId = req.session.auth.userId;
   }
-  const games = await Game.findAll({ where: {
-    genre: 'Arcade'
-  }})
+  const games = await Game.findAll({
+    where: {
+      genre: 'Arcade'
+    }  
+  });
   if(userId){
     res.render('filteredGames.pug', { games, userId })
   }else{
@@ -222,27 +231,27 @@ router.get('/arcade', asyncHandler(async(req,res) => {
   }
 }));
 
+
+// ==== ADVENTURE ====
+
 router.get('/adventure', asyncHandler(async(req,res) => {
   let userId;
- 
   if(req.session.auth){
     userId = req.session.auth.userId
   }
-
   const games = await Game.findAll({ where: {
     genre: 'Adventure'
   }})
-
    if (userId) {
      res.render("filteredGames.pug", { games, userId });
    } else {
      res.render("filteredGames.pug", { games, userId: 1 });
    }
-
 }));
+
+// ==== RPG ====
 router.get('/rpg', asyncHandler(async(req,res) => {
   let userId;
-
   if (req.session.auth) {
     userId = req.session.auth.userId;
   }
@@ -251,66 +260,62 @@ router.get('/rpg', asyncHandler(async(req,res) => {
       genre: "Role-playing (RPG)",
     },
   });
-
-   if(userId){
+  if(userId){
     res.render('filteredGames.pug', { games, userId })
-    
   }else{
-
     res.render('filteredGames.pug', { games })
   }
-
 }));
+
+// ==== FPS ====
 router.get('/fps', asyncHandler(async(req,res) => {
   let userId;
-
   if (req.session.auth) {
     userId = req.session.auth.userId;
   }
   const games = await Game.findAll({ where: {
     genre: 'Shooter'
   }})
-
    if (userId) {
      res.render("filteredGames.pug", { games, userId });
    } else {
      res.render("filteredGames.pug", { games });
    }
-
 }));
+
+// ==== SPORTS ====
 router.get('/sports', asyncHandler(async(req,res) => {
   let userId;
 
   if (req.session.auth) {
     userId = req.session.auth.userId;
   }
-  const games = await Game.findAll({ where: {
-    genre: 'Sport'
-  }})
-
+  const games = await Game.findAll({ 
+    where: {
+      genre: 'Sport'
+    }
+  })
    if (userId) {
      res.render("filteredGames.pug", { games, userId });
    } else {
      res.render("filteredGames.pug", { games });
    }
-
 }));
+
+// ==== INDIE ====
 router.get('/indie', asyncHandler(async(req,res) => {
   let userId;
-
   if (req.session.auth) {
     userId = req.session.auth.userId;
   }
   const games = await Game.findAll({ where: {
     genre: 'Indie'
   }})
-
-   if (userId) {
-     res.render("filteredGames.pug", { games, userId });
-   } else {
-     res.render("filteredGames.pug", { games });
-   }
-
+  if (userId) {
+    res.render("filteredGames.pug", { games, userId });
+  } else {
+    res.render("filteredGames.pug", { games });
+  }
 }));
 
 

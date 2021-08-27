@@ -269,25 +269,26 @@ router.get("/:id(\\d+)/userProfile",requireAuth,csrfProtection,asyncHandler(asyn
   })
 );
 
+// Delete a game from the users 'Played' or 'Want to Play' list
 router.post("/:id(\\d+)/userProfile/delete", requireAuth, asyncHandler(async(req, res) => {
   //  console.log(req.body)  
-   const { user_id, game_id} = req.body
-   console.log(user_id, game_id)
-   const gameList = await GameList.findOne({
-     where: {
-       user_id,
-       game_id
-     }
-   })
-   await gameList.destroy()
+  // console.log(user_id, game_id)
+  const { user_id, game_id} = req.body
+  const gameList = await GameList.findOne({
+    where: {
+      user_id,
+      game_id
+    }
+  })
+  await gameList.destroy()
   //  res.json({"message": "Successful"})
-   res.status(204).send()
-
+  res.status(204).send()
 }));
 
+// Delete a game from the users 'Played' or 'Want to Play' list
 router.delete("/:id(\\d+)/userProfile", asyncHandler(async(req, res, next)=> {
-  const { user_id, game_id } = req.body
   // console.log(req)
+  const { user_id, game_id } = req.body
   const gameList = await GameList.findOne({
     where: {
       user_id,
@@ -298,6 +299,7 @@ router.delete("/:id(\\d+)/userProfile", asyncHandler(async(req, res, next)=> {
   res.json({"message": "Successful"})
 }));
 
+// Delete a Review that a user previously made
 router.delete("/:id(\\d+)/review", asyncHandler(async(req, res, next)=>{
   const { user_id, reviewId } = req.body;
   // console.log(reviewId)
