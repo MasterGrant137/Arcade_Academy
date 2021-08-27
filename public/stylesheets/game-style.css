@@ -13,20 +13,36 @@ section{
 }
 
 .game-info {
-  float: left;
+  /* float: left; */
   width: 625px;
   padding-right: 10px;
   padding-left: 8px;
 }
-/* .top{
+
+.parent-info {
   display: flex;
-  flex-direction: rows;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+/* #topcol {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 10px;
 } */
 
-/* .game-image {
-
-
-} */
+#image-col {
+  width: 150px;
+  text-align: center;
+}
+.game-cover-container {
+  position: relative;
+  text-align: center;
+}
+.game-cover-primary {
+  height: 100%;
+  width: 100%;
+}
 
 .game-cover-primary {
   height: 100%;
@@ -39,10 +55,9 @@ section{
   box-shadow: 0px 8px 8px rgb(7, 20, 32);
 
 }
-.game-description{
- width: 100%;
- border-bottom: 1px solid darkgrey;
-}
+/* .top-content {
+  float: right;
+} */
 
 
  /* ============== reviews section ================*/
