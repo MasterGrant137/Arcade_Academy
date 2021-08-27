@@ -13,9 +13,8 @@ section{
 }
 
 .game-info {
-  /* float: left; */
-  width: 625px;
-  padding-right: 10px;
+  width: 100%;
+  padding-right: 8px;
   padding-left: 8px;
 }
 
@@ -24,14 +23,10 @@ section{
   flex-direction: row;
   justify-content: space-evenly;
 }
-/* #topcol {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  margin-bottom: 10px;
-} */
+
 
 #image-col {
+  float: left;
   width: 150px;
   text-align: center;
 }
@@ -55,14 +50,18 @@ section{
   box-shadow: 0px 8px 8px rgb(7, 20, 32);
 
 }
-/* .top-content {
-  float: right;
-} */
+.game-description {
+  text-align: left;
+  /* display: flex;
+  justify-content: center; */
+  width: 80%;
+}
 
 
  /* ============== reviews section ================*/
  .review-form-div {
     width: 90%;
+    border-top: 2px solid rgb(73, 69, 69);
  }
 
  #review-form {
@@ -115,9 +114,16 @@ section{
   border-radius: 5px;
   background-color: rgb(58, 68, 58);
   box-shadow: 0px 8px 8px rgb(7, 20, 32);
+  /* background-color: black;
+  background-image: radial-gradient(
+    rgba(0, 150, 0, 0.75), black 120%
+  );
+  color: white;
+  font: 1.3rem Inconsolata, monospace; */
   opacity: 75%;
   color: #fff2f4;
   text-decoration: none;
+
   text-shadow:
   0 0 2px #fff,
   0 0 4px var(--neonColor),
@@ -181,6 +187,9 @@ section{
   width: 27rem;
   height: 15rem;
   overflow: auto;
+  border: 2px solid rgb(73, 69, 69);
+  border-radius: 8px;
+  margin-bottom: 2rem;
 }
 
 .comment {
