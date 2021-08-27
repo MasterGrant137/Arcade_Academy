@@ -2,7 +2,9 @@ extends layout.pug
 include utils.pug
 block content
   .top
+  div.game-info
     .game-image
+      img#game-image-tag(src=game.gameImage, alt="Game cover art")
     .top-content
       h2= game.name
       <p>Studio - <span>XX/XX/XXXX</span></p>
@@ -11,7 +13,7 @@ block content
       span
       span
       span
-  .game-description 
+  .game-description
     p= game.bio
   +validationErrors(errors)
   if locals.authenticated
@@ -49,6 +51,6 @@ block content
             form(action=`/games/${gameId}/likes` method="POST")
               input(type="hidden" name="_csrf" value=csrfToken)
               button(type="submit" value=review.id name="like") Like
-            form(action=`/games/${gameId}/likes` method="POST")  
+            form(action=`/games/${gameId}/likes` method="POST")
               input(type="hidden" name="_csrf" value=csrfToken)
               button(type="submit" value=review.id name="dislike") Dislike

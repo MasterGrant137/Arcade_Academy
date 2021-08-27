@@ -17,9 +17,13 @@ section{
   flex-direction: rows;
 }
 
-.game-image{
-  background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.lFqVj82Ek7m4HgKo2o8migHaHa%26pid%3DApi&f=1");
-  width: 30%
+.game-image {
+  display: grid;
+
+}
+
+#game-image-tag{
+  height: 15rem;
 }
 .game-description{
  width: 100%;

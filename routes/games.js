@@ -23,6 +23,7 @@ router.get('/', asyncHandler( async (req, res, next) => {
 router.get(`/:id(\\d+)`, csrfProtection, asyncHandler( async (req, res, next) => {
   const gameId = parseInt(req.params.id, 10);
 
+
   const reviews = await Review.findAll({
     where: {
       game_id: gameId
@@ -217,7 +218,7 @@ router.get('/arcade', asyncHandler(async(req,res) => {
   }})
   if(userId){
     res.render('filteredGames.pug', { games, userId })
-    
+
   }else{
 
     res.render('filteredGames.pug', { games })
@@ -227,7 +228,7 @@ router.get('/arcade', asyncHandler(async(req,res) => {
 }));
 router.get('/adventure', asyncHandler(async(req,res) => {
   let userId;
- 
+
   if(req.session.auth){
     userId = req.session.auth.userId
   }
@@ -257,7 +258,7 @@ router.get('/rpg', asyncHandler(async(req,res) => {
 
    if(userId){
     res.render('filteredGames.pug', { games, userId })
-    
+
   }else{
 
     res.render('filteredGames.pug', { games })

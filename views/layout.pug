@@ -7,7 +7,6 @@ html
         link(rel='stylesheet' href='/stylesheets/main.css')
         link(rel="stylesheet", href="/stylesheets/form-style.css")
         link(rel="stylesheet" href="/stylesheets/game-style.css")
-        link(rel="stylesheet" href="/stylesheets/game-cards.css")
         link(rel="stylesheet" href="/stylesheets/user-profile.css")
         //..................................................................
         //-==========VVV color theme stylesheets should be below any other css files. VVV========
@@ -17,7 +16,7 @@ html
   body
     header
       div#page-header
-        a(href="/" class="title-anchor") 
+        a(href="/" class="title-anchor")
           h1#page-title Arcade Academy
       div#page-header-right
         if locals.authenticated
@@ -31,7 +30,7 @@ html
             span |
             a(href="/users/register") Sign Up
             form(action="/users/demoUser" method="POST")
-              button Demo User 
+              button Demo User
 
 
     nav
@@ -42,9 +41,9 @@ html
           li.x <span class="dot">•</span> Categories <span class="dot">•</span>
         a(href="/games" class="nav-bar-button")
           li.x <span class="dot">•</span> All Games <span class="dot">•</span>
-        if locals.authenticated  
+        if locals.authenticated
           a(href=`/users/${user.id}/userProfile` class="nav-bar-button nav-user-profile-button")
-            li.x <span class="dot">•</span> My Profile <span class="dot">•</span>  
+            li.x <span class="dot">•</span> My Profile <span class="dot">•</span>
 
     main
       section
