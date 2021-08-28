@@ -10,6 +10,12 @@
 
   --mainBoxShadow: rgba(2, 2, 2, 0.7);
   --mBSSpread: 6px;
+
+  /*gradients for logged-in user card*/
+  --userCardBack:#537895;
+  --gradColor1: #537895;
+  --gradColor2: #09203f;
+
 }
  * {
    box-sizing: border-box;
@@ -75,26 +81,27 @@ header {
 
 .profile-card-og{
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: row;
+  align-items: center;
   height: 7rem;
-  width: 23rem;
+  width: 21rem;
   
   border-radius: 10px;
   justify-content: space-between;
   margin: 10px auto;
   margin-right: -5rem;
-background-color: #537895;
-background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
-  ;
+  background-color: var(--userCardBack);
+  background-image: linear-gradient(315deg, var(--gradColor1) 0%, var(--gradColor2) 74%);
 }
 .profile-card-img{
-  align-self: flex-start;
+  /* align-self: flex-start; */
   width: 5rem;
 }
 .profile-card-img>img{
   height: 5rem;
   width: 5rem;
   border-radius: 50%;
+  margin-left: 1rem;
 }
 .profile-card-name{
   display: flex;
@@ -105,6 +112,7 @@ background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
   /* border: 2px solid red; */
   justify-content: center;
   padding-left: 1rem;
+  margin-bottom: 1rem;
   word-wrap: break-word;
   text-shadow:
     0 0 2px #fff,
@@ -115,7 +123,6 @@ background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
     0 0 12px #4a81f8,
     0 0 14px #4a81f8,
     0 0 15px #4a81f8;
-  
 }
 
 #anchor-profile-card{
@@ -125,25 +132,35 @@ background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
 
 .profile-logout-btn{
   /* border: 4px solid red; */
+  height: 100%;
   width: 4rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: 3px;
+  /* align-items: space-around; */
+  /* margin-bottom: 3px; */
+  margin-right: 5px;
   color: black;
   text-shadow: 0 0 2px #fff,
-  0 0 4px var(--neonColor),
-  0 0 6px var(--neonColor),
-  0 0 8px var(--neonColor),
-  0 0 10px var(--neonColor),
-  0 0 12px var(--neonColor),
-  0 0 14px var(--neonColor),
-  0 0 15px var(--neonColor);
+    0 0 4px var(--neonColor),
+    0 0 6px var(--neonColor),
+    0 0 8px var(--neonColor),
+    0 0 10px var(--neonColor),
+    0 0 12px var(--neonColor),
+    0 0 14px var(--neonColor),
+    0 0 15px var(--neonColor);
 }
+.profile-logout-btn > h5{
+  padding: 0;
+  margin: 0;
+  float: right;
+  margin-top: 1rem;
+}
+
 .profile-logout-btn button{
   border-radius: 20px;
   padding: 3px 6px;
+  margin-bottom: 1rem;
   color: #000;
   font-weight: bold;
   background: #66ff66;
@@ -214,6 +231,7 @@ background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
   transition: all 0.3s ease 0s;
 }
 .login-anchors{
+  /* display: inline; */
   text-decoration: none;
   color: rgba(255, 255, 255, 0.657);
   font-size: 18px;
@@ -227,6 +245,10 @@ background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
   0 0 12px var(--neonColor),
   0 0 14px var(--neonColor),
   0 0 15px var(--neonColor);
+}
+.both-buttons{
+  display: flex;
+  justify-content: space-around;
 }
 
 nav {
