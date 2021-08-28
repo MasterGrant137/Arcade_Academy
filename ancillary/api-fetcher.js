@@ -32,7 +32,7 @@ const gameSet = new Set();
 */
 
 const linkFetcher = () => {
-    const fetchLimiter = 2;
+    const fetchLimiter = 100;
 
     axios.get(url)
         .then(res => {
