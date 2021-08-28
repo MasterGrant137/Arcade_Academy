@@ -1,3 +1,6 @@
+const { Game, Review } = require('../../db/models');
+
+
 // window.addEventListener("load", (event) => {
 //   console.log("hello from javascript!");
 // });
@@ -37,10 +40,13 @@ for (let i = 0; i < buttons.length; i++) {
 }
 
 
+const gameRegex = //i;
+
+
 let clickCount = 0;
 
 const searchIcon = document.getElementById('search-icon');
-searchIcon.addEventListener('click', async(e) => {
+searchIcon.addEventListener('click', () => {
     const ul = document.querySelector('nav > ul');
 
     if (!clickCount) {
@@ -48,6 +54,12 @@ searchIcon.addEventListener('click', async(e) => {
       texarea.id = 'searchTextarea';
       ul.appendChild(texarea);
       clickCount++;
+
+      document.getElementById('searchTextarea').addEventListener('input', function() {
+          if(this.value.match()) {
+
+          }
+      })
     } else {
       const textarea = document.getElementById('searchTextarea');
       ul.removeChild(textarea)
