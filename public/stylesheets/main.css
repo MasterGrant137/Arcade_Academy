@@ -346,6 +346,7 @@ section {
   border-radius: 3px;
   box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
   margin: auto;
+  margin-top: 0;
 }
 aside {
   background-color: var(--floatColor);
@@ -358,6 +359,7 @@ aside {
   box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
   height: 40rem;
   width: 18rem;
+  margin-top: 0;
 
 }
 
