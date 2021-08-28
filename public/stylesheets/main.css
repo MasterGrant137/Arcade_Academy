@@ -78,7 +78,7 @@ header {
   /* flex-direction: column; */
   height: 7rem;
   width: 23rem;
-  
+
   border-radius: 10px;
   justify-content: space-between;
   margin: 10px auto;
@@ -115,7 +115,7 @@ background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
     0 0 12px #4a81f8,
     0 0 14px #4a81f8,
     0 0 15px #4a81f8;
-  
+
 }
 
 #anchor-profile-card{
@@ -171,7 +171,7 @@ background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
   background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
   padding: 1rem 1rem;
   margin-right: -3rem;
-  
+
   color: black;
   text-shadow: 0 0 2px #fff,
   0 0 4px black,
@@ -231,13 +231,14 @@ background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
 
 nav {
   width: 100%;
-  
+
 }
 nav>ul{
   background-color: var(--floatColor);
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
   padding: 0 7%;
   box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
 }
@@ -276,6 +277,15 @@ nav>ul{
   0 0 12px var(--neonColor2),
   0 0 14px var(--neonColor2),
   0 0 15px var(--neonColor2);
+}
+
+
+#search-icon {
+  font-size: 1rem;
+}
+
+#search-icon:hover {
+  cursor: context-menu;
 }
 
 .nav-user-profile-button{
@@ -350,7 +360,7 @@ aside {
 }
 .errors>*{
   display:inline-block;
-  overflow-wrap: break-word; 
+  overflow-wrap: break-word;
 }
 
 /* ============== footer section ============== */

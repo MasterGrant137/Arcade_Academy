@@ -36,9 +36,31 @@ for (let i = 0; i < buttons.length; i++) {
   });
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//! REDACTED
 // Function adds functionality to users profile page.
 // adds buttons that allows user to delete
-// reviews that they made previously. 
+// reviews that they made previously.
 // const reviewButtons = document.querySelectorAll(".remove-review-btn");
 // // loop through all remove-review-btn's
 // for (let i = 0; i < reviewButtons.length; i++) {
@@ -76,11 +98,11 @@ for (let i = 0; i < buttons.length; i++) {
 // but does not add onto the page without a refresh.
 // this code simulates the adding of the comment with the same text.
 // on refresh, this segment dissapears, and the actual comment is rendered
-// from the database. 
+// from the database.
 // const newReviewButton = document.getElementById("submit-review");
 //   newReviewButton.addEventListener('click', async(event)=>{
 //   const reviewContainer = document.querySelector('.review-container');
-  
+
 //   const newReviewText = document.getElementById('review-textbox');
 //   const newCommentEle = document.createElement("p",'.comment');
 //   newCommentEle.classList.add('comment');
@@ -89,4 +111,4 @@ for (let i = 0; i < buttons.length; i++) {
 //   // setTimeout(()=>{
   //   newReviewText.value = "";
   // }, 0);
-});
+// });

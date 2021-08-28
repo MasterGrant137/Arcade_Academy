@@ -23,14 +23,14 @@ html
           h1#page-title Arcade Academy
       div#page-header-right
         if locals.authenticated
-          a(href=`/users/${user.id}/userProfile` id="anchor-profile-card") 
+          a(href=`/users/${user.id}/userProfile` id="anchor-profile-card")
             div.profile-card-og
-              .profile-card-img 
+              .profile-card-img
                 img(src=user.profileImage, alt="")
-              .profile-card-name  
-                h5 #{user.screenName} 
-                
-              .profile-logout-btn  
+              .profile-card-name
+                h5 #{user.screenName}
+
+              .profile-logout-btn
                 h5 Online
                 form(action='/users/logout' method='post')
                   button(type='submit')
@@ -40,9 +40,7 @@ html
             a(href="/users/register" class="login-anchors") Sign Up
             .demo-user-btn
               form(action="/users/demoUser" method="POST")
-                button 
-
-
+                button
 
     nav
       ul
@@ -53,6 +51,7 @@ html
         a(href="/games" class="nav-bar-button")
           li.x <span class="dot">•</span> All Games <span class="dot">•</span>
         if locals.authenticated
+          li.x <span class="nav-bar-button" id="search-icon">🧐</span>
           a(href=`/users/${user.id}/userProfile` class="nav-bar-button nav-user-profile-button")
             li.x <span class="dot">•</span> My Profile <span class="dot">•</span>
 
