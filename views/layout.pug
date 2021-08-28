@@ -13,7 +13,7 @@ html
         //- link(rel="stylesheet" href="/stylesheets/color-theme-1.css")
         //- link(rel="stylesheet" href="/stylesheets/color-theme-2.css")
         //- link(rel="stylesheet" href="/stylesheets/color-theme-goodreads.css")
-        link(rel="stylesheet" href="/stylesheets/color-theme-pinkArcade.css")
+        //- link(rel="stylesheet" href="/stylesheets/color-theme-pinkArcade.css")
 
         script(src="/javascripts/index.js" type="module")
   body
@@ -24,20 +24,22 @@ html
       div#page-header-right
         if locals.authenticated
           a(href=`/users/${user.id}/userProfile` id="anchor-profile-card") 
-            div.profile-card-og
+            .profile-card-og
               .profile-card-img 
                 img(src=user.profileImage, alt="")
               .profile-card-name  
                 h5 #{user.screenName} 
                 
-              .profile-logout-btn  
-                h5 Online
-                form(action='/users/logout' method='post')
-                  button(type='submit')
+              .profile-logout-btn
+                  h5 Online  
+                  form(action='/users/logout' method='post')
+                      button(type='submit')
         else
           .auth-buttons
-            a(href="/users/login" class="login-anchors") Log In
-            a(href="/users/register" class="login-anchors") Sign Up
+            .both-buttons
+              a(href="/users/login" class="login-anchors") Log In
+              p.login-anchors.no-padding |
+              a(href="/users/register" class="login-anchors") Sign Up
             .demo-user-btn
               form(action="/users/demoUser" method="POST")
                 button 
