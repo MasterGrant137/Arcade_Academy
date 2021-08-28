@@ -37,6 +37,26 @@ for (let i = 0; i < buttons.length; i++) {
 }
 
 
+let clickCount = 0;
+
+const searchIcon = document.getElementById('search-icon');
+searchIcon.addEventListener('click', async(e) => {
+    const ul = document.querySelector('nav > ul');
+
+    if (!clickCount) {
+      const textbox = document.createElement('textarea');
+      textbox.id = 'searchTextbox';
+      ul.appendChild(textbox);
+      clickCount++;
+    } else {
+      const textbox = document.getElementById('searchTextbox');
+      ul.removeChild(textbox)
+      clickCount--;
+    }
+})
+
+
+
 
 
 

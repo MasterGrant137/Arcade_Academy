@@ -51,9 +51,9 @@ html
         a(href="/games" class="nav-bar-button")
           li.x <span class="dot">•</span> All Games <span class="dot">•</span>
         if locals.authenticated
-          li.x <span class="nav-bar-button" id="search-icon">🧐</span>
           a(href=`/users/${user.id}/userProfile` class="nav-bar-button nav-user-profile-button")
             li.x <span class="dot">•</span> My Profile <span class="dot">•</span>
+          li.x <span class="nav-bar-button" id="search-icon">🧐</span>
 
     main
       section

@@ -32,13 +32,14 @@ const gameSet = new Set();
 */
 
 const linkFetcher = () => {
-    const fetchLimiter = 100;
+    const fetchLimiter = 80;
 
     axios.get(url)
         .then(res => {
             const $ = cheerio.load(res.data);
 
             $('.col-md-1').each((idx, ele) => {
+                if (!$(ele)) return false;
                 const gameLink = `https://www.igdb.com/${$(ele).find('a').attr('href')}`;
                 const gameImage = `https:${$(ele).find('img').attr('src')}`
                 if (idx === fetchLimiter) return false;
@@ -54,6 +55,7 @@ const linkFetcher = () => {
             const $ = cheerio.load(res.data);
 
             $('.col-md-1').each((idx, ele) => {
+                if (!$(ele)) return false;
                 const gameLink = `https://www.igdb.com/${$(ele).find('a').attr('href')}`;
                 const gameImage = `https:${$(ele).find('img').attr('src')}`
                 if (idx === fetchLimiter) return false;
@@ -69,6 +71,7 @@ const linkFetcher = () => {
             const $ = cheerio.load(res.data);
 
             $('.col-md-1').each((idx, ele) => {
+                if (!$(ele)) return false;
                 const gameLink = `https://www.igdb.com/${$(ele).find('a').attr('href')}`;
                 const gameImage = `https:${$(ele).find('img').attr('src')}`
                 if (idx === fetchLimiter) return false;
@@ -84,6 +87,7 @@ const linkFetcher = () => {
             const $ = cheerio.load(res.data);
 
             $('.col-md-1').each((idx, ele) => {
+                if (!$(ele)) return false;
                 const gameLink = `https://www.igdb.com/${$(ele).find('a').attr('href')}`;
                 const gameImage = `https:${$(ele).find('img').attr('src')}`
                 if (idx === fetchLimiter) return false;
@@ -99,6 +103,7 @@ const linkFetcher = () => {
             const $ = cheerio.load(res.data);
 
             $('.col-md-1').each((idx, ele) => {
+                if (!$(ele)) return false;
                 const gameLink = `https://www.igdb.com/${$(ele).find('a').attr('href')}`;
                 const gameImage = `https:${$(ele).find('img').attr('src')}`
                 if (idx === fetchLimiter) return false;
@@ -114,6 +119,7 @@ const linkFetcher = () => {
             const $ = cheerio.load(res.data);
 
             $('.col-md-1').each((idx, ele) => {
+                if (!$(ele)) return false;
                 const gameLink = `https://www.igdb.com/${$(ele).find('a').attr('href')}`;
                 const gameImage = `https:${$(ele).find('img').attr('src')}`
                 if (idx === fetchLimiter) return false;
@@ -129,6 +135,7 @@ const linkFetcher = () => {
             const $ = cheerio.load(res.data);
 
             $('.col-md-1').each((idx, ele) => {
+                if (!$(ele)) return false;
                 const gameLink = `https://www.igdb.com/${$(ele).find('a').attr('href')}`;
                 const gameImage = `https:${$(ele).find('img').attr('src')}`
                 if (idx === fetchLimiter) return false;
@@ -144,6 +151,7 @@ const linkFetcher = () => {
             const $ = cheerio.load(res.data);
 
             $('.col-md-1').each((idx, ele) => {
+                if (!$(ele)) return false;
                 const gameLink = `https://www.igdb.com/${$(ele).find('a').attr('href')}`;
                 const gameImage = `https:${$(ele).find('img').attr('src')}`
                 if (idx === fetchLimiter) return false;
@@ -159,6 +167,7 @@ const linkFetcher = () => {
             const $ = cheerio.load(res.data);
 
             $('.col-md-1').each((idx, ele) => {
+                if (!$(ele)) return false;
                 const gameLink = `https://www.igdb.com/${$(ele).find('a').attr('href')}`;
                 const gameImage = `https:${$(ele).find('img').attr('src')}`
                 if (idx === fetchLimiter) return false;
@@ -183,6 +192,8 @@ const linkTraverser = (gameLink, gameImage) => {
             const gameNameRaw = $('.gamepage-title-wrapper').find('h1').text()
             const gameName = gameNameRaw.slice(0, gameNameRaw.length - 4);
             const gameGenre = $('.gamepage-tabs p > a').first().text();
+
+            if (!$('.gamepage-tabs div > div').get(0).children[0]) return false;
             const gameBio = $('.gamepage-tabs div > div')
             .get(0)
             .children[0]
