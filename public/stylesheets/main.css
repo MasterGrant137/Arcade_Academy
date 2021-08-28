@@ -284,9 +284,26 @@ nav>ul{
   cursor: pointer;
 }
 
-#searchTextbox {
-  font-family: 'Varela Round', sans-serif;
+@keyframes textareaAnimation {
+  from {width: 0%;}
+  to {width: 30%;}
+}
+
+#searchTextarea {
+  font-family: 'Varela Round', sans-serif;;
   background-color: khaki;
+  height: 1.5rem;
+  width: 30%;
+
+  animation-name: textareaAnimation;
+  animation-duration: 0.5s;
+  
+  resize: none;
+}
+
+
+#searchTextarea:hover {
+  box-shadow: 0px 0px 1rem rgb(204, 41, 226);
 }
 
 .nav-user-profile-button{

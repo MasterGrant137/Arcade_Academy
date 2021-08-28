@@ -44,13 +44,13 @@ searchIcon.addEventListener('click', async(e) => {
     const ul = document.querySelector('nav > ul');
 
     if (!clickCount) {
-      const textbox = document.createElement('textarea');
-      textbox.id = 'searchTextbox';
-      ul.appendChild(textbox);
+      const texarea = document.createElement('textarea');
+      texarea.id = 'searchTextarea';
+      ul.appendChild(texarea);
       clickCount++;
     } else {
-      const textbox = document.getElementById('searchTextbox');
-      ul.removeChild(textbox)
+      const textarea = document.getElementById('searchTextarea');
+      ul.removeChild(textarea)
       clickCount--;
     }
 })
