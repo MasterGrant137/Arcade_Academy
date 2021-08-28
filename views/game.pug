@@ -53,15 +53,16 @@ block content
     .review-container
       each review in reviews
         .rev-sub-container
-          p.comment= review.content
-          p=review.score
           if locals.authenticated
-            form(action=`/games/${gameId}/likes` method="POST")
-              input(type="hidden" name="_csrf" value=csrfToken)
-              button(type="submit" value=review.id name="like") Like
-            form(action=`/games/${gameId}/likes` method="POST")
-              input(type="hidden" name="_csrf" value=csrfToken)
-              button(type="submit" value=review.id name="dislike") Dislike
+            .likes-div
+              form(action=`/games/${gameId}/likes` method="POST")
+                input(type="hidden" name="_csrf" value=csrfToken)
+                button.like-btn(type="submit" value=review.id name="like") M
+              p.like-counter=review.score 
+              form(action=`/games/${gameId}/likes` method="POST")
+                input(type="hidden" name="_csrf" value=csrfToken)
+                button.dislike-btn(type="submit" value=review.id name="dislike") W
+          p.comment= review.content
 
 block side-content 
   .sc-container

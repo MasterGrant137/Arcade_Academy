@@ -195,7 +195,12 @@ section{
   border-radius: 8px;
   margin-bottom: 2rem;
 }
-
+.rev-sub-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
 .comment {
   border: 1px solid black;
   padding: 10px;
@@ -357,4 +362,45 @@ section{
   height: 2rem;
   margin: 1rem;
   border-radius: 5px;
+}
+
+
+/* ==================================================*/
+/*=========== LIKE / DISLIKE BUTTONS ================*/
+.likes-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 1rem;
+}
+.like-btn{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  font-size:13pt;
+  width: 2rem;
+  background-color: rgb(46, 46, 179); /*Transparent; */
+  color: red;
+  /* border: 2px solid blue; */
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.dislike-btn{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  font-size:13pt;
+  width: 2rem;
+  background-color: rgb(79, 28, 92) /*Transparent*/;
+  color: rgb(255, 239, 14);
+  /* border: 2px solid rgb(79, 28, 92); */
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+.like-counter {
+ padding: 2px;
+ margin: 3px 0;
+ color: white;
+ font-weight: 700;
+ font-size: 14pt;
 }
