@@ -62,3 +62,36 @@ block content
             form(action=`/games/${gameId}/likes` method="POST")
               input(type="hidden" name="_csrf" value=csrfToken)
               button(type="submit" value=review.id name="dislike") Dislike
+
+block side-content 
+  .sc-container
+    .sc-title 
+      h3 Suggested Retailers
+    .sc-content.sc-retailers
+      ul 
+        li
+          img.sc-img(src="https://preview.redd.it/yqwbdyr07yy61.jpg?width=600&format=pjpg&auto=webp&s=546e53341ae6c596dd9e56dd6ad0769635cc6e40", alt="GameStop Logo")
+          a(href="https://www.gamestop.com/") GameStop
+        li
+          img.sc-img(src="https://logodix.com/logo/813259.png", alt="Steam Logo")
+          a(href="https://store.steampowered.com/games/") Steam 
+        li
+          img.sc-img(src="https://lh3.googleusercontent.com/proxy/aRL-xK-HQ3UcdEGl5hDGkDROH1eoitRhZocLKkPxhGByYKjvoba8F10g1psaiy2XQOtwlUeAcmsQ8AympsFDfySHPX8JP0KKHgKGN4gIP6BAy4e3VKye", alt="Best Buy Logo")
+          a(href="https://www.bestbuy.com/site/electronics/video-games/abcat0700000.c?id=abcat0700000") Best Buy
+        li
+          img.sc-img(src="https://lh3.googleusercontent.com/proxy/BE7KjLE1L0cR9i9K4ucGRvrPsd8Y4BmaGYzYGG2KqwfueC-QXxCn0RCQ4LbQ8qQVDzfxuFn9dSf4G1DPoQn-A60Z1VZ7TC65CzTsdtsw19Al7EtEFL2rV5BRa-eVHoAaKfKGaH7PHVhAngaldlnV", alt="Amazon Logo")
+          a(href="https://www.amazon.com/b/ref=vg_surl_videogames/?node=468642") Amazon Gaming 
+    .sc-title 
+      h3 Recommended News
+    .sc-content.sc-news
+      ul
+        li
+          img.sc-img(src="https://www.logolynx.com/images/logolynx/05/05b64c33fc91f2b5e6d2d5edc3594b23.jpeg", alt="IGN Logo")
+          a(href="ign.com") IGN
+        li
+          img.sc-img(src="https://www.logolynx.com/images/logolynx/2f/2fbfbac18c703709882391738997e3a1.png", alt="PC Gamer Logo")
+          a(href="https://www.pcgamer.com/news/") PC Gamer
+        li
+          img.sc-img(src="https://cdn.shopify.com/s/files/1/0406/5912/4378/products/Gamespot_UnisexSpongeFleeceFull-ZipHoodie_FrontGraphic_2000x.png?v=1592259624", alt="GameSpot Logo")
+          a(href="https://www.gamespot.com/news/") GameSpot
+      
