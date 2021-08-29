@@ -314,20 +314,18 @@ nav>ul{
   top: 12rem;
   left: 65.5%;
   width: 25%;
-  height: 40%;
+  height: 39%;
 
-  padding: 0;
+  padding: 0.25rem;
+  margin: 0;
   border-radius: 0.7rem;
 
-  background-color: black;
-}
-
-.searchLIs {
-  padding: 0;
-  margin: 0;
+  cursor: pointer;
+  background-color: darkmagenta;
 }
 
 .allSearchButtons {
+  cursor: pointer;
   border: none;
   background-color: khaki;
   border-radius: 0.2rem;
