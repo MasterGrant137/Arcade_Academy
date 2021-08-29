@@ -312,7 +312,7 @@ nav>ul{
 #searchUL {
   position: absolute;
   top: 12rem;
-  left: 65.5%;
+  right: 30;
   width: 25%;
   height: 39%;
 
