@@ -214,21 +214,24 @@ router.get('/categories', asyncHandler(async(req,res) => {
 
 router.get('/searchPage', asyncHandler(async(req, res) => {
     let userId;
-    const { term } = req.query;
+    // const { term } = req.query;
     // console.log('THIS IS TERM: ' + term);
     // console.log('THIS IS REQ: ' + req.body.name);
     // let term;
     // console.log(term);
 
-    if (req.session.auth) userId = req.session.auth.userId;
-
+    // if (req.session.auth) userId = req.session.auth.userId;
+    // console.log('backend hit (games.js');
+    // const games = await Game.findAll({ where: { name: { [Op.ilike]: `%${term}%` } } })
+    // if (userId) res.render('filteredGames.pug', { games, userId })
+    // else res.render('filteredGames.pug', { games })
 
     console.log('backend hit (games.js');
-
-    const games = await Game.findAll({ where: { name: { [Op.ilike]: `%${term}%` } } })
-
-    if (userId) res.render('filteredGames.pug', { games, userId })
-    else res.render('filteredGames.pug', { games })
+    const term = 'Halo'
+    const games = await Game.findAll({ where: { [Op.ilike]: 'Halo Infinte' } })
+    //* const games = await Game.findByPk( 5, { where: { name: 'Halo Infinte' } })
+    res.render('filteredGames.pug', { games, userId })
+    // else res.render('filteredGames.pug', { games })
 }));
 
 

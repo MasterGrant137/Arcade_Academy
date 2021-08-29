@@ -90,7 +90,7 @@ const dbRequester = () => {
             console.log('frontend hit (index.js)');
 
             form.autocomplete = 'off';
-            form.action = `/games/searchPage${term}`;
+            form.action = `/games/searchPage`;
             // form.method = 'post';
             form.name = 'term';
             form.id = 'searchForm';
