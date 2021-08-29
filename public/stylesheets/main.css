@@ -315,7 +315,7 @@ nav>ul{
   top: 12rem;
   width: 25.5%;
   height: 12.6rem;
-  /*? ht = (srchBtnHt(2.1rem) + brdr(0.15rem)) * listAmt(6) ?*/
+  /*? ht = srchBtnHt(2.1rem) x listAmt(6) ?*/
   padding: 0;
   border-radius: 0.7rem;
   cursor: pointer;
@@ -324,10 +324,6 @@ nav>ul{
 
 #searchUL li:first-child button {
   border-top: 0;
-}
-
-#searchUL li:last-child button {
-  border-bottom: 0;
 }
 
 .allSearchButtons {

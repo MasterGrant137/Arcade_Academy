@@ -43,6 +43,7 @@ const dbRequester = () => {
 
     const searchIcon = document.getElementById('search-icon');
     searchIcon.addEventListener('click', () => {
+        const genres = ['arcade', 'adventure', 'rpg', 'fps', 'sports', 'indie'];
         const listAmount = 6;
         const ul = document.querySelector('nav > ul');
 
@@ -56,16 +57,19 @@ const dbRequester = () => {
 
             for(let i = 0; i < listAmount; i++) {
               const searchLI = document.createElement('li');
+              const searchLink = document.createElement('a');
               const searchButton = document.createElement('button');
 
               searchLI.className = 'searchLIs';
-              searchLI.id = `searchLI-${i}`
-              searchButton.type = 'submit';
-
+              searchLI.id = `searchLI-${i}`;
+              searchLink.id = `searchLI-${i}`;
+              searchButton.type = 'button';
               searchButton.className = 'allSearchButtons';
-              searchButton.innerText = `List Item ${i}`;
+              searchButton.innerText = `${genres[i][0].toUpperCase()}${genres[i].slice(1)}`;
+              searchLink.href = `${genres[i]}`;
 
-              searchLI.appendChild(searchButton);
+              searchLI.appendChild(searchLink);
+              searchLink.appendChild(searchButton);
               searchUL.appendChild(searchLI);
             }
 
