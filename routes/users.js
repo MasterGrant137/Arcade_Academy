@@ -191,6 +191,7 @@ router.post("/:id(\\d+)/userProfile",requireAuth,asyncHandler(async (req, res) =
         if(game.have_played === false){
           game.have_played = true
           await game.save()
+          res.status(204).send()
         }else{
           res.status(204).send();
         }
@@ -217,6 +218,7 @@ router.post("/:id(\\d+)/userProfile",requireAuth,asyncHandler(async (req, res) =
         if(game.have_played === true){
           game.have_played = false
           await game.save()
+          res.status(204).send()
         }else{
           res.status(204).send()
         }

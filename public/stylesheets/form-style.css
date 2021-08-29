@@ -34,9 +34,7 @@ h2{
   border-radius: 5px;
   margin: 10px;
   width: 325px;
-
 }
-
 
 .submit-button {
   color: white;
@@ -84,4 +82,19 @@ h2{
 #sign-up-advert-img {
   height: 100%;
   width: 100%;
+}
+
+.all-profile-pic-container{
+  max-width: 550px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+
+}
+.profile-pic-container{
+  padding: 8px;
+}
+.profile-pic-container > img {
+  border-radius: 50px;
 }
