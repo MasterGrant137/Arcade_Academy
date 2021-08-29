@@ -241,6 +241,14 @@ section{
   0 0 14px var(--neonColor2),
   0 0 15px var(--neonColor2);
 }
+
+.no-reviews-yet {
+  color: var(--noRevsYet);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12pt;
+  padding: 15px 0 5px 0;
+}
+
 /* ============== sidebar section ================*/
 /* .voter{} */
 

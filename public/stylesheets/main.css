@@ -19,6 +19,13 @@
   --userCardBack:#537895;
   --gradColor1: #537895;
   --gradColor2: #09203f;
+
+  /* User Profile Page */
+  --userProfileSN:rgb(187, 199, 77);
+  --dividerGreen: rgb(76, 161, 42);
+  
+  /* Individual Game Page */
+  --noRevsYet: rgb(167, 168, 164);
 }
 
  * {
