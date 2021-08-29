@@ -14,8 +14,8 @@
 // Remove a game from the users 'Played' or 'Want to Play' games list
 // both operations occur in 1 function because they are dependant on eachother
 // (a game can only be in played or want to play)
+
 const buttons = document.querySelectorAll(".remove-game-btn");
-// console.log(buttons)
 for (let i = 0; i < buttons.length; i++) {
   const btn = buttons[i];
   btn.addEventListener("click", async (e) => {
@@ -44,34 +44,50 @@ for (let i = 0; i < buttons.length; i++) {
   });
 }
 
+
+
+/*======================Dynamic Search======================*/
+
 const dbRequester = () => {
     let clickCount = 0;
 
     const searchIcon = document.getElementById('search-icon');
     searchIcon.addEventListener('click', () => {
+        const queryLimit = 5;
         const ul = document.querySelector('nav > ul');
 
         if (!clickCount) {
           const form = document.createElement('form');
           const textbox = document.createElement('input');
-          const searchUl = document.createElement('ul');
+          const searchUL = document.createElement('ul');
 
-          for(let i = 0; i < 5; i++) {
-            const li = document.createElement('li');
-            li.class = 'searchLi';
-            li.value = `option-${i}`;
-            li.innerText = `Option ${i}`;
-            searchUl.appendChild(li);
-            // console.log(option, dropdown);
+          for(let i = 0; i < queryLimit; i++) {
+            const searchLI = document.createElement('li');
+            const searchButton = document.createElement('button');
+
+            searchLI.className = 'searchLIs';
+            searchLI.id = `searchLI-${i}`
+            searchButton.type = 'submit';
+
+            if (i < queryLimit - 1) {
+              searchButton.className = 'searchButtons'
+              searchButton.innerText = `List Item ${i}`;
+            } else if (i === queryLimit - 1) {
+                searchButton.id = `lastSearchButton`;
+                searchButton.innerText = `Last List Item`;
+            }
+
+            searchLI.appendChild(searchButton);
+            searchUL.appendChild(searchLI);
           }
 
           form.id = 'searchForm';
           textbox.id = 'searchTextbox';
-          searchUl.id = 'searchUl';
+          searchUL.id = 'searchUL';
 
 
           form.appendChild(textbox);
-          form.appendChild(searchUl);
+          form.appendChild(searchUL);
           ul.appendChild(form);
 
           clickCount++;

@@ -305,23 +305,29 @@ nav>ul{
   border-radius: 0.75rem;
 }
 
-
 #searchTextbox:hover {
   box-shadow: 0px 0px 1rem rgb(204, 41, 226);
 }
 
-#searchUl {
+#searchUL {
   position: absolute;
   top: 12rem;
-  left: 65%;
-  /* right: 12rem; */
+  left: 65.5%;
+  /* right: 12%; */
+  width: 25%;
 
-  /* width: 30%; */
-  padding: 0px;
 
+  padding: 0.5rem;
+  border-radius: 0.75rem;
   text-align: left;
 
-  background-color: white;
+  background-color: black;
+}
+
+.searchButtons {
+  border: none;
+  background-color: khaki;
+  width: 100%;
 }
 
 /* ============== search subsection ============== */
