@@ -228,8 +228,7 @@ router.get('/searchPage', asyncHandler(async(req, res) => {
 
     console.log('backend hit (games.js');
     const term = 'Halo'
-    const games = await Game.findAll({ where: { [Op.ilike]: 'Halo Infinte' } })
-    //* const games = await Game.findByPk( 5, { where: { name: 'Halo Infinte' } })
+    const games = await Game.findAll({ where: { name: { [Op.iLike]: `%${term}%` } } })
     res.render('filteredGames.pug', { games, userId })
     // else res.render('filteredGames.pug', { games })
 }));
