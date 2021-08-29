@@ -8,6 +8,7 @@ const { requireAuth } = require('../auth');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
+
 // hardcoded list of genres
 // delete?
 const genres = ['Action', 'Action-adventure', 'Adventure', 'RPG', 'Simulation', 'First-person Shooter', 'Sports', 'MMO', ]
@@ -214,21 +215,19 @@ router.get('/categories', asyncHandler(async(req,res) => {
 
 router.get('/searchPage', asyncHandler(async(req, res) => {
     let userId;
-    // const { term } = req.query;
+    const { term } = req.query;
     // console.log('THIS IS TERM: ' + term);
     // console.log('THIS IS REQ: ' + req.body.name);
     // let term;
     // console.log(term);
 
     // if (req.session.auth) userId = req.session.auth.userId;
-    // console.log('backend hit (games.js');
-    // const games = await Game.findAll({ where: { name: { [Op.ilike]: `%${term}%` } } })
-    // if (userId) res.render('filteredGames.pug', { games, userId })
-    // else res.render('filteredGames.pug', { games })
+    console.log('backend hit (games.js) ' + term);
 
     console.log('backend hit (games.js');
-    const term = 'Halo'
-    const games = await Game.findAll({ where: { name: { [Op.iLike]: `%${term}%` } } })
+    // const term = 'Cll of Dty';
+    // const games = await Game.findAll({ where: { name: { [Op.iLike]: `%${term}%` } } })
+    const games = await Game.findAll({ where: { name: { [Op.iRegexp]: `[${term}]` } }, limit: 15 })
     res.render('filteredGames.pug', { games, userId })
     // else res.render('filteredGames.pug', { games })
 }));

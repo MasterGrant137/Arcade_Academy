@@ -6,6 +6,8 @@
 // both operations occur in 1 function because they are dependant on eachother
 // (a game can only be in played or want to play)
 
+// const { search, suggest, regex } = require('puzzy-search');
+
 const buttons = document.querySelectorAll(".remove-game-btn");
 for (let i = 0; i < buttons.length; i++) {
   const btn = buttons[i];
@@ -81,20 +83,21 @@ const dbRequester = () => {
             textbox.addEventListener('input', function() {
               // window.location.href += this.value;
               // term = this.value;
-              const pageUrl = window.location.href;
-              console.log(`${pageUrl}?term=${this.value}`);
+              // const pageUrl = window.location.href;
+              // console.log(`${pageUrl}?term=${this.value}`);
 
-              const term = `${pageUrl}?term=${this.value}`
+              // const term = `${pageUrl}?term=${this.value}`
             })
 
             console.log('frontend hit (index.js)');
 
             form.autocomplete = 'off';
             form.action = `/games/searchPage`;
-            // form.method = 'post';
-            form.name = 'term';
+            // form.name = 'term';
             form.id = 'searchForm';
             textbox.id = 'searchTextbox';
+            textbox.name = 'term';
+            textbox.value = 'EUREKA!!!!!!'
             searchUL.id = 'searchUL';
 
             form.appendChild(textbox);
