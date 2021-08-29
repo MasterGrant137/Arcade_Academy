@@ -81,7 +81,9 @@
 
 /* ================ WTP ================== */
 
-.want-to-play-section{ margin: 5px 3px; }
+.want-to-play-section{ 
+  margin: 5px 3px; 
+}
 
 /* .user-game-preview-containers{
   width: 100%;
@@ -95,25 +97,30 @@
 .game-flex-container:last-child{ border-bottom: none; }
 
 .game-preview-img{
-  margin: 5px 5px;
-  max-height: 150px;
-  max-width: 15rem;
+  width: 120px;
+  height: 150px;
+  background-size: 50px;
 }
 .game-preview-info{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  /* display: flex;
+  flex-direction: column; */
+  /* align-items: flex-start; */
+  width: 100%;
   justify-content: space-evenly;
   font-size: 18pt;
   padding-left: 10px;
 }
 .sub-info{
-  display: flex;
+  width: 100%;
+  background-color: burlywood;
+  /* display: flex;
   align-items: center;
+  justify-content: flex-start; */
 }
-.subform{
-  background-color: hotpink;
-  float: right;
+.rmv{
+  display: flex;
+  justify-self: flex-end;
+  align-self: flex-end;
 }
 .game-name{
   align-self: flex-start;

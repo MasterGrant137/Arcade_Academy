@@ -31,22 +31,39 @@ block content
     //-========================== WANT TO PLAY 
     .want-to-play-section
       each gameList in wtpGamesList
-        .user-game-preview-containers(id=`game-preview-containers-${gameList.Game.id}`)
+        .wtp-gamecontainer(id=`game-preview-containers-${gameList.Game.id}`)
           // OG Container ^^ (fallback plan)
           .game-flex-container
-            a(href=`/games/${gameList.Game.id}`)
-            .game-preview-img
-              img(src= gameList.Game.gameImage, alt="Game Image" class="game-images")
-            .game-preview-info
-              .sub-info
-                p.game-name.no-padding= gameList.Game.name
-              .sub-info
-                p.genre-title.no-padding Genres:
-                a(href=`/games/${gameList.Game.genre}`).no-padding.genre= gameList.Game.genre 
-              .sub-info
-                form(action=`/users/${userId}/userProfile/delete` method= "post")
-                  input(type="hidden" value=userId name="user_id")
-                  button(type="submit" id=userId value=gameList.Game.id name="game_id" class="remove-game-btn remove-btn") X
+              .game-preview-img(style=`background: url("${gameList.Game.gameImage}") no-repeat center;background-size: cover`)
+              .game-preview-info
+                .sub-info
+                    a(href=`/games/${gameList.Game.id}`).game-name.no-padding= gameList.Game.name
+                .sub-info
+                  p.genre-title.no-padding Genres:
+                  a(href=`/games/${gameList.Game.genre}`).no-padding.genre= gameList.Game.genre 
+                .sub-info.rmv
+                  form(action=`/users/${userId}/userProfile/delete` method= "post")
+                    input(type="hidden" value=userId name="user_id")
+                    button(type="submit" id=userId value=gameList.Game.id name="game_id" class="remove-game-btn remove-btn") X
+        //original
+    //- .want-to-play-section
+    //-   each gameList in wtpGamesList
+    //-     .user-game-preview-containers(id=`game-preview-containers-${gameList.Game.id}`)
+    //-       // OG Container ^^ (fallback plan)
+    //-       .game-flex-container
+    //-         a(href=`/games/${gameList.Game.id}`)
+    //-         .game-preview-img
+    //-           img(src= gameList.Game.gameImage, alt="Game Image" class="game-images")
+    //-         .game-preview-info
+    //-           .sub-info
+    //-             p.game-name.no-padding= gameList.Game.name
+    //-           .sub-info
+    //-             p.genre-title.no-padding Genres:
+    //-             a(href=`/games/${gameList.Game.genre}`).no-padding.genre= gameList.Game.genre 
+    //-           .sub-info
+    //-             form(action=`/users/${userId}/userProfile/delete` method= "post")
+    //-               input(type="hidden" value=userId name="user_id")
+    //-               button(type="submit" id=userId value=gameList.Game.id name="game_id" class="remove-game-btn remove-btn") X
         
     .divider 
       p.no-padding Played
