@@ -217,17 +217,13 @@ router.get('/searchPage', asyncHandler(async(req, res) => {
     let userId;
     const { term } = req.query;
     console.log('THIS IS TERM: ' + term);
-    
 
-    // if (req.session.auth) userId = req.session.auth.userId;
-    // console.log('backend hit (games.js) ' + term);
+    if (req.session.auth) userId = req.session.auth.userId;
 
-    console.log('backend hit (games.js');
-    // const term = 'Cll of Dty';
-    // const games = await Game.findAll({ where: { name: { [Op.iLike]: `%${term}%` } } })
-    const games = await Game.findAll({ where: { name: { [Op.iRegexp]: `[${term}]` } }, limit: 15 })
-    res.render('filteredGames.pug', { games, userId })
-    // else res.render('filteredGames.pug', { games })
+    if (userId)   {
+      const games = await Game.findAll({ where: { name: { [Op.iRegexp]: `^${term[0]}[${term.slice(1)}]` } }, limit: 15 })
+      res.render('filteredGames.pug', { games, userId })
+    } else res.render('filteredGames.pug', { games })
 }));
 
 
