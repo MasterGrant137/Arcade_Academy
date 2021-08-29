@@ -57,8 +57,8 @@ section{
 }
 .game-description {
   text-align: left;
-  /* display: flex;
-  justify-content: center; */
+  /* display: flex; */
+  /* justify-content: center; */
   width: 80%;
 }
 
@@ -197,6 +197,7 @@ section{
   margin-bottom: 2rem;
 }
 .rev-sub-container {
+  margin: 1.25rem;
   display: flex;
   flex-direction: row;
   align-items: center;
