@@ -36,6 +36,35 @@ for (let i = 0; i < buttons.length; i++) {
   });
 }
 
+
+//event listener to make played wtp buttons change on click
+const playedBtn = document.querySelectorAll(".game-stat-btn-played")
+const wtpBtn = document.querySelectorAll(".game-stat-btn-wtp")
+//for played btn
+for(let i = 0; i < playedBtn.length; i++){
+  const btn = playedBtn[i]
+  btn.addEventListener("click", (e) => {
+      if (wtpBtn[i].style.color === "red") {
+        wtpBtn[i].style.color = "white";
+        btn.style.color = "red";
+      } else {
+        btn.style.color = "red";
+      }
+  })
+}
+//for wtp button
+for(let i = 0; i < wtpBtn.length; i++){
+  const btn = wtpBtn[i]
+  btn.addEventListener("click", (e)=>{
+      if(playedBtn[i].style.color === "red"){
+        playedBtn[i].style.color = "white"
+        btn.style.color = "red";
+      }else{
+        btn.style.color = "red";
+      }
+})
+}
+
 // Function adds functionality to users profile page.
 // adds buttons that allows user to delete
 // reviews that they made previously. 

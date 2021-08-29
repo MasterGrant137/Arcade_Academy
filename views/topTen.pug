@@ -4,17 +4,17 @@ block content
   .all-games
     each game in topGames
       .game-preview-containers
-        a(href=`/games/${game.id}`)
+        a(href=`/games/${game.id}` class="game-preview-anchor")
            .game-preview-img
              img(src= game.gameImage, alt="Game Image" class="game-images")
            .game-preview-info
-             h5= game.name
+             p= game.name
              p= game.genre
         if locals.authenticated
         form(action=`/users/${userId}/userProfile` method= "POST")
-          button(type="submit" value=game.id name="played") Played
+          button(type="submit" value=game.id name="played" class="game-stat-btn-played") Played
         form(action=`/users/${userId}/userProfile` method="POST") 
-          button(type="submit" value=game.id name="wantToPlay") Want To Play
+          button(type="submit" value=game.id name="wantToPlay" class="game-stat-btn-wtp") Want To Play
           
 block side-content
   .game-sidebar

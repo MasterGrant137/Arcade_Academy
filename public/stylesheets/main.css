@@ -95,7 +95,9 @@ header {
   flex-direction: row;
   align-items: center;
   height: 7rem;
-  width: 21rem;
+  /* width: 23rem; */
+  min-width: 18rem;
+  max-width: 23rem;
   
   border-radius: 10px;
   justify-content: space-between;
@@ -364,7 +366,8 @@ aside {
   align-items: center;
   border-radius: 3px;
   box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
-  height: 40rem;
+  max-height: 40rem;
+  min-height: 25rem;
   width: 18rem;
   margin-top: 0;
 
@@ -398,8 +401,10 @@ aside {
   color: var(--footerFontColor1);
   font-family: 'Times New Roman', Times, serif;
   margin: 0;
+  min-width: 100%;
   width: 100%;
-  height: 120px;
+  min-height: 6rem;
+  max-height: 12rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
