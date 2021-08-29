@@ -45,9 +45,7 @@ html
               a(href="/users/register" class="login-anchors") Sign Up
             .demo-user-btn
               form(action="/users/demoUser" method="POST")
-                button 
-
-
+                button
 
     nav
       ul
@@ -60,6 +58,7 @@ html
         if locals.authenticated
           a(href=`/users/${user.id}/userProfile` class="nav-bar-button nav-user-profile-button")
             li.x <span class="dot">•</span> My Profile <span class="dot">•</span>
+          li.x <span class="nav-bar-button" id="search-icon">🧐</span>
 
     main
       section

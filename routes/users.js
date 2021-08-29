@@ -1,12 +1,10 @@
 var express = require('express');
 var router = express.Router();
-const db = require("../db/models")
 const { User, GameList, Game, Review, Like } = require('../db/models')
 const { csrfProtection, asyncHandler} = require('./utils');
 const {  loginUser, logoutUser, requireAuth } = require('../auth');
 const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
-const { route } = require('./games');
 
 
 
@@ -269,14 +267,14 @@ router.get("/:id(\\d+)/userProfile",requireAuth,csrfProtection,asyncHandler(asyn
       include: Game
     });
     // console.log(wtpGamesList[0])
-    
+
     res.render("userProfile.pug", { title: `${user.screenName}'s Profile`, user, playedGamesList, wtpGamesList, reviews, userId });
   })
 );
 
 // Delete a game from the users 'Played' or 'Want to Play' list
 router.post("/:id(\\d+)/userProfile/delete", requireAuth, asyncHandler(async(req, res) => {
-  //  console.log(req.body)  
+  //  console.log(req.body)
   // console.log(user_id, game_id)
   const { user_id, game_id} = req.body
   const gameList = await GameList.findOne({
