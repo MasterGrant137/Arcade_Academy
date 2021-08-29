@@ -23,6 +23,7 @@ section{
 }
 
 .parent-info {
+  margin-top: 2rem;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -286,7 +287,7 @@ section{
   text-decoration: none;
 }
 .game-preview-containers p{
-  color: grey;
+  color: black;
 }
 .game-preview-containers:hover{
    box-shadow: 0 0 2px #fff,
@@ -325,6 +326,8 @@ section{
   text-align: center;
   /* padding: 4px; */
   margin: 5px;
+  font-size: 1.25rem;
+
   
   /* grid-template-columns: 1fr 1fr; */
 }

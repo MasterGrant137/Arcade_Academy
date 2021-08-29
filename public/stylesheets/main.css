@@ -366,7 +366,8 @@ aside {
   align-items: center;
   border-radius: 3px;
   box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
-  height: 40rem;
+  max-height: 40rem;
+  min-height: 25rem;
   width: 18rem;
   margin-top: 0;
 
