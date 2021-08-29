@@ -1,12 +1,3 @@
-
-// const { Game } = require('../../db/models');
-// const express = require('express');
-// const searchServer = express();
-// const { app }  = require('../../app');
-// const { Game, Review, User, Like } = require('../../db/models');
-// const Sequelize = require('sequelize');
-// const Op = Sequelize.Op;
-
 // window.addEventListener("load", (event) => {
 //   console.log("hello from javascript!");
 // });
@@ -43,7 +34,6 @@ for (let i = 0; i < buttons.length; i++) {
     }
   });
 }
-
 
 
 /*======================Dynamic Search======================*/
@@ -97,21 +87,17 @@ const dbRequester = () => {
 
             const searchRequest = this.value;
 
+            // if (searchRequest === )
             // console.log(searchRequest);
 
             const res = await fetch(pageUrl)
-              // .then(res => res.json())
-              // .then(data => {
+
 
               // })
               // .catch(e => console.log(e));
             // const data = await res
               // console.log(data);
-            //   const game = await Game.findAll({
-            //       where: {
-            //         [Op.ilike]: '[this.value]'
-            //       }
-            //   })
+
             // if (game) {
             //     console.log('SUCCESSFUL');
             // }

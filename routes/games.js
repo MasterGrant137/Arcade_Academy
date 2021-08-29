@@ -4,7 +4,9 @@ const { Game, Review, User, Like } = require('../db/models');
 const { asyncHandler } = require('./utils');
 const { csrfProtection } = require('./utils');
 const { check, validationResult } = require('express-validator');
-const { requireAuth } = require('../auth')
+const { requireAuth } = require('../auth');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 // hardcoded list of genres
 // delete?
@@ -204,14 +206,24 @@ router.get('/topGames', asyncHandler(async(req,res) => {
 // GET games/top10 ====================
 router.get('/categories', asyncHandler(async(req, res) => {
   res.render('gameCategories.pug', { title: `Games by Category`,genres })
-
 }))
 
 
-//--------Routes for categories------------
 
-//============================================================
-//----------Routes for categories-----------------------------
+/*==================Route for Search==================*/
+
+router.get('/search', (req, res) => {
+    const { term } = req.query;
+    Game.findAll({ where: { name: { [Op.ilike]: `%${term}%` } } })
+        .then(games => res.render('games', { games })
+        .catch(err => console.log(err))
+
+});
+
+
+
+
+//=============Routes for categories===================//
 
 // ==== ARCADE ====
 
