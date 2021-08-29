@@ -75,8 +75,23 @@ const dbRequester = () => {
               searchUL.appendChild(searchLI);
             }
 
+
+            // let term;
+
+            textbox.addEventListener('input', function() {
+              // window.location.href += this.value;
+              // term = this.value;
+              const pageUrl = window.location.href;
+              console.log(`${pageUrl}?term=${this.value}`);
+
+              const term = `${pageUrl}?term=${this.value}`
+            })
+
+            console.log('frontend hit (index.js)');
+
             form.autocomplete = 'off';
-            form.action = '/games/all';
+            form.action = `/games/searchPage${term}`;
+            // form.method = 'post';
             form.name = 'term';
             form.id = 'searchForm';
             textbox.id = 'searchTextbox';
@@ -88,9 +103,6 @@ const dbRequester = () => {
 
             clickCount++;
 
-            // textbox.addEventListener('submit', function() {
-            //   window.location.href += this.value;
-            // })
         } else {
             const form = document.getElementById('searchForm');
             ul.removeChild(form)

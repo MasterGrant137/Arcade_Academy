@@ -212,12 +212,19 @@ router.get('/categories', asyncHandler(async(req,res) => {
 
 /*==================Route for Search==================*/
 
-router.get('/all', asyncHandler(async(req, res) => {
+router.get('/searchPage', asyncHandler(async(req, res) => {
     let userId;
     const { term } = req.query;
-    console.log('THIS IS TERM: ' + term);
+    // console.log('THIS IS TERM: ' + term);
+    // console.log('THIS IS REQ: ' + req.body.name);
+    // let term;
+    // console.log(term);
 
     if (req.session.auth) userId = req.session.auth.userId;
+
+
+    console.log('backend hit (games.js');
+
     const games = await Game.findAll({ where: { name: { [Op.ilike]: `%${term}%` } } })
 
     if (userId) res.render('filteredGames.pug', { games, userId })
@@ -261,7 +268,7 @@ router.get('/adventure', asyncHandler(async(req,res) => {
   }})
    if (userId) {
      res.render("filteredGames.pug", { games, userId });
-   } else {
+   } else { //* shouldn't the else just be { game } like the rest of them?
      res.render("filteredGames.pug", { games, userId: 1 });
    }
 }));
