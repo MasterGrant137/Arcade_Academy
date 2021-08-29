@@ -1,8 +1,4 @@
-:root{
-  --dividerGreen: rgb(76, 161, 42);
-}
 .no-padding{padding:0; margin: 0;}
-
 
 /* ================ TOP SECTION ================== */
 .user-profile-container{
@@ -21,11 +17,18 @@
 }
 .profile-picture{
   /* background-color:green; */
-  border-radius: 50px;
-  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .profile-picture > p{
   font-size: 72pt;
+}
+
+.pci{
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
 }
 .user-profile-info{
   display: flex;
@@ -38,6 +41,8 @@
   margin-top: 5px;
 }
 .user-name{
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--userProfileSN);
   font-size: 30pt;
   margin: 0;
 }

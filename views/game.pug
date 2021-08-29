@@ -50,22 +50,25 @@ block content
 
   block reviewContent
   .reviews
-    .review-container
-      each review in reviews
-        .rev-sub-container
-          if locals.authenticated
-            .likes-div
-              //👍👎 = 🎮🤡 = 💰🚫 = 🤠☠️ = 😎🤓 = 🐆🐌 =🐐🐭 
-              form(action=`/games/${gameId}/likes` method="POST")
-                input(type="hidden" name="_csrf" value=csrfToken)
-                button.like-btn(type="submit" value=review.id name="like") M
-                //- button.like-btn-backup(type="submit" value=review.id name="like") 🍑
-              p.like-counter=review.score 
-              form(action=`/games/${gameId}/likes` method="POST")
-                input(type="hidden" name="_csrf" value=csrfToken)
-                button.dislike-btn(type="submit" value=review.id name="dislike") W
-                //- button.like-btn-backup.dbb(type="submit" value=review.id name="dislike") 💩
-          p.comment= review.content
+    if review
+      .review-container
+        each review in reviews
+          .rev-sub-container
+            if locals.authenticated
+              .likes-div
+                //👍👎 = 🎮🤡 = 💰🚫 = 🤠☠️ = 😎🤓 = 🐆🐌 =🐐🐭 
+                form(action=`/games/${gameId}/likes` method="POST")
+                  input(type="hidden" name="_csrf" value=csrfToken)
+                  button.like-btn(type="submit" value=review.id name="like") M
+                  //- button.like-btn-backup(type="submit" value=review.id name="like") 🍑
+                p.like-counter=review.score 
+                form(action=`/games/${gameId}/likes` method="POST")
+                  input(type="hidden" name="_csrf" value=csrfToken)
+                  button.dislike-btn(type="submit" value=review.id name="dislike") W
+                  //- button.like-btn-backup.dbb(type="submit" value=review.id name="dislike") 💩
+            p.comment= review.content
+    else
+      p.no-reviews-yet -- No reviews yet --
 
 block side-content 
   .sc-container
