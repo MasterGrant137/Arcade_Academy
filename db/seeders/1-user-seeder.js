@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Users', [
-      { fullName: "User1", email: "user1@email.com", hashedPassword: "$2a$10$HDRItgNxGgSSJTUIErX9o.AiIyFHCmIwFK.FnAkJosIqkfi.JcyT6", screenName: "PugLife1", profileImage: "https://i.ytimg.com/vi/ZljYst0sesk/maxresdefault.jpg", createdAt: new Date(), updatedAt: new Date() },
+      { fullName: "Tim Botthouser", email: "BigTimmyB@appacademy.com", hashedPassword: "$2a$10$HDRItgNxGgSSJTUIErX9o.AiIyFHCmIwFK.FnAkJosIqkfi.JcyT6", screenName: "PugLife1", profileImage: "/images/tom.jpg", createdAt: new Date(), updatedAt: new Date() },
       { fullName: "User2", email: "user2@email.com", hashedPassword: "$2a$10$WyTmU.H6tby2J8U3WX38zOiURBGKDlIZKoY7RfscPpXPhVAac8Gku", screenName: "PugLife2", profileImage: "https://static3.srcdn.com/wordpress/wp-content/uploads/2021/03/Halo-Master-Chief-Helmet-Face.jpg", createdAt: new Date(), updatedAt: new Date() },
       { fullName: "User3", email: "user3@email.com", hashedPassword: "$2a$10$P0Sa4q2BA430Jiu8qC8G6.93UPa6uNayXTUBw59GXmbTotJUxNjhK", screenName: "PugLife3", profileImage: "https://static3.srcdn.com/wordpress/wp-content/uploads/2021/03/Halo-Master-Chief-Helmet-Face.jpg", createdAt: new Date(), updatedAt: new Date() },
       { fullName: "User4", email: "user4@email.com", hashedPassword: "$2a$10$M.I2hIaqLcxUcDK5ElZQ2O0zUApDLx.7fkE2HJn/S3GduwAtTw3t6", screenName: "PugLife4", profileImage: "https://www.imore.com/sites/imore.com/files/styles/large/public/field/image/2021/03/mario-hero.jpg", createdAt: new Date(), updatedAt: new Date() },
