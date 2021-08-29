@@ -24,7 +24,6 @@
     "pg": "^8.6.0",
     "pretty": "^2.0.0",
     "pug": "2.0.4",
-    "puzzy-search": "^1.0.20",
     "sequelize": "^5.22.3",
     "sequelize-cli": "^5.5.1"
   },

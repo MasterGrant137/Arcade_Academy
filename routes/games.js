@@ -215,13 +215,18 @@ router.get('/categories', asyncHandler(async(req,res) => {
 
 router.get('/searchPage', asyncHandler(async(req, res) => {
     let userId;
-    const { term } = req.query;
-    console.log('THIS IS TERM: ' + term);
+    let { term } = req.query;
+
+    const startOfTerm = term[0];
+    let endOfTerm;
+
+    if (term.slice[1]) endOfTerm = term.slice[1];
+    else if (!term.slice[1]) endOfTerm = term[0];
 
     if (req.session.auth) userId = req.session.auth.userId;
 
     if (userId)   {
-      const games = await Game.findAll({ where: { name: { [Op.iRegexp]: `^${term[0]}[${term.slice(1)}]` } }, limit: 15 })
+      const games = await Game.findAll({ where: { name: { [Op.iRegexp]: `^(${startOfTerm})[${endOfTerm}]*` } }, limit: 15 })
       res.render('filteredGames.pug', { games, userId })
     } else res.render('filteredGames.pug', { games })
 }));

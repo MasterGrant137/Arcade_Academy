@@ -6,8 +6,6 @@
 // both operations occur in 1 function because they are dependant on eachother
 // (a game can only be in played or want to play)
 
-// const { search, suggest, regex } = require('puzzy-search');
-
 const buttons = document.querySelectorAll(".remove-game-btn");
 for (let i = 0; i < buttons.length; i++) {
   const btn = buttons[i];
@@ -45,7 +43,7 @@ const dbRequester = () => {
 
     const searchIcon = document.getElementById('search-icon');
     searchIcon.addEventListener('click', () => {
-        const queryLimit = 5;
+        const listAmount = 6;
         const ul = document.querySelector('nav > ul');
 
 
@@ -56,7 +54,7 @@ const dbRequester = () => {
           const searchUL = document.createElement('ul');
 
 
-            for(let i = 0; i < queryLimit; i++) {
+            for(let i = 0; i < listAmount; i++) {
               const searchLI = document.createElement('li');
               const searchButton = document.createElement('button');
 
@@ -65,32 +63,20 @@ const dbRequester = () => {
               searchButton.type = 'submit';
 
               searchButton.className = 'allSearchButtons';
-
-              if (i < queryLimit - 1) {
-                searchButton.classList.add('beginningSearchButtons');
-                searchButton.innerText = `List Item ${i}`;
-              } else if (i === queryLimit - 1) {
-                  searchButton.innerText = `Last List Item`;
-              }
+              searchButton.innerText = `List Item ${i}`;
 
               searchLI.appendChild(searchButton);
               searchUL.appendChild(searchLI);
             }
 
-
-            // let term;
-
-
-            console.log('frontend hit (index.js)');
-
             form.autocomplete = 'off';
             form.action = `/games/searchPage`;
-            // form.name = 'term';
             form.id = 'searchForm';
+
             textbox.id = 'searchTextbox';
             textbox.name = 'term';
             textbox.addEventListener('input', function() {
-                textbox.value = this.value;
+              textbox.value = this.value;
             })
             searchUL.id = 'searchUL';
 
