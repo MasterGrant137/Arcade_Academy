@@ -69,13 +69,12 @@ const dbRequester = () => {
             searchLI.id = `searchLI-${i}`
             searchButton.type = 'submit';
 
+            searchButton.className = 'allSearchButtons';
+
             if (i < queryLimit - 1) {
-              searchButton.className = 'searchButtons'
+              searchButton.classList.add('beginningSearchButtons');
               searchButton.innerText = `List Item ${i}`;
-            } else if (i === queryLimit - 1) {
-                searchButton.id = `lastSearchButton`;
-                searchButton.innerText = `Last List Item`;
-            }
+            } else if (i === queryLimit - 1) searchButton.innerText = `Last List Item`;
 
             searchLI.appendChild(searchButton);
             searchUL.appendChild(searchLI);
