@@ -55,22 +55,21 @@ const dbRequester = () => {
           const textbox = document.createElement('input');
           const searchUL = document.createElement('ul');
 
-
             for(let i = 0; i < listAmount; i++) {
               const searchLI = document.createElement('li');
-              const searchLink = document.createElement('a');
               const searchButton = document.createElement('button');
 
               searchLI.className = 'searchLIs';
               searchLI.id = `searchLI-${i}`;
-              searchLink.id = `searchLI-${i}`;
               searchButton.type = 'button';
               searchButton.className = 'allSearchButtons';
               searchButton.innerText = `${genres[i][0].toUpperCase()}${genres[i].slice(1)}`;
-              searchLink.href = `${genres[i]}`;
 
-              searchLI.appendChild(searchLink);
-              searchLink.appendChild(searchButton);
+              searchButton.addEventListener('click', function() {
+                window.location = `http://localhost:8080/games/${genres[i]}`;
+              });
+
+              searchUL.appendChild(searchButton);
               searchUL.appendChild(searchLI);
             }
 
@@ -82,7 +81,9 @@ const dbRequester = () => {
             textbox.name = 'term';
             textbox.addEventListener('input', function() {
               textbox.value = this.value;
-            })
+            });
+
+
             searchUL.id = 'searchUL';
 
             form.appendChild(textbox);
@@ -172,7 +173,7 @@ for(let i = 0; i < wtpBtn.length; i++){
 
 // Function adds functionality to users profile page.
 // adds buttons that allows user to delete
-// reviews that they made previously. 
+// reviews that they made previously.
 const reviewButtons = document.querySelectorAll(".remove-review-btn");
 // loop through all remove-review-btn's
 for (let i = 0; i < reviewButtons.length; i++) {
