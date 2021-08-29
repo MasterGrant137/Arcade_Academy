@@ -204,21 +204,25 @@ router.get('/topGames', asyncHandler(async(req,res) => {
 }));
 
 // GET games/top10 ====================
-router.get('/categories', asyncHandler(async(req, res) => {
-  res.render('gameCategories.pug', { title: `Games by Category`,genres })
+router.get('/categories', asyncHandler(async(req,res) => {
+  res.render('gameCategories.pug', { title: `Games by Category`, genres })
 }))
 
 
 
 /*==================Route for Search==================*/
 
-router.get('/search', (req, res) => {
+router.get('/all', asyncHandler(async(req, res) => {
+    let userId;
     const { term } = req.query;
-    Game.findAll({ where: { name: { [Op.ilike]: `%${term}%` } } })
-        .then(games => res.render('games', { games })
-        .catch(err => console.log(err))
+    console.log('THIS IS TERM: ' + term);
 
-});
+    if (req.session.auth) userId = req.session.auth.userId;
+    const games = await Game.findAll({ where: { name: { [Op.ilike]: `%${term}%` } } })
+
+    if (userId) res.render('filteredGames.pug', { games, userId })
+    else res.render('filteredGames.pug', { games })
+}));
 
 
 

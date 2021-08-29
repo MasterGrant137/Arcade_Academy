@@ -46,67 +46,57 @@ const dbRequester = () => {
         const queryLimit = 5;
         const ul = document.querySelector('nav > ul');
 
+
+
         if (!clickCount) {
           const form = document.createElement('form');
           const textbox = document.createElement('input');
           const searchUL = document.createElement('ul');
 
-          for(let i = 0; i < queryLimit; i++) {
-            const searchLI = document.createElement('li');
-            const searchButton = document.createElement('button');
 
-            searchLI.className = 'searchLIs';
-            searchLI.id = `searchLI-${i}`
-            searchButton.type = 'submit';
+            for(let i = 0; i < queryLimit; i++) {
+              const searchLI = document.createElement('li');
+              const searchButton = document.createElement('button');
 
-            searchButton.className = 'allSearchButtons';
+              searchLI.className = 'searchLIs';
+              searchLI.id = `searchLI-${i}`
+              searchButton.type = 'submit';
 
-            if (i < queryLimit - 1) {
-              searchButton.classList.add('beginningSearchButtons');
-              searchButton.innerText = `List Item ${i}`;
-            } else if (i === queryLimit - 1) searchButton.innerText = `Last List Item`;
+              searchButton.className = 'allSearchButtons';
 
-            searchLI.appendChild(searchButton);
-            searchUL.appendChild(searchLI);
+              if (i < queryLimit - 1) {
+                searchButton.classList.add('beginningSearchButtons');
+                searchButton.innerText = `List Item ${i}`;
+              } else if (i === queryLimit - 1) {
+                  searchButton.innerText = `Last List Item`;
+              }
+
+              searchLI.appendChild(searchButton);
+              searchUL.appendChild(searchLI);
+            }
+
+            form.autocomplete = 'off';
+            form.action = '/games/all';
+            form.name = 'term';
+            form.id = 'searchForm';
+            textbox.id = 'searchTextbox';
+            searchUL.id = 'searchUL';
+
+            form.appendChild(textbox);
+            form.appendChild(searchUL);
+            ul.appendChild(form);
+
+            clickCount++;
+
+            // textbox.addEventListener('submit', function() {
+            //   window.location.href += this.value;
+            // })
+        } else {
+            const form = document.getElementById('searchForm');
+            ul.removeChild(form)
+            clickCount--;
           }
 
-          form.id = 'searchForm';
-          form.autocomplete = 'off';
-          textbox.id = 'searchTextbox';
-          searchUL.id = 'searchUL';
-
-
-          form.appendChild(textbox);
-          form.appendChild(searchUL);
-          ul.appendChild(form);
-
-          clickCount++;
-
-          document.getElementById('searchTextbox').addEventListener('input', async function() {
-            const pageUrl = window.location.href;
-
-            const searchRequest = this.value;
-
-            // if (searchRequest === )
-            // console.log(searchRequest);
-
-            const res = await fetch(pageUrl)
-
-
-              // })
-              // .catch(e => console.log(e));
-            // const data = await res
-              // console.log(data);
-
-            // if (game) {
-            //     console.log('SUCCESSFUL');
-            // }
-          })
-        } else {
-          const form = document.getElementById('searchForm');
-          ul.removeChild(form)
-          clickCount--;
-        }
     })
 }
 
