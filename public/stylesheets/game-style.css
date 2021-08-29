@@ -2,6 +2,10 @@
   --sideBarTitles-GameId: rgb(197, 209, 199);
 }
 
+button {
+  cursor: pointer;
+}
+
 main{
   width: 100%;
   display: grid;
@@ -308,7 +312,7 @@ section{
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
 }
 .game-preview-img > img, .genre-image > img{
   height: 150px;
@@ -329,7 +333,7 @@ section{
   margin: 5px;
   font-size: 1.25rem;
 
-  
+
   /* grid-template-columns: 1fr 1fr; */
 }
 
@@ -350,7 +354,7 @@ section{
 }
 .all-profile-pic-container{
   display: flex;
-  
+
 }
 
 
@@ -385,10 +389,10 @@ background-color:#4095c6;
   display: flex;
   flex-direction: column;
 }
-.sc-title { padding: 0 } 
+.sc-title { padding: 0 }
 .sc-title>h3{
   /* margin: 0;*/
-  padding-left: 2rem; 
+  padding-left: 2rem;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--sideBarTitles-GameId);
 }
@@ -460,7 +464,7 @@ background-color:#4095c6;
   color: white;
   text-align: center;
   width: 2rem;
-  background-color: Transparent; 
+  background-color: Transparent;
   border: none;
   border-bottom: 2px solid gray;
 }
