@@ -1,5 +1,11 @@
-const { Game, Review } = require('../../db/models');
 
+// const { Game } = require('../../db/models');
+// const express = require('express');
+// const searchServer = express();
+// const { app }  = require('../../app');
+// const { Game, Review, User, Like } = require('../../db/models');
+// const Sequelize = require('sequelize');
+// const Op = Sequelize.Op;
 
 // window.addEventListener("load", (event) => {
 //   console.log("hello from javascript!");
@@ -16,7 +22,7 @@ for (let i = 0; i < buttons.length; i++) {
     e.preventDefault();
     const gameId = e.target.value;
     const userId = e.target.id;
-    // console.log(userId);
+
     const body = { user_id: userId, game_id: gameId}
     const res = await fetch(`/users/${userId}/userProfile`, {
       headers: { "Content-Type": "application/json"},
@@ -24,8 +30,7 @@ for (let i = 0; i < buttons.length; i++) {
       body: JSON.stringify(body),
     });
     const data = await res.json();
-    // console.log(res);
-    // console.log(data.message);
+
     if (data.message === "Successful") {
       console.log("Success");
       const container = document.querySelector(
@@ -39,51 +44,71 @@ for (let i = 0; i < buttons.length; i++) {
   });
 }
 
+const dbRequester = () => {
+    let clickCount = 0;
 
-const gameRegex = //i;
+    const searchIcon = document.getElementById('search-icon');
+    searchIcon.addEventListener('click', () => {
+        const ul = document.querySelector('nav > ul');
 
+        if (!clickCount) {
+          const form = document.createElement('form');
+          const textbox = document.createElement('input');
+          const searchUl = document.createElement('ul');
 
-let clickCount = 0;
-
-const searchIcon = document.getElementById('search-icon');
-searchIcon.addEventListener('click', () => {
-    const ul = document.querySelector('nav > ul');
-
-    if (!clickCount) {
-      const texarea = document.createElement('textarea');
-      texarea.id = 'searchTextarea';
-      ul.appendChild(texarea);
-      clickCount++;
-
-      document.getElementById('searchTextarea').addEventListener('input', function() {
-          if(this.value.match()) {
-
+          for(let i = 0; i < 5; i++) {
+            const li = document.createElement('li');
+            li.class = 'searchLi';
+            li.value = `option-${i}`;
+            li.innerText = `Option ${i}`;
+            searchUl.appendChild(li);
+            // console.log(option, dropdown);
           }
-      })
-    } else {
-      const textarea = document.getElementById('searchTextarea');
-      ul.removeChild(textarea)
-      clickCount--;
-    }
-})
+
+          form.id = 'searchForm';
+          textbox.id = 'searchTextbox';
+          searchUl.id = 'searchUl';
 
 
+          form.appendChild(textbox);
+          form.appendChild(searchUl);
+          ul.appendChild(form);
 
+          clickCount++;
 
+          document.getElementById('searchTextbox').addEventListener('input', async function() {
+            const pageUrl = window.location.href;
 
+            const searchRequest = this.value;
 
+            // console.log(searchRequest);
 
+            const res = await fetch(pageUrl)
+              // .then(res => res.json())
+              // .then(data => {
 
+              // })
+              // .catch(e => console.log(e));
+            // const data = await res
+              // console.log(data);
+            //   const game = await Game.findAll({
+            //       where: {
+            //         [Op.ilike]: '[this.value]'
+            //       }
+            //   })
+            // if (game) {
+            //     console.log('SUCCESSFUL');
+            // }
+          })
+        } else {
+          const form = document.getElementById('searchForm');
+          ul.removeChild(form)
+          clickCount--;
+        }
+    })
+}
 
-
-
-
-
-
-
-
-
-
+dbRequester();
 
 
 
