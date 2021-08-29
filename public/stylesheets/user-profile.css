@@ -28,7 +28,7 @@
 .pci{
   border-radius: 50%;
   height: 120px;
-  width: 120px;
+  width: 120px;;
 }
 .user-profile-info{
   display: flex;
@@ -90,41 +90,43 @@
   margin: 5px 3px; 
 }
 
-/* .user-game-preview-containers{
-  width: 100%;
-} */
+.wtp-gamecontainer{
+  border-top: 1px solid rgb(22, 22, 22, .35);
+}
+.wtp-gamecontainer:first-child{ border-top: none; }
+
 .game-flex-container{
+  /* background-color:rgb(124, 34, 34); */
   width: 100%;
+  margin-top: 2px;
   display: flex;
   flex-direction: row;
-  border-bottom: 1px solid rgb(22, 22, 22, .35);
 }
-.game-flex-container:last-child{ border-bottom: none; }
 
 .game-preview-img{
   width: 120px;
   height: 150px;
   background-size: 50px;
+  margin: .5rem;
+  border-radius: 6px;
 }
-.game-preview-info2{
+.game-preview-info{
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: column; 
   justify-content: space-evenly;
   font-size: 18pt;
   padding-left: 10px;
 }
 .sub-info{
   width: 100%;
-  background-color: burlywood;
-  /* display: flex;
+  /* background-color: burlywood; */
+  display: flex;
   align-items: center;
-  justify-content: flex-start; */
+  justify-content: flex-start;
 }
 .rmv{
-  display: flex;
-  justify-self: flex-end;
-  align-self: flex-end;
+  justify-content: flex-end;
 }
 .game-name{
   align-self: flex-start;
@@ -142,25 +144,35 @@
 
 /* ================ REVIEWS ================== */
 .rev-flex-container{
+  /* background-color: skyblue; */
   width: 100%;
   min-height: 150px;
   display: flex;
   border-bottom: 1px solid rgb(22, 22, 22, .35);
-  flex-direction: column;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
 }
 .game-flex-container:last-child{ border-bottom: none; }
 
 .rev-sub-info{
   /* background-color: rgb(16, 32, 170); */
-  max-height: 120px;
-  width: 100%;
-  padding: 20px;
+  width: 15%;
+  margin: 15px;
+  display: flex;
+  justify-content: center;
+}
+.cont{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 60%;
 }
 .rev-image {
   /* background-color: rgb(80, 28, 28); */
   display: flex;
+  max-height: 120px;
+  max-width: 90px;
   flex-direction: row;
   border-radius: 10px;
   align-items: center;
@@ -171,14 +183,17 @@
   max-width: 80px;
   max-height: 100px;
 }
-.rev-image > h4 {
-  margin-left: 20px;
-  /* background-color: rgb(175, 173, 24); */
+
+.rev-game-title{
+  color:var(--profPageRevContentTitle);
+  text-decoration: underline;
   font-size: 18px;
   font-family: Arial, Helvetica, sans-serif;
+  
 }
-.rev-content > p{
-  padding-bottom: 10px;
+  .rev-content > p{
+    margin: 8px 0;
+  color:var(--profPageRevContent);
 }
 
 .remove-btn{
@@ -186,6 +201,7 @@
   height: 25px;
   width:  25px;
   padding:3px;
+  margin-right: 1rem;
   background-color: rgb(175, 10, 10);
   float: right;
   align-self:flex-end;
