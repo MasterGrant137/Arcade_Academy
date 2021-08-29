@@ -4,44 +4,49 @@ html
       block head
         title #{title}
         <link href="https://fonts.googleapis.com/css2?family=Abel&family=Teko:wght@300&family=Varela+Round&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@100&display=swap" rel="stylesheet">
         link(rel='stylesheet' href='/stylesheets/main.css')
         link(rel="stylesheet", href="/stylesheets/form-style.css")
         link(rel="stylesheet" href="/stylesheets/game-style.css")
-        link(rel="stylesheet" href="/stylesheets/game-cards.css")
         link(rel="stylesheet" href="/stylesheets/user-profile.css")
         //..................................................................
         //-==========VVV color theme stylesheets should be below any other css files. VVV========
         //- link(rel="stylesheet" href="/stylesheets/color-theme-1.css")
         //- link(rel="stylesheet" href="/stylesheets/color-theme-2.css")
         //- link(rel="stylesheet" href="/stylesheets/color-theme-goodreads.css")
-        link(rel="stylesheet" href="/stylesheets/color-theme-pinkArcade.css")
+        //- link(rel="stylesheet" href="/stylesheets/color-theme-pinkArcade.css")
 
         script(src="/javascripts/index.js" type="module")
   body
     header
       div#page-header
-        a(href="/" class="title-anchor") 
+        a(href="/" class="title-anchor")
           h1#page-title Arcade Academy
       div#page-header-right
         if locals.authenticated
           a(href=`/users/${user.id}/userProfile` id="anchor-profile-card") 
-            div.profile-card-og
+            .profile-card-og
               .profile-card-img 
                 img(src=user.profileImage, alt="")
               .profile-card-name  
                 h5 #{user.screenName} 
                 
-              .profile-logout-btn  
-                h5 Online
-                form(action='/users/logout' method='post')
-                  button(type='submit')
+              .profile-logout-btn
+                  h5 Online  
+                  form(action='/users/logout' method='post')
+                      button(type='submit')
         else
           .auth-buttons
-            a(href="/users/login" class="login-anchors") Log In
-            a(href="/users/register" class="login-anchors") Sign Up
+            .both-buttons
+              a(href="/users/login" class="login-anchors") Log In
+              p.login-anchors.no-padding |
+              a(href="/users/register" class="login-anchors") Sign Up
             .demo-user-btn
               form(action="/users/demoUser" method="POST")
                 button 
+
 
 
     nav
@@ -52,9 +57,9 @@ html
           li.x <span class="dot">•</span> Categories <span class="dot">•</span>
         a(href="/games" class="nav-bar-button")
           li.x <span class="dot">•</span> All Games <span class="dot">•</span>
-        if locals.authenticated  
+        if locals.authenticated
           a(href=`/users/${user.id}/userProfile` class="nav-bar-button nav-user-profile-button")
-            li.x <span class="dot">•</span> My Profile <span class="dot">•</span>  
+            li.x <span class="dot">•</span> My Profile <span class="dot">•</span>
 
     main
       section
@@ -66,22 +71,28 @@ html
       .left
         .contact
           ul <span>Contact</span>
-            li Careers
-            li Support
-            li Invest
+            li 
+              a(href="#") Careers
+            li 
+              a(href="#") Support
+            li 
+              a(href="#") Invest
         .about
           ul <span>About</span>
-            li Terms
-            li Privacy
+            li 
+              a(href="#") Terms
+            li 
+              a(href="#") Privacy
         .social-media
           ul <span>Social Media</span>
-            li ☒ Tweeter
-            li ☒ Instacam
-            li ☒ Fanbook
+            li 
+              a(href="#") ☒ Tweeter
+            li 
+              a(href="#") ☒ Instacam
+            li 
+              a(href="#") ☒ Fanbook
       .right
         .images
           img(src="/images/appleAppStoreLogo.PNG", alt="Apple AppStore")
           img(src="/images/googlePlayStore-Logo.png", alt="Google PlayStore")
-        p 2021 ArcadeAcademy Inc.
-
-    link(rel="text", href="")
+        p.copywrite ©2021 ArcadeAcademy Inc.

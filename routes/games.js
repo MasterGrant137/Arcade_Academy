@@ -24,6 +24,7 @@ router.get('/', asyncHandler( async (req, res, next) => {
 // GET games/:id
 router.get(`/:id(\\d+)`, csrfProtection, asyncHandler( async (req, res, next) => {
   const gameId = parseInt(req.params.id, 10);
+
   const reviews = await Review.findAll({
     where: {
       game_id: gameId
@@ -222,7 +223,7 @@ router.get('/arcade', asyncHandler(async(req,res) => {
   const games = await Game.findAll({
     where: {
       genre: 'Arcade'
-    }  
+    }
   });
   if(userId){
     res.render('filteredGames.pug', { games, userId })
@@ -290,7 +291,7 @@ router.get('/sports', asyncHandler(async(req,res) => {
   if (req.session.auth) {
     userId = req.session.auth.userId;
   }
-  const games = await Game.findAll({ 
+  const games = await Game.findAll({
     where: {
       genre: 'Sport'
     }
