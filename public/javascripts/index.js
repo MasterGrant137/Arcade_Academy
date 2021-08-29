@@ -81,6 +81,7 @@ const dbRequester = () => {
           }
 
           form.id = 'searchForm';
+          form.autocomplete = 'off';
           textbox.id = 'searchTextbox';
           searchUL.id = 'searchUL';
 

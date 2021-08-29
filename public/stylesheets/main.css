@@ -303,6 +303,7 @@ nav>ul{
   background-color: khaki;
   outline: none;
   border-radius: 0.75rem;
+  padding-left: 3.12%;
 }
 
 #searchTextbox:hover {
@@ -312,9 +313,8 @@ nav>ul{
 #searchUL {
   position: absolute;
   top: 12rem;
-  right: 30;
-  width: 25%;
-  height: 39%;
+  width: 25.5%;
+  height: 11.1rem;
 
   padding: 0.25rem;
   margin: 0;
@@ -334,7 +334,8 @@ nav>ul{
 }
 
 .allSearchButtons:hover {
-  box-shadow: 0 0 10px white;
+  box-shadow: 0 0 10px 2px rgb(223, 17, 17);
+  background-color: rgb(216, 134, 248);
 }
 
 .beginningSearchButtons {
