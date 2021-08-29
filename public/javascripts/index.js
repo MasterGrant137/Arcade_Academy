@@ -80,14 +80,6 @@ const dbRequester = () => {
 
             // let term;
 
-            textbox.addEventListener('input', function() {
-              // window.location.href += this.value;
-              // term = this.value;
-              // const pageUrl = window.location.href;
-              // console.log(`${pageUrl}?term=${this.value}`);
-
-              // const term = `${pageUrl}?term=${this.value}`
-            })
 
             console.log('frontend hit (index.js)');
 
@@ -97,7 +89,9 @@ const dbRequester = () => {
             form.id = 'searchForm';
             textbox.id = 'searchTextbox';
             textbox.name = 'term';
-            textbox.value = 'EUREKA!!!!!!'
+            textbox.addEventListener('input', function() {
+                textbox.value = this.value;
+            })
             searchUL.id = 'searchUL';
 
             form.appendChild(textbox);

@@ -216,13 +216,11 @@ router.get('/categories', asyncHandler(async(req,res) => {
 router.get('/searchPage', asyncHandler(async(req, res) => {
     let userId;
     const { term } = req.query;
-    // console.log('THIS IS TERM: ' + term);
-    // console.log('THIS IS REQ: ' + req.body.name);
-    // let term;
-    // console.log(term);
+    console.log('THIS IS TERM: ' + term);
+    
 
     // if (req.session.auth) userId = req.session.auth.userId;
-    console.log('backend hit (games.js) ' + term);
+    // console.log('backend hit (games.js) ' + term);
 
     console.log('backend hit (games.js');
     // const term = 'Cll of Dty';
