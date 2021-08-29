@@ -19,6 +19,13 @@
   --userCardBack:#537895;
   --gradColor1: #537895;
   --gradColor2: #09203f;
+
+  /* User Profile Page */
+  --userProfileSN:rgb(187, 199, 77);
+  --dividerGreen: rgb(76, 161, 42);
+  
+  /* Individual Game Page */
+  --noRevsYet: rgb(167, 168, 164);
 }
 
  * {
@@ -88,8 +95,12 @@ header {
   flex-direction: row;
   align-items: center;
   height: 7rem;
-  width: 21rem;
+
+  /* width: 23rem; */
+  min-width: 18rem;
+  max-width: 23rem;
   
+
   border-radius: 10px;
   justify-content: space-between;
   margin: 10px auto;
@@ -127,6 +138,7 @@ header {
     0 0 12px #4a81f8,
     0 0 14px #4a81f8,
     0 0 15px #4a81f8;
+
 }
 
 #anchor-profile-card{
@@ -191,7 +203,7 @@ header {
   background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
   padding: 1rem 1rem;
   margin-right: -3rem;
-  
+
   color: black;
   text-shadow: 0 0 2px #fff,
   0 0 4px black,
@@ -254,24 +266,25 @@ header {
   justify-content: space-around;
 }
 
+/* ============== nav section ============== */
+
 nav {
   width: 100%;
+
   border-radius: 3px;
+
 }
 nav>ul{
   background-color: var(--floatColor);
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: 3px 7%;
+
+  align-items: center;
+  padding: 0 7%;
   box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
 }
-/* .dot{
-  opacity: 0;
-}
-.dot:hover{
-   opacity: 100;
-} */
+
 .nav-bar-button {
   list-style:none;
   font-family: 'Varela Round', sans-serif;
@@ -303,6 +316,76 @@ nav>ul{
   0 0 14px var(--neonColor2),
   0 0 15px var(--neonColor2);
 }
+
+/* ============== search subsection ============== */
+
+#search-icon {
+  font-size: 1rem;
+}
+
+#search-icon:hover {
+  cursor: pointer;
+}
+
+@keyframes formAnimation {
+  from {width: 0%;}
+  to {width: 30%;}
+}
+
+#searchForm {
+  width: 30%;
+  animation-name: formAnimation;
+  animation-duration: 0.5s;
+}
+
+#searchTextbox {
+  font-family: 'Varela Round', sans-serif;
+  width: 100%;
+  background-color: khaki;
+  outline: none;
+  border-radius: 0.75rem;
+  padding-left: 3.12%;
+}
+
+#searchTextbox:hover {
+  box-shadow: 0px 0px 1rem rgb(204, 41, 226);
+}
+
+#searchUL {
+  position: absolute;
+  top: 12rem;
+  width: 25.5%;
+  height: 12.6rem;
+  /*? ht = srchBtnHt(2.1rem) x listAmt(6) ?*/
+  padding: 0;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  background-color: black;
+}
+
+#searchUL li:first-child button {
+  border-top: 0;
+}
+
+.allSearchButtons {
+  cursor: pointer;
+  border: none;
+  background-color: khaki;
+  border-radius: 0.2rem;
+  width: 100%;
+  height: 2.1rem;
+  border-bottom: 0.15rem darkmagenta solid;
+  border-radius: 0.75rem;
+}
+
+
+.allSearchButtons:hover {
+  box-shadow: 0 0 10px 2px rgb(223, 17, 17);
+  background-color: rgb(216, 134, 248);
+}
+
+
+/* ============== search subsection ============== */
 
 .nav-user-profile-button{
   text-shadow:
@@ -357,7 +440,8 @@ aside {
   align-items: center;
   border-radius: 3px;
   box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
-  height: 40rem;
+  max-height: 40rem;
+  min-height: 25rem;
   width: 18rem;
   margin-top: 0;
 
@@ -381,7 +465,7 @@ aside {
 }
 .errors>*{
   display:inline-block;
-  overflow-wrap: break-word; 
+  overflow-wrap: break-word;
 }
 
 /* ============== footer section ============== */
@@ -391,8 +475,10 @@ aside {
   color: var(--footerFontColor1);
   font-family: 'Times New Roman', Times, serif;
   margin: 0;
+  min-width: 100%;
   width: 100%;
-  height: 120px;
+  min-height: 6rem;
+  max-height: 12rem;
   display: flex;
   justify-content: space-between;
   align-items: center;

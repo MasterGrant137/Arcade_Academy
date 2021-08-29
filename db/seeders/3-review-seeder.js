@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Reviews', [
-      { content: 'It was okay...', user_id: 1, game_id: 1, createdAt: new Date(), updatedAt: new Date() },
+      { content: 'Its My Favorite!', user_id: 1, game_id: 6, createdAt: new Date(), updatedAt: new Date() },
       { content: 'This game was absolutely excellent!', user_id: 2, game_id: 2, createdAt: new Date(), updatedAt: new Date() },
       { content: 'This game was absolutely excellent!', user_id: 3, game_id: 3, createdAt: new Date(), updatedAt: new Date() },
       { content: 'I had some fun playing it.', user_id: 4, game_id: 4, createdAt: new Date(), updatedAt: new Date() },

@@ -1,0 +1,48 @@
+extends layout.pug
+
+block content
+  .all-games
+    h1 Search Page
+    a(href='/games/arcade')
+      .game-genre-containers
+        .genre-image
+          img(src="https://eandt.theiet.org/media/6562/mp15pk_2231337686398585731.jpg?anchor=center&mode=crop&width=640&height=480&rnd=131762270760000000", alt="")
+        .genre-name
+          h4= games
+    a(href='/games/adventure')
+      .game-genre-containers
+        .genre-image
+          img(src="https://cdn.wccftech.com/wp-content/uploads/2018/01/WCCFbest2018actionadventure1.jpg", alt="")
+        .genre-name
+          h4= games
+    a(href='/games/rpg')
+      .game-genre-containers
+        .genre-image
+          img(src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2020/11/PC-Offline-RPGs.jpg", alt="")
+        .genre-name
+          h4= games
+    a(href='/games/fps')
+      .game-genre-containers
+        .genre-image
+          img(src="https://images.pushsquare.com/ce1c595d15e46/best-ps4-fps-games.original.jpg", alt="")
+        .genre-name
+          h4= games
+    a(href='/games/sports')
+      .game-genre-containers
+        .genre-image
+          img(src="https://athlonsports.com/.image/t_share/MTgyMDE4NjkyNjg4MTkyNjQz/sports_video_games_dljpg.jpg", alt="")
+        .genre-name
+          h4= games
+block side-content
+  .game-sidebar
+    h4 Game News
+    .game-news-container
+      label#game-news-label-1 Interviews with Horizon Zero Dawn Developers
+      <iframe src="https://www.youtube.com/embed/PzomI_VXFLs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
+      //- pick 3-5 games we put in our database and write a cool news story
+    .game-news-container
+      label#game-news-label-2 Halo Infinite Multiplayer Experience
+      <iframe src="https://www.youtube.com/embed/lOthvD1rMbQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
+    .game-news-container
+      label#game-news-label-3 Elon Musk Talks Cyberpunk 2077
+      <iframe src="https://www.youtube.com/embed/k-iqoAl_e00" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>

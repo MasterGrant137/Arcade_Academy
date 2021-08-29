@@ -4,7 +4,10 @@ const { Game, Review, User, Like } = require('../db/models');
 const { asyncHandler } = require('./utils');
 const { csrfProtection } = require('./utils');
 const { check, validationResult } = require('express-validator');
-const { requireAuth } = require('../auth')
+const { requireAuth } = require('../auth');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
+
 
 // hardcoded list of genres
 // delete?
@@ -202,16 +205,36 @@ router.get('/topGames', asyncHandler(async(req,res) => {
 }));
 
 // GET games/top10 ====================
-router.get('/categories', asyncHandler(async(req, res) => {
-  res.render('gameCategories.pug', { title: `Games by Category`,genres })
-
+router.get('/categories', asyncHandler(async(req,res) => {
+  res.render('gameCategories.pug', { title: `Games by Category`, genres })
 }))
 
 
-//--------Routes for categories------------
 
-//============================================================
-//----------Routes for categories-----------------------------
+/*==================Route for Search==================*/
+
+router.get('/searchPage', asyncHandler(async(req, res) => {
+    let userId;
+    let { term } = req.query;
+
+    const startOfTerm = term[0];
+    let endOfTerm;
+
+    if (term.slice[1]) endOfTerm = term.slice[1];
+    else if (!term.slice[1]) endOfTerm = term[0];
+
+    if (req.session.auth) userId = req.session.auth.userId;
+
+    if (userId)   {
+      const games = await Game.findAll({ where: { name: { [Op.iRegexp]: `^(${startOfTerm})[${endOfTerm}]*` } }, limit: 15 })
+      res.render('filteredGames.pug', { games, userId })
+    } else res.render('filteredGames.pug', { games })
+}));
+
+
+
+
+//=============Routes for categories===================//
 
 // ==== ARCADE ====
 
@@ -245,7 +268,7 @@ router.get('/adventure', asyncHandler(async(req,res) => {
   }})
    if (userId) {
      res.render("filteredGames.pug", { games, userId });
-   } else {
+   } else { //* shouldn't the else just be { game } like the rest of them?
      res.render("filteredGames.pug", { games, userId: 1 });
    }
 }));

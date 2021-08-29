@@ -2,11 +2,12 @@ extends layout.pug
 
 block content
   .user-profile-container
-    //-========================== USER DATA
+    //-========================== USER DATA 
     .user-top
-      .profile-picture.no-padding
-        if user.image
-          p.no-padding= user.image 
+      .profile-picture
+        if user.profileImage
+          div 
+            img.no-padding.pci(src=user.profileImage, alt="Profile Image")
         else 
           p.no-padding 👽
       .user-profile-info
@@ -25,7 +26,7 @@ block content
               p.no-padding.genre-title Favorite Genres:
               a(href=`/games/adventure`).no-padding.genre Adventure
               a(href=`/games/action`).no-padding.genre Action
-
+              
     .divider 
       p.no-padding Want to Play
     //-========================== WANT TO PLAY 
@@ -75,7 +76,7 @@ block content
             a(href=`/games/${gameList.Game.id}`)
             .game-preview-img
               img(src= gameList.Game.gameImage, alt="Game Image" class="game-images")
-            .game-preview-info
+            .game-preview-info2
               .sub-info
                 p.game-name.no-padding= gameList.Game.name
               .sub-info
@@ -100,5 +101,6 @@ block content
             .rev-sub-info
               .rev-content
                 p.no-padding= review.content
-                button.no-padding(type="submit" id=userId value=review.id name="remove-review-btn" class="remove-review-btn remove-btn") X
+                form(action=`/users/${userId}/review` method= "post")
+                  button.no-padding(type="submit" id=userId value=review.id name="remove-review-btn" class="remove-review-btn remove-btn") X
     // all the reviews that the user has made, starting with msot recent

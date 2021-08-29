@@ -11,15 +11,19 @@ const bcrypt = require('bcryptjs');
 const seedUserTables = async() => {
     for (let i = 1; i < 10; i++) {
         const hashedPassword = await bcrypt.hash(`$aB${i}`, 10);
-        console.log(`{ fullName: "User${i}", email: "user${i}@email.com", hashedPassword: "${hashedPassword}", screenName: "PugLife${i}", createdAt: new Date(), updatedAt: new Date() },`);
+        if (isPrimeHelper(i)) {
+            console.log(`{ fullName: "User${i}", email: "user${i}@email.com", hashedPassword: "${hashedPassword}", screenName: "PugLife${i}", profileImage: "https://static3.srcdn.com/wordpress/wp-content/uploads/2021/03/Halo-Master-Chief-Helmet-Face.jpg", createdAt: new Date(), updatedAt: new Date() },`);
+        } else if ( i % 2 === 0) {
+            console.log(`{ fullName: "User${i}", email: "user${i}@email.com", hashedPassword: "${hashedPassword}", screenName: "PugLife${i}", profileImage: "https://www.imore.com/sites/imore.com/files/styles/large/public/field/image/2021/03/mario-hero.jpg", createdAt: new Date(), updatedAt: new Date() },`);
+        } else if (i % 2 !== 0) {
+            console.log(`{ fullName: "User${i}", email: "user${i}@email.com", hashedPassword: "${hashedPassword}", screenName: "PugLife${i}", profileImage: "https://i.ytimg.com/vi/ZljYst0sesk/maxresdefault.jpg", createdAt: new Date(), updatedAt: new Date() },`);
+        }
     }
 }
-// seedUserTables();
+seedUserTables();
 
 const seedGameTables = (name, gameImage, genre, gameBio) => {
-    // for (let i = 1; i < 10; i++) {
         console.log(`{ name: "${name}", gameImage: "${gameImage}", genre: "${genre}", bio: \`${gameBio}\`, createdAt: new Date(), updatedAt: new Date() },`);
-    // }
 }
 // seedGameTables();
 
