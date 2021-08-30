@@ -102,4 +102,6 @@ block content
                   p.no-padding= review.content
                   form(action=`/users/${userId}/review` method= "post")
                     button.no-padding(type="submit" id=userId value=review.id name="remove-review-btn" class="remove-review-btn remove-btn") X
-    // all the reviews that the user has made, starting with msot recent
+
+//- block side-content 
+//-   img(src="/public/images/redBullAdvert.png")    
