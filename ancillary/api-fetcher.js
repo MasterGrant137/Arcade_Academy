@@ -31,6 +31,7 @@ const gameSet = new Set();
 ? ...to a seeder function which formats it and prints it to console
 */
 
+
 const linkFetcher = () => {
     const fetchLimiter = 80;
 

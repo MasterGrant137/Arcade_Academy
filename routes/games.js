@@ -268,8 +268,8 @@ router.get('/adventure', asyncHandler(async(req,res) => {
   }})
    if (userId) {
      res.render("filteredGames.pug", { games, userId });
-   } else { //* shouldn't the else just be { game } like the rest of them?
-     res.render("filteredGames.pug", { games, userId: 1 });
+   } else {
+     res.render("filteredGames.pug", { games });
    }
 }));
 
