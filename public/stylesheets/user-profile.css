@@ -102,6 +102,10 @@
   display: flex;
   flex-direction: row;
 }
+.redBottAd{
+  height: 37rem;
+  width: 17rem;
+}
 
 .game-preview-img{
   width: 120px;
