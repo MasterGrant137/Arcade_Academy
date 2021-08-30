@@ -3,6 +3,7 @@
     + [Project Description](#project-description)
     + [Directory Structure](#directory-structure)
     + [Dependencies](#dependencies)
+    + [Notable Difficulties](#notable-difficulties)
     + [Contributions](#contributions)
 
 ### Project Description
@@ -12,7 +13,7 @@ Putting these ideas into practice, we created several routes to groups of inform
 
 As you explore this application, you will discover the care imbued into every detail. Use this README as a Sherpa for that journey. Also, each item in the table of contents is an internal link so to aid you as you reference this document.
 
-[Back to the Beginning](#arcade-academy-overview)
+[Back to the Top](#arcade-academy-overview)
 
 ### Directory Structure
 ```
@@ -36,7 +37,7 @@ As you explore this application, you will discover the care imbued into every de
 
 16 directories
 ```
-[Back to the Beginning](#arcade-academy-overview)
+[Back to the Top](#arcade-academy-overview)
 ### Dependencies
 Server
 ```
@@ -80,13 +81,13 @@ Client
 ```
 "pug": "2.0.4",
 ```
-[Back to the Beginning](#arcade-academy-overview)
+[Back to the Top](#arcade-academy-overview)
 
 
 ### Notable Difficulties
 Bridging the gap between frontend and backend was a challenging task. For each member of the team this endeavor manifested itself differently, but the radix was the same. Whether it was the dynamic element creation in the DOM which had to be coupled with a database entry. Or, the extensive routing that had to accurately render client-side. Or even the search form which is dynamically created along with all of its children and must accurately send a request to the backend for information relating to the user's query. The list continues. We all tasted the difficulties associated with this in one way or another. However, as a team, we were able to surmount every obstacle in our path and push forward to build an application of which we are all proud.
 
-[Back to the Beginning](#arcade-academy-overview)
+[Back to the Top](#arcade-academy-overview)
 
 ### Contributions
 We alternated between frontend and backend work periodically. Even within those scopes, there was a veritable amount of mixing and matching. Our coding was done in pairs most of the time and we would frequently switch partners and tasks around to ensure each of us was having a well-rounded programming experience. We also did this to bolster efficiency as narrow task assignment easily begets stagnancy.
@@ -110,4 +111,4 @@ Notwithstanding, there were specializations that organically developed, alongsid
     + Built search bar from the ground up for site querying
     + Made this markdown :D
 
-[Back to the Beginning](#arcade-academy-overview)
+[Back to the Top](#arcade-academy-overview)
