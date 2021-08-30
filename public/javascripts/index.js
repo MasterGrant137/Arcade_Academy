@@ -66,7 +66,7 @@ const dbRequester = () => {
               searchButton.innerText = `${genres[i][0].toUpperCase()}${genres[i].slice(1)}`;
 
               searchButton.addEventListener('click', function() {
-                window.location = `https://arcade-academy-1.herokuapp.com/games/${genres[i]}`;
+                window.location = `https://the-arcade-academy.herokuapp.com/games/${genres[i]}`;
               });
 
               searchUL.appendChild(searchButton);
