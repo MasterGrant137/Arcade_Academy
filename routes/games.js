@@ -292,7 +292,7 @@ router.get('/rpg', asyncHandler(async(req,res) => {
 }));
 
 // ==== FPS ====
-router.get('/fps', asyncHandler(async(req,res) => {
+router.get('/shooter', asyncHandler(async(req,res) => {
   let userId;
   if (req.session.auth) {
     userId = req.session.auth.userId;
@@ -308,7 +308,7 @@ router.get('/fps', asyncHandler(async(req,res) => {
 }));
 
 // ==== SPORTS ====
-router.get('/sports', asyncHandler(async(req,res) => {
+router.get('/sport', asyncHandler(async(req,res) => {
   let userId;
 
   if (req.session.auth) {

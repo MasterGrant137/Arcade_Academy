@@ -80,7 +80,7 @@ block content
                 a(href=`/games/${gameList.Game.id}`).game-name.no-padding= gameList.Game.name
               .sub-info
                 p.genre-title.no-padding Genres 
-                a(href=`/games/${gameList.Game.genre}`).no-padding.genre= gameList.Game.genre 
+                a(href=`/games/${gameList.Game.genre === "Role-playing (RPG)" ? "rpg" : gameList.Game.genre}`).no-padding.genre= gameList.Game.genre 
               .sub-info.rmv
                 form(action=`/users/${userId}/userProfile/delete` method= "post")
                   input(type="hidden" value=userId name="user_id")
