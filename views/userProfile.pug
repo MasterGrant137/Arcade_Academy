@@ -25,7 +25,7 @@ block content
             else 
               p.no-padding.genre-title Favorite Genres:
               a(href=`/games/adventure`).no-padding.genre Adventure
-              a(href=`/games/action`).no-padding.genre Action
+              a(href=`/games/shooter`).no-padding.genre Shooters
               
     .divider 
       p.no-padding Want to Play
@@ -80,7 +80,7 @@ block content
                 a(href=`/games/${gameList.Game.id}`).game-name.no-padding= gameList.Game.name
               .sub-info
                 p.genre-title.no-padding Genres 
-                a(href=`/games/${gameList.Game.genre}`).no-padding.genre= gameList.Game.genre 
+                a(href=`/games/${gameList.Game.genre === "Role-playing (RPG)" ? "rpg" : gameList.Game.genre}`).no-padding.genre= gameList.Game.genre 
               .sub-info.rmv
                 form(action=`/users/${userId}/userProfile/delete` method= "post")
                   input(type="hidden" value=userId name="user_id")
