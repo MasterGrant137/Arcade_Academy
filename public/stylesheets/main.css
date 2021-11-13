@@ -28,9 +28,27 @@
   
   /* Individual Game Page */
   --noRevsYet: rgb(167, 168, 164);
+  
+  
+  /* SearchBar Colors */
+  --search-input-bg: var(--headerColor);
+  --search-btn-bc-all: var(--headerColor);
+  --search-btn-box-shadow: 0 0 10px 2px var(--neonColor);
+  --search-btn-bc: var(--floatColor);
+  /* SearchBar Font Colors */
+  --search-font-color: var(--profPageRevContent);
+  --search-font-color-hover: var(--neonColor);
+  --search-input-font: var(--search-font-color);
+    
+
+
+
+
+
+
 }
 
- * {
+* {
    box-sizing: border-box;
  }
 
@@ -343,14 +361,17 @@ nav>ul{
 #searchTextbox {
   font-family: 'Varela Round', sans-serif;
   width: 100%;
-  background-color: khaki;
+  /* background-color: khaki; */
+  color: var(--search-input-font);
+  background-color: var(--search-input-bg);
   outline: none;
   border-radius: 0.75rem;
   padding-left: 3.12%;
 }
 
 #searchTextbox:hover {
-  box-shadow: 0px 0px 1rem rgb(204, 41, 226);
+  /* box-shadow: 0px 0px 1rem rgb(204, 41, 226); */
+  box-shadow: var(--search-btn-box-shadow);
 }
 
 #searchUL {
@@ -362,7 +383,7 @@ nav>ul{
   padding: 0;
   border-radius: 0.7rem;
   cursor: pointer;
-  background-color: black;
+  /* background-color: black; */
 }
 
 #searchUL li:first-child button {
@@ -370,20 +391,25 @@ nav>ul{
 }
 
 .allSearchButtons {
-  cursor: pointer;
-  border: none;
-  background-color: khaki;
-  border-radius: 0.2rem;
-  width: 100%;
-  height: 2.1rem;
-  border-bottom: 0.15rem darkmagenta solid;
-  border-radius: 0.75rem;
+    color: var(--search-font-color);
+    cursor: pointer;
+    border: none;
+    background-color: var(--search-btn-bc-all);
+    border-radius: 0.2rem;
+    width: 100%;
+    height: 2.1rem;
+    /* border-bottom: 0.15rem darkmagenta solid; */
+    border-bottom: 0.15rem var(--neonColor) solid;
+    border-radius: 0.75rem;
 }
 
 
 .allSearchButtons:hover {
-  box-shadow: 0 0 10px 2px rgb(223, 17, 17);
-  background-color: rgb(216, 134, 248);
+    color: var(--search-font-color-hover);
+    box-shadow: var(--search-btn-box-shadow);
+    background-color: var(--search-btn-bc);
+    /* box-shadow: 0 0 10px 2px rgb(223, 17, 17);
+    background-color: rgb(216, 134, 248); */
 }
 
 
