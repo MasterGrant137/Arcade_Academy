@@ -11,10 +11,11 @@ block content
              p= game.name
              p= game.genre
               if locals.authenticated
-        form(action=`/users/${userId}/userProfile` method= "POST")
-          button(type="submit" value=game.id name="played" class="game-stat-btn-played") Played
-        form(action=`/users/${userId}/userProfile` method="POST") 
-          button(type="submit" value=game.id name="wantToPlay" class="game-stat-btn-wtp") Want To Play
+        .game-tile-btns
+            form(action=`/users/${userId}/userProfile` method= "POST")
+            button(type="submit" value=game.id name="played" class="game-stat-btn-played") Played
+            form(action=`/users/${userId}/userProfile` method="POST") 
+            button(type="submit" value=game.id name="wantToPlay" class="game-stat-btn-wtp") Want To Play
 block side-content
   .game-sidebar
     h4 Game News

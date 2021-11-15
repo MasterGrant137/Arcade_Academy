@@ -1,4 +1,8 @@
 :root{
+
+    /* main colors + header and nav  */
+  --defaultAndchorColor: rgb(187, 199, 77);
+
   --headerColor: rgb(39, 42, 40);
   --backgroundColor: rgb(53, 56, 53);
   --floatColor: rgb(56, 65, 58);
@@ -15,10 +19,15 @@
   --footerFontColor1:rgb(221, 223, 130);
   --footerFontColor2:rgb(187, 199, 77);
 
-  /* Gradients for logged-in user card */
-  --userCardBack:#537895;
-  --gradColor1: #537895;
-  --gradColor2: #09203f;
+  /* Profile Card ===============================*/
+   --player-name-glow: #4a81f8;
+   --logout-btn: #4a81f862;
+   --logout-btn-border:2px solid #4a81f863;
+
+  /*====== Gradients for logged-in user card */
+        --userCardBack:#537895;
+        --gradColor1: #537895;
+        --gradColor2: #09203f;
 
   /* User Profile Page */
   --userProfileSN:rgb(187, 199, 77);
@@ -60,7 +69,7 @@ body {
 }
 
 a{
-  color:rgb(187, 199, 77);
+  color: var(--defaultAndchorColor);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 10pt;
 }
@@ -151,13 +160,13 @@ header {
   word-wrap: break-word;
   text-shadow:
     0 0 2px #fff,
-    0 0 4px #4a81f8,
-    0 0 6px #4a81f8,
-    0 0 8px #4a81f8,
-    0 0 10px #4a81f8,
-    0 0 12px #4a81f8,
-    0 0 14px #4a81f8,
-    0 0 15px #4a81f8;
+    0 0 4px var(--player-name-glow),
+    0 0 6px var(--player-name-glow),
+    0 0 8px var(--player-name-glow),
+    0 0 10px var(--player-name-glow),
+    0 0 12px var(--player-name-glow),
+    0 0 14px var(--player-name-glow),
+    0 0 15px var(--player-name-glow);
 
 }
 
@@ -196,11 +205,11 @@ header {
   border-radius: 20px;
   padding: 3px 6px;
   margin-bottom: 1rem;
-  color: #000;
+  color: black;
   font-weight: bold;
   background: #66ff66;
-  border: 2px solid #4a81f863;
-  background-color: #4a81f862;
+  border: var(--logout-btn-border);
+  background-color: var(--logout-btn);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#66ff66', endColorstr='#66ff66', GradientType=0);
 }
 .profile-logout-btn button:after{
@@ -557,3 +566,11 @@ aside {
   text-decoration: none;
 }
 .copywrite{ color: black }
+
+.game-tile-btns{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    border: 1px solid red;
+}
