@@ -566,11 +566,3 @@ aside {
   text-decoration: none;
 }
 .copywrite{ color: black }
-
-.game-tile-btns{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    border: 1px solid red;
-}

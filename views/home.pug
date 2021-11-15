@@ -5,17 +5,17 @@ block content
     each game in games
       .game-preview-containers
         a(href=`/games/${game.id}` class="game-preview-anchor") 
-           .game-preview-img
-             img(src= game.gameImage, alt="Game Image" class="game-images")
-           .game-preview-info
-             p= game.name
-             p= game.genre
-              if locals.authenticated
-        .game-tile-btns
-            form(action=`/users/${userId}/userProfile` method= "POST")
-            button(type="submit" value=game.id name="played" class="game-stat-btn-played") Played
-            form(action=`/users/${userId}/userProfile` method="POST") 
-            button(type="submit" value=game.id name="wantToPlay" class="game-stat-btn-wtp") Want To Play
+            .game-preview-img
+                img(src= game.gameImage, alt="Game Image" class="game-images")
+            .game-preview-info
+                p= game.name
+                p= game.genre
+        if locals.authenticated
+            .game-tile-btns
+                form(action=`/users/${userId}/userProfile` method= "POST")
+                button(type="submit" value=game.id name="played" class="game-stat-btn-played") Played
+                form(action=`/users/${userId}/userProfile` method="POST") 
+                button(type="submit" value=game.id name="wantToPlay" class="game-stat-btn-wtp") Want To Play
 block side-content
   .game-sidebar
     h4 Game News
