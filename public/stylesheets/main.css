@@ -13,6 +13,14 @@
     --mainBoxShadow: rgba(2, 2, 2, 0.7);
     --mBSSpread: 6px;
     
+    /* NAVIGATION */
+    --nav-text-shadow: 0 0 2px #fff,
+    0 0 4px var(--neonColor),
+    0 0 6px var(--neonColor),
+    0 0 8px var(--neonColor),
+    0 0 10px var(--neonColor),
+    0 0 12px var(--neonColor),
+    0 0 14px var(--neonColor);
 
     /* Main Font Colors ===============================*/
     --main-font-yellow1:rgb(221, 223, 130);
@@ -340,14 +348,7 @@ nav>ul{
   padding: 3px;
   color: #fff2f4;
   text-decoration: none;
-  text-shadow:
-    0 0 2px #fff,
-    0 0 4px var(--neonColor),
-    0 0 6px var(--neonColor),
-    0 0 8px var(--neonColor),
-    0 0 10px var(--neonColor),
-    0 0 12px var(--neonColor),
-    0 0 14px var(--neonColor);
+  text-shadow: var(--nav-text-shadow);
 }
 .nav-bar-button:hover{
   list-style:none;

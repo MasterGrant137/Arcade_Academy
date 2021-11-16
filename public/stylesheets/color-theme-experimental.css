@@ -22,6 +22,8 @@ p, li, h1, h2, h3, h4, h5, a, span, div, body, html {color: silver}
     --mainBoxShadow: rgba(2, 2, 2, 0.7);
     --mBSSpread: 6px;
     
+    /* NAVIGATION */
+    --nav-text-shadow: none;
 
     /* Main Font Colors ===============================*/
     --main-font-yellow1:#FFD369;
