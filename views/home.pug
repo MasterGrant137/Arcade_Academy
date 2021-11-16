@@ -13,9 +13,9 @@ block content
         if locals.authenticated
             .game-tile-btns
                 form(action=`/users/${userId}/userProfile` method= "POST")
-                button(type="submit" value=game.id name="played" class="game-stat-btn-played") Played
+                    button(type="submit" value=game.id name="played" class="game-stat-btn-played") Played
                 form(action=`/users/${userId}/userProfile` method="POST") 
-                button(type="submit" value=game.id name="wantToPlay" class="game-stat-btn-wtp") Want To Play
+                    button(type="submit" value=game.id name="wantToPlay" class="game-stat-btn-wtp") Want To Play
 block side-content
   .game-sidebar
     h4 Game News
