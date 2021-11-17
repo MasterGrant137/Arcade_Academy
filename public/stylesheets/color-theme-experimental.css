@@ -72,15 +72,15 @@ p, li, h1, h2, h3, h4, h5, a, span, div, body, html {color: silver}
    
     /*=================================================*/
     /* =========== User Profile Page Colors ============*/
-    --dividerGreen: rgb(76, 161, 42);
+    --dividerGreen: rgb(37, 51, 77);
     --userProfileSN: var(--main-font-yellow2);
     --profPageRevContentTitle: var(--main-font-yellow2);
     --profPageRevContent: var(--main-font-grey1);
 
-    --genreTagFont: rgb(76, 161, 42);
+    --genreTagFont: var(--neonColor);
     --genreTagBackground:rgb(36, 36, 36);
     
-    --sectionDivBackground: rgb(73, 143, 85);
+    --sectionDivBackground: var(--dividerGreen);
     --sectionDivFont: black;
 
     /*=================================================*/
@@ -104,7 +104,11 @@ p, li, h1, h2, h3, h4, h5, a, span, div, body, html {color: silver}
     
     /*===================================================================*/
     /* =========== Game Preview Containers ================================*/
-
+    /* --play-wtp-btn-hover: #2b384d; */
+    --play-wtp-btn-hover: var(--neonColor);
+    --play-wtp-btn-hover-col: var(--backgroundColor);
+    --play-btn-clicked: var(--neonColor);
+    --play-btn-unclicked: white;
     /* =========== Game Preview Containers - on hover ===================*/
     --game-prev-cont-bs:0 0 8px rgba(0, 0, 0, 0.75);
 

@@ -49,15 +49,27 @@ html
     nav
       ul
         a(href="/games/topGames" class="nav-bar-button")
-          li.x <span class="dot">•</span> Top 10 <span class="dot">•</span>
+          li.x Top 10
         a(href="/games/categories" class="nav-bar-button")
-          li.x <span class="dot">•</span> Categories <span class="dot">•</span>
+          li.x Categories
         a(href="/games" class="nav-bar-button")
-          li.x <span class="dot">•</span> All Games <span class="dot">•</span>
+          li.x All Games
         if locals.authenticated
           a(href=`/users/${user.id}/userProfile` class="nav-bar-button nav-user-profile-button")
-            li.x <span class="dot">•</span> My Profile <span class="dot">•</span>
+            li.x My Profile
           li.x <span class="nav-bar-button" id="search-icon">🧐</span>
+    //- nav
+    //-   ul
+    //-     a(href="/games/topGames" class="nav-bar-button")
+    //-       li.x <span class="dot">•</span> Top 10 <span class="dot">•</span>
+    //-     a(href="/games/categories" class="nav-bar-button")
+    //-       li.x <span class="dot">•</span> Categories <span class="dot">•</span>
+    //-     a(href="/games" class="nav-bar-button")
+    //-       li.x <span class="dot">•</span> All Games <span class="dot">•</span>
+    //-     if locals.authenticated
+    //-       a(href=`/users/${user.id}/userProfile` class="nav-bar-button nav-user-profile-button")
+    //-         li.x <span class="dot">•</span> My Profile <span class="dot">•</span>
+    //-       li.x <span class="nav-bar-button" id="search-icon">🧐</span>
 
     main
       section

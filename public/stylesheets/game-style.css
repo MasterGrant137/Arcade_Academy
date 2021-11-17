@@ -384,7 +384,8 @@ section{
 
 .game-stat-btn-played:hover,
 .game-stat-btn-wtp:hover {
-background-color:#4095c6;
+background-color:var(--play-wtp-btn-hover);
+color:var(--play-wtp-btn-hover-col);
 }
 /* ===========================================*/
 /*=========== Sidebar Content ================*/

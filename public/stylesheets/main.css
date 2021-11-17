@@ -107,7 +107,8 @@
     
     /*===================================================================*/
     /* =========== Game Preview Containers ================================*/
-    
+    --play-wtp-btn-hover: #4095c6;
+    --play-wtp-btn-hover-col: white;
     /* =========== Game Preview Containers - on hover ===================*/
     --game-prev-cont-bs: 0 0 2px #fff,
     0 0 4px rgba(0, 0, 0, 0.637),
@@ -118,7 +119,8 @@
     0 0 14px rgba(0, 0, 0, 0.637),
     0 0 15px rgba(0, 0, 0, 0.637);
     
-    
+    --play-btn-clicked: red;
+    --play-btn-unclicked: white;
     /*===================================================================*/
     /* =========== Game Genre Containers ================================*/
     /* =========== Game Genre Containers - on hover ===================*/
