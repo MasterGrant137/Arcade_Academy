@@ -119,6 +119,7 @@ p, li, h1, h2, h3, h4, h5, a, span, div, body, html {color: silver}
 
     /*===================================================================*/
     /* =========== REVIEWS ==========================================*/
+    --rev-form-top-border: 2px solid var(--main-font-grey2);
     /*new review*/
     --newrev-title-color: var(--neonColor);
     --newrev-textarea-bg: var(--main-font-grey1);
@@ -126,5 +127,6 @@ p, li, h1, h2, h3, h4, h5, a, span, div, body, html {color: silver}
     --newrev-submit-bg: var(--backgroundColor);
     --newrev-submit-color: var(--main-font-grey1);
     /*actual review*/
+    --rev-border: 1px solid var(--backgroundColor);
 
 }
