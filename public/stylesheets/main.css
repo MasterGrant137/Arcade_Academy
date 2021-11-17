@@ -103,6 +103,26 @@
     --search-font-color: var(--profPageRevContent);
     --search-font-color-hover: var(--neonColor);
     --search-input-font: var(--search-font-color);
+
+    
+    /*===================================================================*/
+    /* =========== Game Preview Containers ================================*/
+    
+    /* =========== Game Preview Containers - on hover ===================*/
+    --game-prev-cont-bs: 0 0 2px #fff,
+    0 0 4px rgba(0, 0, 0, 0.637),
+    0 0 6px rgba(0, 0, 0, 0.637),
+    0 0 8px rgba(0, 0, 0, 0.637),
+    0 0 10px rgba(0, 0, 0, 0.637),
+    0 0 12px rgba(0, 0, 0, 0.637),
+    0 0 14px rgba(0, 0, 0, 0.637),
+    0 0 15px rgba(0, 0, 0, 0.637);
+    
+    
+    /*===================================================================*/
+    /* =========== Game Genre Containers ================================*/
+    /* =========== Game Genre Containers - on hover ===================*/
+    --game-genre-cont-bs: none;
     
 }
 

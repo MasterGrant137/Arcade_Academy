@@ -99,4 +99,18 @@ p, li, h1, h2, h3, h4, h5, a, span, div, body, html {color: silver}
     --search-font-color-hover: var(--neonColor);
     --search-input-font: var(--search-font-color);
     
+
+    
+    
+    /*===================================================================*/
+    /* =========== Game Preview Containers ================================*/
+
+    /* =========== Game Preview Containers - on hover ===================*/
+    --game-prev-cont-bs:0 0 8px rgba(0, 0, 0, 0.75);
+
+    /*===================================================================*/
+    /* =========== Game Genre Containers ================================*/
+    /* =========== Game Genre Containers - on hover ===================*/
+    --game-genre-cont-bs: var(--game-prev-cont-bs);
+
 }
