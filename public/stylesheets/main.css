@@ -50,6 +50,29 @@
     --gradColor1: #537895;
     --gradColor2: #09203f;
 
+    --demo-btn-welcome-hover-color: #404040;
+    --demo-btn-welcome-hover-bg:white;
+
+    /* =========== Profile Card - non authenticated ===================*/
+    --profCard-noAuth-bc: #2f4353;
+    --profCard-noAuth-bgrad: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
+    --profCard-noAuth-color: black;
+    --profCard-noAuth-text-shadow: 0 0 2px #fff,
+    0 0 4px black,
+    0 0 6px black,
+    0 0 8px black,
+    0 0 10px black,
+    0 0 12px black,
+    0 0 14px black,
+    0 0 15px black;
+    --profCard-noAuth-box-shadow: 0 0 2px #fff,
+    0 0 4px var(--neonColor),
+    0 0 6px var(--neonColor),
+    0 0 8px var(--neonColor),
+    0 0 10px var(--neonColor),
+    0 0 12px var(--neonColor),
+    0 0 14px var(--neonColor),
+    0 0 15px var(--neonColor);
 
    
     /*=================================================*/
@@ -118,6 +141,7 @@ header {
   padding: 0 12%;
   box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
 }
+
 
 #page-header {
   display: flex;
@@ -254,28 +278,14 @@ header {
   padding-bottom: 5px;
   gap: 1rem;
   border-radius: 5px;
-  background-color: #2f4353;
-  background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
+  background-color: var(--profCard-noAuth-bc);
+  background-image: var(--profCard-noAuth-bgrad);
   padding: 1rem 1rem;
   margin-right: -3rem;
 
-  color: black;
-  text-shadow: 0 0 2px #fff,
-  0 0 4px black,
-  0 0 6px black,
-  0 0 8px black,
-  0 0 10px black,
-  0 0 12px black,
-  0 0 14px black,
-  0 0 15px black;
-  box-shadow: 0 0 2px #fff,
-  0 0 4px var(--neonColor),
-  0 0 6px var(--neonColor),
-  0 0 8px var(--neonColor),
-  0 0 10px var(--neonColor),
-  0 0 12px var(--neonColor),
-  0 0 14px var(--neonColor),
-  0 0 15px var(--neonColor);
+  color: var(--profCard-noAuth-color);
+  text-shadow: var(--profCard-noAuth-text-shadow);
+  box-shadow: var(--profCard-noAuth-box-shadow);
 }
 .demo-user-btn button{
   border: none;
@@ -293,11 +303,11 @@ header {
 }
 .demo-user-btn button:hover:after{
   content: "Welcome Demo";
-  color: #404040 ;
+  color: var(--demo-btn-welcome-hover-color);
   font-weight: 700;
   letter-spacing: 3px;
   background: none;
-  background-color: white;
+  background-color: var(--demo-btn-welcome-hover-bg);
   transition: all 0.3s ease 0s;
 }
 .login-anchors{
@@ -585,3 +595,10 @@ aside {
   text-decoration: none;
 }
 .copywrite{ color: black }
+
+
+.strike {  
+    text-decoration: line-through;
+    text-decoration-line: line-through;
+    font-family: Arial, Helvetica, sans-serif;
+}

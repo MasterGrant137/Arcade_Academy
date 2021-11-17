@@ -50,10 +50,25 @@ p, li, h1, h2, h3, h4, h5, a, span, div, body, html {color: silver}
     --logout-btn-border:2px solid #4a81f863;
     /*Gradients for logged-in user card ==============*/
     --userCardBack:#537895;
-    --gradColor1: #537895;
-    --gradColor2: #09203f;
+    --gradColor1: #c7c0b7; /*lower right*/
+    --gradColor2: #2f4353; /*upper left*/
 
+    /* --demo-btn-welcome-hover-color: #404040;
+    --demo-btn-welcome-hover-bg:white; */
+    --demo-btn-welcome-hover-color: white;
+    --demo-btn-welcome-hover-bg:none;
 
+    /* =========== Profile Card - non authenticated ===================*/
+    --profCard-noAuth-bc: #2f4353;
+    --profCard-noAuth-bgrad: linear-gradient(315deg, var(--gradColor2) 0%, var(--gradColor1) 74%);
+    --profCard-noAuth-color: black;
+    --profCard-noAuth-text-shadow: none;
+    --profCard-noAuth-box-shadow: 0 0 2px #fff,
+    0 0 4px var(--neonColor),
+    0 0 6px var(--neonColor),
+    0 0 8px var(--neonColor),
+    0 0 10px var(--neonColor),
+    0 0 12px var(--neonColor);
    
     /*=================================================*/
     /* =========== User Profile Page Colors ============*/
