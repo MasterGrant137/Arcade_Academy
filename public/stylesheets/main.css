@@ -126,7 +126,22 @@
     /* =========== Game Genre Containers - on hover ===================*/
     --game-genre-cont-bs: none;
     
+    /*===================================================================*/
+    /* =========== REVIEWS ==========================================*/
+    --rev-form-top-border: 2px solid var(--main-font-grey2);
+    /*new review*/
+    --newrev-title-color: var(--neonColor);
+    --newrev-textarea-bg: var(--main-font-grey1);
+    --newrev-textarea-color: black;
+    --newrev-submit-bg: var(--backgroundColor);
+    --newrev-submit-color: var(--main-font-grey1);
+    /*actual review*/
+    --rev-border: 1px solid var(--backgroundColor);
+    
+
 }
+
+/* div{ border: 1px solid red } */
 
 * {
    box-sizing: border-box;

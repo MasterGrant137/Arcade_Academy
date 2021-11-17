@@ -117,4 +117,14 @@ p, li, h1, h2, h3, h4, h5, a, span, div, body, html {color: silver}
     /* =========== Game Genre Containers - on hover ===================*/
     --game-genre-cont-bs: var(--game-prev-cont-bs);
 
+    /*===================================================================*/
+    /* =========== REVIEWS ==========================================*/
+    /*new review*/
+    --newrev-title-color: var(--neonColor);
+    --newrev-textarea-bg: var(--main-font-grey1);
+    --newrev-textarea-color: black;
+    --newrev-submit-bg: var(--backgroundColor);
+    --newrev-submit-color: var(--main-font-grey1);
+    /*actual review*/
+
 }
