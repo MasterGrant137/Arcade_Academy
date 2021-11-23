@@ -29,5 +29,9 @@ Before pushing to Heroku again in the future, you must add and commit your chang
 1. Team member commits and pushes an update
 2. Somebody reviews and merges the Pull Request to the repository's base branch.
 3. The "Team Lead" pulls the latest code
+    git pull
 4. The "Team Lead" pushes the code to Heroku using the command git push heroku
+    heroku login
+    heroku git:remote -a «your-app-name»
+    git push heroku
 5. The person that deploys the app should run any new database migrations. See the next section for that.
