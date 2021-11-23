@@ -1,0 +1,132 @@
+/*================ VARIABLE DECLARATIONS ============== */
+p, li, h1, h2, h3, h4, h5, a, span, div, body, html {color: silver}
+
+:root{
+
+    /* main 4 Colors ===============================*/
+/*
+#222831
+#393E46
+#FFD369
+#EEEEEE
+
+*/
+
+    --backgroundColor: #222831;
+
+    --headerColor: #393E46;
+    --floatColor: #393E46;
+    --mainColor: #393E46;
+    --defaultAndchorColor: #EEEEEE;
+    /* light box shadow that surrounds main sections*/
+    --mainBoxShadow: rgba(2, 2, 2, 0.7);
+    --mBSSpread: 6px;
+    
+    /* NAVIGATION */
+    --nav-text-shadow: none;
+
+    /* Main Font Colors ===============================*/
+    --main-font-yellow1:#FFD369;
+    --main-font-yellow2:#FFD369;
+    --main-font-grey1:silver;
+    --main-font-grey2:rgb(167, 168, 164);
+    /* Neon Lighting (glowing) ===============================*/
+    --neonColor: #FFD369;
+    --neonColor2:#FFD369;
+    /* Username Neon */
+    --userNeonColor: #4a81f8;
+
+
+    /* Footer ===============================*/
+    /* footer background color: see "--floatColor" */
+    --footerFontColor1: var(--main-font-yellow1);
+    --footerFontColor2: var(--main-font-yellow2);
+
+
+    /*============================================*/
+    /* =========== Profile Card ===================*/
+    --player-name-glow: #4a81f8;
+    --logout-btn: #4a81f862;
+    --logout-btn-border:2px solid #4a81f863;
+    /*Gradients for logged-in user card ==============*/
+    --userCardBack:#537895;
+    --gradColor1: #c7c0b7; /*lower right*/
+    --gradColor2: #2f4353; /*upper left*/
+
+    /* --demo-btn-welcome-hover-color: #404040;
+    --demo-btn-welcome-hover-bg:white; */
+    --demo-btn-welcome-hover-color: white;
+    --demo-btn-welcome-hover-bg:none;
+
+    /* =========== Profile Card - non authenticated ===================*/
+    --profCard-noAuth-bc: #2f4353;
+    --profCard-noAuth-bgrad: linear-gradient(315deg, var(--gradColor2) 0%, var(--gradColor1) 74%);
+    --profCard-noAuth-color: black;
+    --profCard-noAuth-text-shadow: none;
+    --profCard-noAuth-box-shadow: 0 0 2px #fff,
+    0 0 4px var(--neonColor),
+    0 0 6px var(--neonColor),
+    0 0 8px var(--neonColor),
+    0 0 10px var(--neonColor),
+    0 0 12px var(--neonColor);
+   
+    /*=================================================*/
+    /* =========== User Profile Page Colors ============*/
+    --dividerGreen: rgb(37, 51, 77);
+    --userProfileSN: var(--main-font-yellow2);
+    --profPageRevContentTitle: var(--main-font-yellow2);
+    --profPageRevContent: var(--main-font-grey1);
+
+    --genreTagFont: var(--neonColor);
+    --genreTagBackground:rgb(36, 36, 36);
+    
+    --sectionDivBackground: var(--dividerGreen);
+    --sectionDivFont: black;
+
+    /*=================================================*/
+    /* =========== User Profile Page Colors ============*/
+    --noRevsYet: var(--main-font-grey2);
+  
+  
+    /*=================================================*/
+    /* =========== SearchBar Colors ===================*/
+    --search-input-bg: var(--headerColor);
+    --search-btn-bc-all: var(--headerColor);
+    --search-btn-box-shadow: 0 0 10px 2px var(--neonColor);
+    --search-btn-bc: var(--floatColor);
+    /* SearchBar Font Colors */
+    --search-font-color: var(--profPageRevContent);
+    --search-font-color-hover: var(--neonColor);
+    --search-input-font: var(--search-font-color);
+    
+
+    
+    
+    /*===================================================================*/
+    /* =========== Game Preview Containers ================================*/
+    /* --play-wtp-btn-hover: #2b384d; */
+    --play-wtp-btn-hover: var(--neonColor);
+    --play-wtp-btn-hover-col: var(--backgroundColor);
+    --play-btn-clicked: var(--neonColor);
+    --play-btn-unclicked: white;
+    /* =========== Game Preview Containers - on hover ===================*/
+    --game-prev-cont-bs:0 0 8px rgba(0, 0, 0, 0.75);
+
+    /*===================================================================*/
+    /* =========== Game Genre Containers ================================*/
+    /* =========== Game Genre Containers - on hover ===================*/
+    --game-genre-cont-bs: var(--game-prev-cont-bs);
+
+    /*===================================================================*/
+    /* =========== REVIEWS ==========================================*/
+    --rev-form-top-border: 2px solid var(--main-font-grey2);
+    /*new review*/
+    --newrev-title-color: var(--neonColor);
+    --newrev-textarea-bg: var(--main-font-grey1);
+    --newrev-textarea-color: black;
+    --newrev-submit-bg: var(--backgroundColor);
+    --newrev-submit-color: var(--main-font-grey1);
+    /*actual review*/
+    --rev-border: 1px solid var(--backgroundColor);
+
+}

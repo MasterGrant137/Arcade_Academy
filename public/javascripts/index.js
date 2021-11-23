@@ -150,11 +150,11 @@ const wtpBtn = document.querySelectorAll(".game-stat-btn-wtp")
 for(let i = 0; i < playedBtn.length; i++){
   const btn = playedBtn[i]
   btn.addEventListener("click", (e) => {
-      if (wtpBtn[i].style.color === "red") {
-        wtpBtn[i].style.color = "white";
-        btn.style.color = "red";
+      if (wtpBtn[i].style.color === "var(--play-btn-clicked)") {
+        wtpBtn[i].style.color = "var(--play-btn-unclicked)";
+        btn.style.color = "var(--play-btn-clicked)";
       } else {
-        btn.style.color = "red";
+        btn.style.color = "var(--play-btn-clicked)";
       }
   })
 }
@@ -162,11 +162,11 @@ for(let i = 0; i < playedBtn.length; i++){
 for(let i = 0; i < wtpBtn.length; i++){
   const btn = wtpBtn[i]
   btn.addEventListener("click", (e)=>{
-      if(playedBtn[i].style.color === "red"){
-        playedBtn[i].style.color = "white"
-        btn.style.color = "red";
+      if(playedBtn[i].style.color === "var(--play-btn-clicked)"){
+        playedBtn[i].style.color = "var(--play-btn-unclicked)"
+        btn.style.color = "var(--play-btn-clicked)";
       }else{
-        btn.style.color = "red";
+        btn.style.color = "var(--play-btn-clicked)";
       }
 })
 }

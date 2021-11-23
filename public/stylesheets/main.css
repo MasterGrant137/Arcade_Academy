@@ -1,61 +1,147 @@
+
+
+/*================ VARIABLE DECLARATIONS ============== */
 :root{
 
-    /* main colors + header and nav  */
-  --defaultAndchorColor: rgb(187, 199, 77);
+    /* main 4 Colors ===============================*/
+    --headerColor: rgb(39, 42, 40);
+    --backgroundColor: rgb(53, 56, 53);
+    --floatColor: rgb(56, 65, 58);
+    --mainColor: rgb(82, 83, 82);
+    --defaultAndchorColor: rgb(187, 199, 77);
+    /* light box shadow that surrounds main sections*/
+    --mainBoxShadow: rgba(2, 2, 2, 0.7);
+    --mBSSpread: 6px;
+    
+    /* NAVIGATION */
+    --nav-text-shadow: 0 0 2px #fff,
+    0 0 4px var(--neonColor),
+    0 0 6px var(--neonColor),
+    0 0 8px var(--neonColor),
+    0 0 10px var(--neonColor),
+    0 0 12px var(--neonColor),
+    0 0 14px var(--neonColor);
 
-  --headerColor: rgb(39, 42, 40);
-  --backgroundColor: rgb(53, 56, 53);
-  --floatColor: rgb(56, 65, 58);
-  --mainColor: rgb(82, 83, 82);
+    /* Main Font Colors ===============================*/
+    --main-font-yellow1:rgb(221, 223, 130);
+    --main-font-yellow2:rgb(187, 199, 77);
+    --main-font-grey1:silver;
+    --main-font-grey2:rgb(167, 168, 164);
+    /* Neon Lighting (glowing) ===============================*/
+    --neonColor: #98f84a;
+    --neonColor2:#98f84a;
+    /* Username Neon */
+    --userNeonColor: #4a81f8;
 
-  --neonColor: #98f84a;
-  --neonColor2:#98f84a;
-  --userNeonColor: #4a81f8;
 
-  --mainBoxShadow: rgba(2, 2, 2, 0.7);
-  --mBSSpread: 6px;
+    /* Footer ===============================*/
+    /* footer background color: see "--floatColor" */
+    --footerFontColor1: var(--main-font-yellow1);
+    --footerFontColor2: var(--main-font-yellow2);
 
-  /* Footer */
-  --footerFontColor1:rgb(221, 223, 130);
-  --footerFontColor2:rgb(187, 199, 77);
 
-  /* Profile Card ===============================*/
-   --player-name-glow: #4a81f8;
-   --logout-btn: #4a81f862;
-   --logout-btn-border:2px solid #4a81f863;
+    /*============================================*/
+    /* =========== Profile Card ===================*/
+    --player-name-glow: #4a81f8;
+    --logout-btn: #4a81f862;
+    --logout-btn-border:2px solid #4a81f863;
+    /*Gradients for logged-in user card ==============*/
+    --userCardBack:#537895;
+    --gradColor1: #537895;
+    --gradColor2: #09203f;
 
-  /*====== Gradients for logged-in user card */
-        --userCardBack:#537895;
-        --gradColor1: #537895;
-        --gradColor2: #09203f;
+    --demo-btn-welcome-hover-color: #404040;
+    --demo-btn-welcome-hover-bg:white;
 
-  /* User Profile Page */
-  --userProfileSN:rgb(187, 199, 77);
-  --dividerGreen: rgb(76, 161, 42);
-  --profPageRevContentTitle: rgb(187, 199, 77);
-  --profPageRevContent: silver;
+    /* =========== Profile Card - non authenticated ===================*/
+    --profCard-noAuth-bc: #2f4353;
+    --profCard-noAuth-bgrad: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
+    --profCard-noAuth-color: black;
+    --profCard-noAuth-text-shadow: 0 0 2px #fff,
+    0 0 4px black,
+    0 0 6px black,
+    0 0 8px black,
+    0 0 10px black,
+    0 0 12px black,
+    0 0 14px black,
+    0 0 15px black;
+    --profCard-noAuth-box-shadow: 0 0 2px #fff,
+    0 0 4px var(--neonColor),
+    0 0 6px var(--neonColor),
+    0 0 8px var(--neonColor),
+    0 0 10px var(--neonColor),
+    0 0 12px var(--neonColor),
+    0 0 14px var(--neonColor),
+    0 0 15px var(--neonColor);
+
+   
+    /*=================================================*/
+    /* =========== User Profile Page Colors ============*/
+    --dividerGreen: rgb(76, 161, 42);
+    --userProfileSN: var(--main-font-yellow2);
+    --profPageRevContentTitle: var(--main-font-yellow2);
+    --profPageRevContent: var(--main-font-grey1);
+
+    --genreTagFont: rgb(76, 161, 42);
+    --genreTagBackground:rgb(36, 36, 36);
+    
+    --sectionDivBackground: rgb(73, 143, 85);
+    --sectionDivFont: black;
+
+    /*=================================================*/
+    /* =========== User Profile Page Colors ============*/
+    --noRevsYet: var(--main-font-grey2);
   
-  /* Individual Game Page */
-  --noRevsYet: rgb(167, 168, 164);
   
-  
-  /* SearchBar Colors */
-  --search-input-bg: var(--headerColor);
-  --search-btn-bc-all: var(--headerColor);
-  --search-btn-box-shadow: 0 0 10px 2px var(--neonColor);
-  --search-btn-bc: var(--floatColor);
-  /* SearchBar Font Colors */
-  --search-font-color: var(--profPageRevContent);
-  --search-font-color-hover: var(--neonColor);
-  --search-input-font: var(--search-font-color);
+    /*=================================================*/
+    /* =========== SearchBar Colors ===================*/
+    --search-input-bg: var(--headerColor);
+    --search-btn-bc-all: var(--headerColor);
+    --search-btn-box-shadow: 0 0 10px 2px var(--neonColor);
+    --search-btn-bc: var(--floatColor);
+    /* SearchBar Font Colors */
+    --search-font-color: var(--profPageRevContent);
+    --search-font-color-hover: var(--neonColor);
+    --search-input-font: var(--search-font-color);
+
+    
+    /*===================================================================*/
+    /* =========== Game Preview Containers ================================*/
+    --play-wtp-btn-hover: #4095c6;
+    --play-wtp-btn-hover-col: white;
+    /* =========== Game Preview Containers - on hover ===================*/
+    --game-prev-cont-bs: 0 0 2px #fff,
+    0 0 4px rgba(0, 0, 0, 0.637),
+    0 0 6px rgba(0, 0, 0, 0.637),
+    0 0 8px rgba(0, 0, 0, 0.637),
+    0 0 10px rgba(0, 0, 0, 0.637),
+    0 0 12px rgba(0, 0, 0, 0.637),
+    0 0 14px rgba(0, 0, 0, 0.637),
+    0 0 15px rgba(0, 0, 0, 0.637);
+    
+    --play-btn-clicked: red;
+    --play-btn-unclicked: white;
+    /*===================================================================*/
+    /* =========== Game Genre Containers ================================*/
+    /* =========== Game Genre Containers - on hover ===================*/
+    --game-genre-cont-bs: none;
+    
+    /*===================================================================*/
+    /* =========== REVIEWS ==========================================*/
+    --rev-form-top-border: 2px solid var(--main-font-grey2);
+    /*new review*/
+    --newrev-title-color: var(--neonColor);
+    --newrev-textarea-bg: var(--main-font-grey1);
+    --newrev-textarea-color: black;
+    --newrev-submit-bg: var(--backgroundColor);
+    --newrev-submit-color: var(--main-font-grey1);
+    /*actual review*/
+    --rev-border: 1px solid var(--backgroundColor);
     
 
-
-
-
-
-
 }
+
+/* div{ border: 1px solid red } */
 
 * {
    box-sizing: border-box;
@@ -92,6 +178,7 @@ header {
   padding: 0 12%;
   box-shadow: 0 0 var(--mBSSpread) var(--mainBoxShadow);
 }
+
 
 #page-header {
   display: flex;
@@ -228,28 +315,14 @@ header {
   padding-bottom: 5px;
   gap: 1rem;
   border-radius: 5px;
-  background-color: #2f4353;
-  background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
+  background-color: var(--profCard-noAuth-bc);
+  background-image: var(--profCard-noAuth-bgrad);
   padding: 1rem 1rem;
   margin-right: -3rem;
 
-  color: black;
-  text-shadow: 0 0 2px #fff,
-  0 0 4px black,
-  0 0 6px black,
-  0 0 8px black,
-  0 0 10px black,
-  0 0 12px black,
-  0 0 14px black,
-  0 0 15px black;
-  box-shadow: 0 0 2px #fff,
-  0 0 4px var(--neonColor),
-  0 0 6px var(--neonColor),
-  0 0 8px var(--neonColor),
-  0 0 10px var(--neonColor),
-  0 0 12px var(--neonColor),
-  0 0 14px var(--neonColor),
-  0 0 15px var(--neonColor);
+  color: var(--profCard-noAuth-color);
+  text-shadow: var(--profCard-noAuth-text-shadow);
+  box-shadow: var(--profCard-noAuth-box-shadow);
 }
 .demo-user-btn button{
   border: none;
@@ -267,11 +340,11 @@ header {
 }
 .demo-user-btn button:hover:after{
   content: "Welcome Demo";
-  color: #404040 ;
+  color: var(--demo-btn-welcome-hover-color);
   font-weight: 700;
   letter-spacing: 3px;
   background: none;
-  background-color: white;
+  background-color: var(--demo-btn-welcome-hover-bg);
   transition: all 0.3s ease 0s;
 }
 .login-anchors{
@@ -322,14 +395,7 @@ nav>ul{
   padding: 3px;
   color: #fff2f4;
   text-decoration: none;
-  text-shadow:
-    0 0 2px #fff,
-    0 0 4px var(--neonColor),
-    0 0 6px var(--neonColor),
-    0 0 8px var(--neonColor),
-    0 0 10px var(--neonColor),
-    0 0 12px var(--neonColor),
-    0 0 14px var(--neonColor);
+  text-shadow: var(--nav-text-shadow);
 }
 .nav-bar-button:hover{
   list-style:none;
@@ -566,3 +632,10 @@ aside {
   text-decoration: none;
 }
 .copywrite{ color: black }
+
+
+.strike {  
+    text-decoration: line-through;
+    text-decoration-line: line-through;
+    font-family: Arial, Helvetica, sans-serif;
+}

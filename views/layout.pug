@@ -8,15 +8,16 @@ html
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@100&display=swap" rel="stylesheet">
         link(rel='stylesheet' href='/stylesheets/main.css')
+        //-==========VVV original game-style still exists. envoking copy here VVV========
         link(rel="stylesheet", href="/stylesheets/form-style.css")
-        link(rel="stylesheet" href="/stylesheets/game-style.css")
+        //- link(rel="stylesheet" href="/stylesheets/game-style.css")
+        link(rel="stylesheet" href="/stylesheets/game-style-altered.css")
         link(rel="stylesheet" href="/stylesheets/user-profile.css")
         //..................................................................
         //-==========VVV color theme stylesheets should be below any other css files. VVV========
-        //- link(rel="stylesheet" href="/stylesheets/color-theme-1.css")
-        //- link(rel="stylesheet" href="/stylesheets/color-theme-2.css")
         //- link(rel="stylesheet" href="/stylesheets/color-theme-goodreads.css")
         //- link(rel="stylesheet" href="/stylesheets/color-theme-pinkArcade.css")
+        link(rel="stylesheet" href="/stylesheets/color-theme-experimental.css")
 
         script(src="/javascripts/index.js" type="module")
   body
@@ -50,11 +51,11 @@ html
     nav
       ul
         a(href="/games/topGames" class="nav-bar-button")
-          li.x <span class="dot">•</span> Top 10 <span class="dot">•</span>
+          li.x Top 10
         a(href="/games/categories" class="nav-bar-button")
-          li.x <span class="dot">•</span> Categories <span class="dot">•</span>
+          li.x Categories
         a(href="/games" class="nav-bar-button")
-          li.x <span class="dot">•</span> All Games <span class="dot">•</span>
+          li.x All Games
         if locals.authenticated
           a(href=`/users/${user.id}/userProfile` class="nav-bar-button nav-user-profile-button")
             li.x <span class="dot">•</span> My Profile <span class="dot">•</span>
@@ -71,25 +72,25 @@ html
         .contact
           ul <span>Contact</span>
             li 
-              a(href="#") Careers
+              .strike Careers
             li 
-              a(href="#") Support
+              .strike Support
             li 
-              a(href="#") Invest
+              .strike Invest
         .about
           ul <span>About</span>
             li 
-              a(href="#") Terms
+              .strike Terms
             li 
-              a(href="#") Privacy
+              .strike Privacy
         .social-media
           ul <span>Social Media</span>
             li 
-              a(href="#") ☒ Tweeter
+              .strike ☒ Tweeter
             li 
-              a(href="#") ☒ Instacam
+              .strike ☒ Instacam
             li 
-              a(href="#") ☒ Fanbook
+              .strike ☒ Fanbook
       .right
         .images
           img(src="/images/appleAppStoreLogo.PNG", alt="Apple AppStore")
