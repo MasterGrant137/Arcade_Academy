@@ -11,7 +11,7 @@ block content
                p= game.name
                p= game.genre
           if locals.authenticated
-            .game-tile-btns
+             .game-tile-btns
                 form(action=`/users/${userId}/userProfile` method= "POST")
                     button(type="submit" value=game.id name="played" class="game-stat-btn-played") Played
                 form(action=`/users/${userId}/userProfile` method="POST") 
