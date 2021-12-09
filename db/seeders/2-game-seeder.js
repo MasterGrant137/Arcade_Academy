@@ -42,7 +42,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: "Halo Infinte",
+          name: "Halo Infinite",
           gameImage:
             "https://upload.wikimedia.org/wikipedia/en/thumb/1/14/Halo_Infinite.png/220px-Halo_Infinite.png",
           genre: "Shooter",
