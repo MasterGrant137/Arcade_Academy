@@ -51,11 +51,12 @@ router.get(`/:id(\\d+)`, csrfProtection, asyncHandler( async (req, res, next) =>
         like:false
       }
     });
-    // console.log(allLikes,allDislikes);
+    console.log(allLikes.length,allDislikes.length);
     // console.log(allLikes.length, allDislikes.length)
     // subtract dislikes from likes to get score, return score
     const score = allLikes.length-allDislikes.length;
     review.score = score;
+    console.log(score)
   }
 
   res.render('game.pug', { game, gameId, reviews, csrfToken:req.csrfToken() });
