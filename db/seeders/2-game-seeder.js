@@ -89,7 +89,7 @@ module.exports = {
         {
           name: "Rust",
           gameImage:
-            "http://www.cpgaming.gg/w/wp-content/uploads/2018/01/0-915x514.jpg",
+            "https://i.pinimg.com/originals/cf/cc/7a/cfcc7a5bf00f792f8af37657f8fdabff.jpg",
           genre: "Role-playing (RPG)",
           bio: `The only aim in Rust is to survive. Everything wants you to die - the island’s wildlife and other inhabitants, the environment, other survivors. Do whatever it takes to last another night.`,
           createdAt: new Date(),
